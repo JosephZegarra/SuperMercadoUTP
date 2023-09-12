@@ -10,7 +10,12 @@ public class Personas
     protected String CarnetExtrajeria;
     protected String Dirreccion;
 
-    //CONSTRUCTORES
+    //CONSTRUTOR
+    public Personas() 
+    {
+       
+    }
+    //CONSTRUCTORES DE CLASE
     public Personas(String NombreClie, String ApellidoClie, String DNI, String CarnetExtrajeria, String Dirreccion) {
         this.NombreClie = NombreClie;
         this.ApellidoClie = ApellidoClie;
