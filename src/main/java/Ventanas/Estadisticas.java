@@ -15,6 +15,9 @@ public class Estadisticas extends javax.swing.JFrame {
      */
     public Estadisticas() {
         initComponents();
+        
+        this.setTitle(" Consulta de Pedidos");
+        this.setLocationRelativeTo(this);
     }
 
     /**
@@ -26,17 +29,85 @@ public class Estadisticas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jButtonExportar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuArchivo = new javax.swing.JMenu();
+        jMnuItemPrincipal = new javax.swing.JMenuItem();
+        jMenuMostrar = new javax.swing.JMenu();
+        jMnuItemA = new javax.swing.JMenuItem();
+        jMnuItemB = new javax.swing.JMenuItem();
+        jMnuItemC = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButtonExportar.setText("Exportar");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jMenuArchivo.setText("Archivo");
+
+        jMnuItemPrincipal.setText("Menu Principal");
+        jMenuArchivo.add(jMnuItemPrincipal);
+
+        jMenuBar1.add(jMenuArchivo);
+
+        jMenuMostrar.setText("Mostrar");
+
+        jMnuItemA.setText("Cantidad de pedidos agrupados por apis y por Proveedores");
+        jMenuMostrar.add(jMnuItemA);
+
+        jMnuItemB.setText("Cantidades y montos de Pedidos agrupados por proveedor, Año, Mes.");
+        jMenuMostrar.add(jMnuItemB);
+
+        jMnuItemC.setText("Montos totales de Productos por mes(Pedidos)");
+        jMenuMostrar.add(jMnuItemC);
+
+        jMenuBar1.add(jMenuMostrar);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(141, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(172, 172, 172))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonExportar)
+                        .addGap(437, 437, 437))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(132, 132, 132))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addComponent(jButtonExportar))
         );
 
         pack();
@@ -79,5 +150,16 @@ public class Estadisticas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonExportar;
+    private javax.swing.JMenu jMenuArchivo;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuMostrar;
+    private javax.swing.JMenuItem jMnuItemA;
+    private javax.swing.JMenuItem jMnuItemB;
+    private javax.swing.JMenuItem jMnuItemC;
+    private javax.swing.JMenuItem jMnuItemPrincipal;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

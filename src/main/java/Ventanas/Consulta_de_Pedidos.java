@@ -3,18 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Ventanas;
-
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author ROBSKY
  */
 public class Consulta_de_Pedidos extends javax.swing.JFrame {
-
+    
+    
+    DefaultTableModel tablaDetalles = new DefaultTableModel();
     /**
      * Creates new form Consulta_de_Pedidos
      */
     public Consulta_de_Pedidos() {
         initComponents();
+        
+         this.setTitle(" Consulta de Pedidos");
+         this.setLocationRelativeTo(this);
+         
+         String ids [] ={"Nombre del Proveedor","Fecha del Pedido","Pais/Ciudad","Fecha de envio","Compañia de envios","Id Pedido","Producto","Cantidad","Precio Unidad","Descuento"};
+         tablaDetalles.setColumnIdentifiers(ids);
+         jTable1.setModel(tablaDetalles);
     }
 
     /**
@@ -26,21 +35,248 @@ public class Consulta_de_Pedidos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextFechPedido = new javax.swing.JTextField();
+        jTextNomProveedor = new javax.swing.JTextField();
+        jTextPaisCiudad = new javax.swing.JTextField();
+        jTextCompaEnvios = new javax.swing.JTextField();
+        jTextFechInicio = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMnuItemPrincipal = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMnuItemPedido = new javax.swing.JMenuItem();
+        jMnuItemDetPedido = new javax.swing.JMenuItem();
+        jMnuItemProveedores = new javax.swing.JMenuItem();
+        jMnuItemCompEnvios = new javax.swing.JMenuItem();
+        jMnuItemArticulos = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setText("Fecha de envio:");
+
+        jTextFechPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFechPedidoActionPerformed(evt);
+            }
+        });
+
+        jTextNomProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextNomProveedorActionPerformed(evt);
+            }
+        });
+
+        jTextPaisCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextPaisCiudadActionPerformed(evt);
+            }
+        });
+
+        jTextCompaEnvios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextCompaEnviosActionPerformed(evt);
+            }
+        });
+
+        jTextFechInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFechInicioActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Fecha de Pedido:");
+
+        jLabel2.setText("Nombre del Proveedor:");
+
+        jLabel3.setText("Compañia de envios:");
+
+        jLabel4.setText("Pais / Ciudad:");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Nombre del Proveedor", "Fecha de Pedido", "Pais/Ciudad", "Fecha de envio", "Compañia de envios", "Id Pedido", "Producto", "Precio por unidad", "Cantidad", "Descuento"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setText("Multiconsulta de Pedidos");
+
+        jMenu1.setText("Archivo");
+
+        jMnuItemPrincipal.setText("Menu Principal");
+        jMnuItemPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnuItemPrincipalActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMnuItemPrincipal);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Importar");
+
+        jMnuItemPedido.setText("Pedido");
+        jMnuItemPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnuItemPedidoActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMnuItemPedido);
+
+        jMnuItemDetPedido.setText("Detalle de Pedidos");
+        jMenu2.add(jMnuItemDetPedido);
+
+        jMnuItemProveedores.setText("Proveedores");
+        jMenu2.add(jMnuItemProveedores);
+
+        jMnuItemCompEnvios.setText("Compañia de Envios");
+        jMenu2.add(jMnuItemCompEnvios);
+
+        jMnuItemArticulos.setText("Articulos");
+        jMenu2.add(jMnuItemArticulos);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(392, 392, 392))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(186, 186, 186)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(104, 104, 104)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextNomProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFechPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextPaisCiudad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFechInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextCompaEnvios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(183, 183, 183))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 917, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(224, 224, 224)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel7)
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jTextNomProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jTextFechPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jTextPaisCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFechInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jTextCompaEnvios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextFechPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFechPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFechPedidoActionPerformed
+
+    private void jTextNomProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNomProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextNomProveedorActionPerformed
+
+    private void jTextPaisCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextPaisCiudadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextPaisCiudadActionPerformed
+
+    private void jTextCompaEnviosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCompaEnviosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCompaEnviosActionPerformed
+
+    private void jTextFechInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFechInicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFechInicioActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMnuItemPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuItemPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMnuItemPedidoActionPerformed
+
+    private void jMnuItemPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuItemPrincipalActionPerformed
+        Ventana_Principal principal = new Ventana_Principal();
+        principal.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMnuItemPrincipalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +314,29 @@ public class Consulta_de_Pedidos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMnuItemArticulos;
+    private javax.swing.JMenuItem jMnuItemCompEnvios;
+    private javax.swing.JMenuItem jMnuItemDetPedido;
+    private javax.swing.JMenuItem jMnuItemPedido;
+    private javax.swing.JMenuItem jMnuItemPrincipal;
+    private javax.swing.JMenuItem jMnuItemProveedores;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextCompaEnvios;
+    private javax.swing.JTextField jTextFechInicio;
+    private javax.swing.JTextField jTextFechPedido;
+    private javax.swing.JTextField jTextNomProveedor;
+    private javax.swing.JTextField jTextPaisCiudad;
     // End of variables declaration//GEN-END:variables
 }
