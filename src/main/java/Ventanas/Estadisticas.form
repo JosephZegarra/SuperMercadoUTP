@@ -16,14 +16,14 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenuMostrar">
+        <Menu class="javax.swing.JMenu" name="jMenuTipoEstadistica">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Mostrar"/>
+            <Property name="text" type="java.lang.String" value="Tipo de Estadistica"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMnuItemA">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cantidad de pedidos agrupados por apis y por Proveedores"/>
+                <Property name="text" type="java.lang.String" value="Cantidad de pedidos agrupados por pais y por Proveedores"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMnuItemB">
@@ -72,14 +72,15 @@
                       <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jButtonExportar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="437" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
                       <Component id="jScrollPane1" min="-2" pref="669" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
                   </Group>
               </Group>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="434" max="-2" attributes="0"/>
+              <Component id="jBtnExportar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -90,8 +91,9 @@
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="331" max="-2" attributes="0"/>
-              <EmptySpace pref="71" max="32767" attributes="0"/>
-              <Component id="jButtonExportar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <Component id="jBtnExportar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -103,7 +105,7 @@
         <Property name="useNullLayout" type="boolean" value="false"/>
       </Layout>
     </Container>
-    <Component class="javax.swing.JButton" name="jButtonExportar">
+    <Component class="javax.swing.JButton" name="jBtnExportar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Exportar"/>
       </Properties>

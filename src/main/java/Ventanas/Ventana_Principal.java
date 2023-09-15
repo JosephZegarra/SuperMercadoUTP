@@ -28,9 +28,9 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        jMenuArchivo = new javax.swing.JMenu();
         jMenuSalir = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuFormularios = new javax.swing.JMenu();
         jMenuRegPedidos = new javax.swing.JMenuItem();
         jMenuConsulPedidos = new javax.swing.JMenuItem();
         jMenuConsulArticulos = new javax.swing.JMenuItem();
@@ -42,7 +42,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jMenu1.setText("Archivo");
+        jMenuArchivo.setText("Archivo");
 
         jMenuSalir.setText("Salir");
         jMenuSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -50,11 +50,11 @@ public class Ventana_Principal extends javax.swing.JFrame {
                 jMenuSalirActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuSalir);
+        jMenuArchivo.add(jMenuSalir);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jMenuArchivo);
 
-        jMenu2.setText("Formularios");
+        jMenuFormularios.setText("Formularios");
 
         jMenuRegPedidos.setText("Registro de Pedidos");
         jMenuRegPedidos.addActionListener(new java.awt.event.ActionListener() {
@@ -62,7 +62,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
                 jMenuRegPedidosActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuRegPedidos);
+        jMenuFormularios.add(jMenuRegPedidos);
 
         jMenuConsulPedidos.setText("Consulta de Pedidos");
         jMenuConsulPedidos.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +70,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
                 jMenuConsulPedidosActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuConsulPedidos);
+        jMenuFormularios.add(jMenuConsulPedidos);
 
         jMenuConsulArticulos.setText("Consulta de Articulos");
         jMenuConsulArticulos.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +78,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
                 jMenuConsulArticulosActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuConsulArticulos);
+        jMenuFormularios.add(jMenuConsulArticulos);
 
         jMenuEstadisticas.setText("Estadisticas");
         jMenuEstadisticas.addActionListener(new java.awt.event.ActionListener() {
@@ -86,9 +86,9 @@ public class Ventana_Principal extends javax.swing.JFrame {
                 jMenuEstadisticasActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuEstadisticas);
+        jMenuFormularios.add(jMenuEstadisticas);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenuFormularios);
 
         jMenu3.setText("Ayuda");
 
@@ -194,14 +194,14 @@ public class Ventana_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuItem jMenuAcerca;
+    private javax.swing.JMenu jMenuArchivo;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuConsulArticulos;
     private javax.swing.JMenuItem jMenuConsulPedidos;
     private javax.swing.JMenuItem jMenuEstadisticas;
+    private javax.swing.JMenu jMenuFormularios;
     private javax.swing.JMenuItem jMenuRegPedidos;
     private javax.swing.JMenuItem jMenuSalir;
     private javax.swing.JPanel jPanel1;

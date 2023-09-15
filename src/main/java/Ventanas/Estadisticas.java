@@ -30,13 +30,13 @@ public class Estadisticas extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButtonExportar = new javax.swing.JButton();
+        jBtnExportar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArchivo = new javax.swing.JMenu();
         jMnuItemPrincipal = new javax.swing.JMenuItem();
-        jMenuMostrar = new javax.swing.JMenu();
+        jMenuTipoEstadistica = new javax.swing.JMenu();
         jMnuItemA = new javax.swing.JMenuItem();
         jMnuItemB = new javax.swing.JMenuItem();
         jMnuItemC = new javax.swing.JMenuItem();
@@ -45,7 +45,7 @@ public class Estadisticas extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonExportar.setText("Exportar");
+        jBtnExportar.setText("Exportar");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -67,18 +67,18 @@ public class Estadisticas extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuArchivo);
 
-        jMenuMostrar.setText("Mostrar");
+        jMenuTipoEstadistica.setText("Tipo de Estadistica");
 
-        jMnuItemA.setText("Cantidad de pedidos agrupados por apis y por Proveedores");
-        jMenuMostrar.add(jMnuItemA);
+        jMnuItemA.setText("Cantidad de pedidos agrupados por pais y por Proveedores");
+        jMenuTipoEstadistica.add(jMnuItemA);
 
         jMnuItemB.setText("Cantidades y montos de Pedidos agrupados por proveedor, Año, Mes.");
-        jMenuMostrar.add(jMnuItemB);
+        jMenuTipoEstadistica.add(jMnuItemB);
 
         jMnuItemC.setText("Montos totales de Productos por mes(Pedidos)");
-        jMenuMostrar.add(jMnuItemC);
+        jMenuTipoEstadistica.add(jMnuItemC);
 
-        jMenuBar1.add(jMenuMostrar);
+        jMenuBar1.add(jMenuTipoEstadistica);
 
         setJMenuBar(jMenuBar1);
 
@@ -93,11 +93,12 @@ public class Estadisticas extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(172, 172, 172))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonExportar)
-                        .addGap(437, 437, 437))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(132, 132, 132))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(434, 434, 434)
+                .addComponent(jBtnExportar)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,8 +107,9 @@ public class Estadisticas extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(jButtonExportar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(jBtnExportar)
+                .addGap(27, 27, 27))
         );
 
         pack();
@@ -150,10 +152,10 @@ public class Estadisticas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonExportar;
+    private javax.swing.JButton jBtnExportar;
     private javax.swing.JMenu jMenuArchivo;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu jMenuMostrar;
+    private javax.swing.JMenu jMenuTipoEstadistica;
     private javax.swing.JMenuItem jMnuItemA;
     private javax.swing.JMenuItem jMnuItemB;
     private javax.swing.JMenuItem jMnuItemC;

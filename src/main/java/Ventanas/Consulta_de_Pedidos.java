@@ -42,7 +42,7 @@ public class Consulta_de_Pedidos extends javax.swing.JFrame {
         jTextPaisCiudad = new javax.swing.JTextField();
         jTextCompaEnvios = new javax.swing.JTextField();
         jTextFechInicio = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jBtnFiltarPedidos = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -96,10 +96,10 @@ public class Consulta_de_Pedidos extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBtnFiltarPedidos.setText("Filtrar");
+        jBtnFiltarPedidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBtnFiltarPedidosActionPerformed(evt);
             }
         });
 
@@ -197,7 +197,7 @@ public class Consulta_de_Pedidos extends javax.swing.JFrame {
                                     .addComponent(jTextFechInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextCompaEnvios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(jBtnFiltarPedidos)
                                 .addGap(183, 183, 183))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
@@ -235,7 +235,7 @@ public class Consulta_de_Pedidos extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jTextCompaEnvios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
+                        .addComponent(jBtnFiltarPedidos)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -264,9 +264,9 @@ public class Consulta_de_Pedidos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFechInicioActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jBtnFiltarPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFiltarPedidosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jBtnFiltarPedidosActionPerformed
 
     private void jMnuItemPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuItemPedidoActionPerformed
         // TODO add your handling code here:
@@ -314,7 +314,7 @@ public class Consulta_de_Pedidos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jBtnFiltarPedidos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

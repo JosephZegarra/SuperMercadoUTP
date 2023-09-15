@@ -54,7 +54,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
-        jBtnAgregar = new javax.swing.JButton();
+        jBtnAgregarDetalle = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
         jTextDetProducto = new javax.swing.JTextField();
         jTextDetCantidad = new javax.swing.JTextField();
@@ -91,7 +91,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
 
         jLabel20.setText("Cargo:");
 
-        jBtnGuardar.setText("Guardar");
+        jBtnGuardar.setText("Guardar Pedido");
         jBtnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnGuardarActionPerformed(evt);
@@ -111,10 +111,10 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jBtnAgregar.setText("Agregar");
-        jBtnAgregar.addActionListener(new java.awt.event.ActionListener() {
+        jBtnAgregarDetalle.setText("Agregar Detalle");
+        jBtnAgregarDetalle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnAgregarActionPerformed(evt);
+                jBtnAgregarDetalleActionPerformed(evt);
             }
         });
 
@@ -157,7 +157,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextDetDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextDetPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jBtnAgregar))
+                    .addComponent(jBtnAgregarDetalle))
                 .addGap(65, 65, 65))
         );
         jPanel4Layout.setVerticalGroup(
@@ -186,7 +186,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                     .addComponent(jLabel32)
                     .addComponent(jTextDetDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jBtnAgregar)
+                .addComponent(jBtnAgregarDetalle)
                 .addGap(15, 15, 15))
         );
 
@@ -324,13 +324,13 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
     jTextDetId.setText(jTextId.getText());
     }//GEN-LAST:event_jBtnGuardarActionPerformed
 
-    private void jBtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAgregarActionPerformed
+    private void jBtnAgregarDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAgregarDetalleActionPerformed
         tablaDetalles.addRow(new Object[]{jTextDetId.getText(),
                                        jTextDetProducto.getText(),
                                        jTextDetCantidad.getText(),
                                        jTextDetPrecio.getText(),
                                        jTextDetDescuento.getText()});
-    }//GEN-LAST:event_jBtnAgregarActionPerformed
+    }//GEN-LAST:event_jBtnAgregarDetalleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -368,7 +368,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtnAgregar;
+    private javax.swing.JButton jBtnAgregarDetalle;
     private javax.swing.JButton jBtnGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -43,7 +43,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jButtonBuscar = new javax.swing.JButton();
+        jBtnFiltrarArticulos = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
@@ -84,7 +84,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
 
         jLabel10.setText("Nombre de la Categoria:");
 
-        jButtonBuscar.setText("Buscar");
+        jBtnFiltrarArticulos.setText("Filtrar");
 
         jMenu1.setText("Archivo");
 
@@ -153,7 +153,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButtonBuscar))))
+                            .addComponent(jBtnFiltrarArticulos))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -180,7 +180,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(jButtonBuscar)
+                .addComponent(jBtnFiltrarArticulos)
                 .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
@@ -236,7 +236,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonBuscar;
+    private javax.swing.JButton jBtnFiltrarArticulos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel7;
