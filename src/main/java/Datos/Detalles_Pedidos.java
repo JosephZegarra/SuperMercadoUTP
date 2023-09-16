@@ -5,7 +5,9 @@
 package Datos;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 /**
@@ -16,9 +18,9 @@ public class Detalles_Pedidos
         
 {
     
-    private String PrecioUnidad;
-    private String Cantidad;
-    private String Descuento;
+    protected String PrecioUnidad;
+    protected String Cantidad;
+    protected String Descuento;
 
     public Detalles_Pedidos() 
     {
@@ -95,5 +97,18 @@ public class Detalles_Pedidos
                 System.out.println(objeto);
             }
     }
+    
+    
+     public void exportarContenidoAArchivo(String rutaArchivo, Detalles_Pedidos[] listaobjetos) {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(rutaArchivo))) {
+                for (Detalles_Pedidos objeto : listaobjetos) {
+                    bw.write(objeto.toString());
+                    bw.newLine();
+                }
+                System.out.println("Contenido exportado exitosamente al archivo " + rutaArchivo);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     
 }
