@@ -64,12 +64,10 @@ public class ImportadorCSV
                 
                 break;
             case 3:
+                
+            case 4:
                 Clientes objClientes= new Clientes();
                 objClientes.CopiarContenidoEImpresion(csvFile, numFilas);
-                break;
-            case 4:
-                //Clientes objClientes= new Clientes();
-                //objClientes.CopiarContenidoEImpresion(csvFile, numFilas);
                 break;
             case 5:
                 
