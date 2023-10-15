@@ -69,7 +69,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuPrincipal = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Datos del Pedido");
