@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 import Datos.*;
+import ListaEnlasada.*;
+
 /**
  *
  * @author Home
@@ -21,6 +23,9 @@ public class ImportadorCSV
     /**
      * @param args the command line arguments
      */
+    
+    
+    
     public static void main(String[] args) 
     {   
         
@@ -54,8 +59,12 @@ public class ImportadorCSV
         {
             case 1: 
                 Categorias objCategoria= new Categorias();
-                objCategoria.CopiarContenidoEImpresion(csvFile, numFilas);
+                objCategoria.setNumFilas(numFilas);
+                objCategoria.setCsvFile(csvFile);
                 
+                objCategoria.CopiarContenidoEImpresion(csvFile, numFilas);
+                objCategoria.copiarArregloAListaEnlazada();
+                objCategoria.imprimir();
                 
                 break;
             case 2:
@@ -88,6 +97,10 @@ public class ImportadorCSV
                 System.out.println("no coincide con ninguno de los casos anteriores");
                 break;
         }
+        
+        
+        //getter 
+        
         
 
         
@@ -156,6 +169,16 @@ public class ImportadorCSV
         
     }
     
+   
+        
+        
+        
+      
+        
+    
+    
+    
+    
 
    
 }
@@ -201,6 +224,16 @@ class ObjetoCSV
         public void setDescripcionCategoria(String DescripcionCategoria) {
             this.DescripcionCategoria = DescripcionCategoria;
         }
+        
+        public void getDescripcionCategoria(String DescripcionCategoria) {
+            this.DescripcionCategoria = DescripcionCategoria;
+        }
+        
+        
+        
+        
+        
+        
         
         
         @Override

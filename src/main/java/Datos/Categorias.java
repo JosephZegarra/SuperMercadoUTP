@@ -10,11 +10,18 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import ListaEnlasada.*;
+
+
 public class Categorias 
 {
     protected String IdCategoria;
     protected String NombreCategoria;
     protected String Descripcion;
+    
+    //datos importados de main
+    protected String csvFile;
+    protected int numFilas;
 
     public Categorias() {
 
@@ -49,12 +56,36 @@ public class Categorias
     public void setDescripcion(String Descripcion) {
         this.Descripcion = Descripcion;
     }
+// importados de main
+    public String getCsvFile() {
+        return csvFile;
+    }
 
+    public void setCsvFile(String csvFile) {
+        this.csvFile = csvFile;
+    }
+
+    public int getNumFilas() {
+        return numFilas;
+    }
+
+    public void setNumFilas(int numFilas) {
+        this.numFilas = numFilas;
+    }
+
+    
+    
+    
+    
+    
+    
     @Override
     public String toString() {
         return IdCategoria + "; " + NombreCategoria + "; " + Descripcion;
     }
-    
+  
+    //Lista Copiada de metodo CopiarContenidoEImpresion
+    Categorias[] ListaArregloCopia= new Categorias[numFilas];
     
 
     String line;
@@ -79,9 +110,14 @@ public class Categorias
                             
 
                     // Agregar el objeto al arreglo
+                    
                     listaobjetos[indice] = objeto;
+                    
                     indice++;
                 }
+                //copia de  listaobjetos a  ListaArregloCopia
+                ListaArregloCopia=listaobjetos;
+                
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -95,6 +131,28 @@ public class Categorias
     }
     
     
+    ListaInterface listaEnlazadaCategorias = new ListaEnlasadaImpl() ;
+    
+    public void copiarArregloAListaEnlazada()
+    {
+        int dimensionArreglo=numFilas;
+        listaEnlazadaCategorias.CrearListaVacia(dimensionArreglo);
+        for(int i=0; i<dimensionArreglo; i++)
+        {
+            int c=1;
+            listaEnlazadaCategorias.buscarIteradorIndice(c).setElemento(ListaArregloCopia[i]);
+            c++;
+                   
+        }
+        
+        
+    }
+    
+    
+    public void imprimir()
+    {
+        listaEnlazadaCategorias.imprimirLista();
+    }
     
     
     

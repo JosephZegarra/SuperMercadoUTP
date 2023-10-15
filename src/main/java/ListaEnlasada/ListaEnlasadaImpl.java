@@ -61,7 +61,7 @@ public class ListaEnlasadaImpl implements ListaInterface
     
     
     
-    private Nodo buscarIteradorIndice(int indice)
+    public Nodo buscarIteradorIndice(int indice)
     {
         if (indice < 1) {
         // Índice inválido, retorna null
@@ -81,7 +81,18 @@ public class ListaEnlasadaImpl implements ListaInterface
  
     }
     
-    
+    public void CrearListaVacia(int dimension) 
+    {
+        this.cabecera = new Nodo(null);
+
+        // Inicializa la lista enlazada con la dimensión especificada.
+        for (int i = 0; i < dimension; i++) 
+        {
+            Nodo nuevoNodo = new Nodo(null); // Crear un nuevo nodo con elemento null
+            insertarFinal(nuevoNodo); // Agregar el nuevo nodo al final de la lista enlazada
+        }
+    }
+
     
    
    
