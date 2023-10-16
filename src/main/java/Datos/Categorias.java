@@ -23,7 +23,8 @@ public class Categorias
     protected String csvFile;
     protected int numFilas;
 
-    public Categorias() {
+    public Categorias() 
+    {
 
     }
 

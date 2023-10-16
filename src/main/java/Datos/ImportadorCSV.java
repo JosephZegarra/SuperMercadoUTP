@@ -113,25 +113,25 @@ public class ImportadorCSV
         switch(numDirectorio) 
         {
             case 1:
-                CaseDirectorio="C:\\Users\\Home\\Downloads\\Categorias.csv";
+                CaseDirectorio="D:\\Categorias.csv";
                 break;
             case 2:
-                CaseDirectorio="C:\\Users\\Home\\Downloads\\Articulos.csv";
+                CaseDirectorio="D:\\Articulos.csv";
                 break;
             case 3:
-               CaseDirectorio="C:\\Users\\Home\\Downloads\\Proveedores.csv";
+               CaseDirectorio="D:\\Proveedores.csv";
                 break;
             case 4:
-                CaseDirectorio="C:\\Users\\Home\\Downloads\\Clientes.csv";
+                CaseDirectorio="D:\\Clientes.csv";
                 break;
             case 5:
-                CaseDirectorio="C:\\Users\\Home\\Downloads\\Pedidos.csv";
+                CaseDirectorio="D:\\Pedidos.csv";
                 break;
             case 6:
-                CaseDirectorio="C:\\Users\\Home\\Downloads\\Detalles_Pedidos.csv";
+                CaseDirectorio="D:\\Detalles_Pedidos.csv";
                 break;
             case 7:
-                CaseDirectorio="C:\\Users\\Home\\Downloads\\Compañias Envíos.csv";
+                CaseDirectorio="D:\\Compañias Envíos.csv";
                 break;
             default:
                 System.out.println("no coincide con ninguno de los casos anteriores");
