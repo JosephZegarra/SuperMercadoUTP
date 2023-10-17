@@ -20,7 +20,39 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
 
    DefaultTableModel tablaDetalles;
     JFileChooser archivo = new JFileChooser(System.getProperty("user.dir"));
-    private void cargar()
+    
+    private void cargarRegistroPedidos()
+    {
+        try {
+            String texto = "";
+            Object cabeceras[] = {"Id. de pedido","Producto","Precio por unidad","Cantidad","Descuento"};
+            tablaDetalles = new DefaultTableModel(cabeceras,0);
+            archivo.showOpenDialog(this);
+            File abrir = archivo.getSelectedFile();
+            Object[] elemento = new Object[5];
+            if (abrir != null)
+            {
+                FileReader fichero = new FileReader(abrir);
+                BufferedReader leer = new BufferedReader(fichero);
+                while ((texto=leer.readLine()) != null)
+                {
+                    String registro[] = texto.split(";");
+                    elemento[0] = registro[0];
+                    elemento[1] = registro[1];
+                    elemento[2] = registro[2];
+                    elemento[3] = registro[3];
+                    elemento[4] = registro[4];
+                    tablaDetalles.addRow(elemento);
+                    
+                }
+                jTableDetalPedido.setModel(tablaDetalles);
+            }
+        } catch (IOException e) 
+        {   System.out.println("Error" + e);
+        }
+                   
+    }
+    private void cargarDatosPedidos()
     {
         try {
             String texto = "";
@@ -395,7 +427,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnAgregarDetalleActionPerformed
 
     private void jMenuImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuImportarActionPerformed
-    cargar();        
+    cargarRegistroPedidos();        
         
     }//GEN-LAST:event_jMenuImportarActionPerformed
 
