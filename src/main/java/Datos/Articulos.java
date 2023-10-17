@@ -10,6 +10,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+
+import ListaEnlasada.*;
+
 public class Articulos 
 {
     protected String IdProducto;
@@ -22,6 +25,8 @@ public class Articulos
     protected String UnidadesPedidas;
     protected String Suspendido;
     
+    protected String csvFile;
+    protected int numFilas;
     
     public Articulos() {
 
@@ -113,12 +118,35 @@ public class Articulos
         this.Suspendido = Suspendido;
     }
 
+    public String getCsvFile() {
+        return csvFile;
+    }
+
+    public void setCsvFile(String csvFile) {
+        this.csvFile = csvFile;
+    }
+
+    public int getNumFilas() {
+        return numFilas;
+    }
+
+    public void setNumFilas(int numFilas) {
+        this.numFilas = numFilas;
+    }
+    
+    
+    
+    
+    
+
     @Override
     public String toString() 
     {
         return IdProducto + "; " + NombreProducto + "; " + Proveedores + "; " + Categoria + "; " + CantidadPorUnidad
                 + "; " + PrecioPorUnidad + "; " + UnidadesExistentes + "; " + UnidadesPedidas + "; " + Suspendido;
     }
+    
+    Articulos[] ListaArregloCopia= new Articulos[numFilas];
     
     
     String line;
@@ -135,6 +163,7 @@ public class Articulos
                     String[] partes = line.split(csvDelimitador);
 
                             Articulos objeto=new Articulos();
+                            /*
                             objeto.setIdProducto(partes[0]);
                             objeto.setNombreProducto(partes[1]);
                             objeto.setProveedores(partes[2]);
@@ -144,12 +173,30 @@ public class Articulos
                             objeto.setUnidadesExistentes(partes[6]);
                             objeto.setUnidadesPedidas(partes[7]);
                             objeto.setSuspendido(partes[8]);
+                            */
                             
+                                if (partes.length == 9) {
+                                    objeto.setIdProducto(partes[0]);
+                                    objeto.setNombreProducto(partes[1]);
+                                    objeto.setProveedores(partes[2]);
+                                    objeto.setCategoria(partes[3]);
+                                    objeto.setCantidadPorUnidad(partes[4]);
+                                    objeto.setPrecioPorUnidad(partes[5]);
+                                    objeto.setUnidadesExistentes(partes[6]);
+                                    objeto.setUnidadesPedidas(partes[7]);
+                                    objeto.setSuspendido(partes[8]);
+                                } else {
+                                    // Manejar el caso en el que la línea no tiene suficientes elementos
+                                    System.err.println("La línea no tiene suficientes elementos: " + line);
+                                }
 
                     // Agregar el objeto al arreglo
                     listaobjetos[indice] = objeto;
                     indice++;
                 }
+                
+                ListaArregloCopia=listaobjetos.clone();
+                
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -162,7 +209,31 @@ public class Articulos
             }
     }
     
+    ListaInterface listaEnlazadaCategorias = new ListaEnlasadaImpl();
     
+    public void copiarArregloAListaEnlazada() 
+    {
+        int dimensionArreglo = numFilas;
+        int c = 1;
+
+        for (int i = 0; i < dimensionArreglo; i++) 
+        {
+            Articulos articulos = ListaArregloCopia[i]; // Obtener la categoría del arreglo
+
+            // Crear un nuevo nodo con la categoría y enlazarlo al siguiente nodo (si existe)
+            Nodo nuevoNodo = new Nodo(articulos);
+            listaEnlazadaCategorias.insertarFinal(nuevoNodo);
+            c++;
+        }
+
+    }
+    
+    
+    public void imprimir()
+    {
+       System.out.println(listaEnlazadaCategorias.imprimirLista());
+        
+    } 
     
     
 }

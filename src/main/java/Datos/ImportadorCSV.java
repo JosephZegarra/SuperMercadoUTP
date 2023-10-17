@@ -13,7 +13,8 @@ import java.util.Scanner;
 import Datos.*;
 import ListaEnlasada.*;
 
-/**
+/**5
+ * 
  *
  * @author Home
  */
@@ -69,10 +70,16 @@ public class ImportadorCSV
                 break;
             case 2:
                 Articulos objArticulos= new Articulos();
-                objArticulos.CopiarContenidoEImpresion(csvFile, numFilas);
+                objArticulos.setNumFilas(numFilas);
+                objArticulos.setCsvFile(csvFile);
                 
+                objArticulos.CopiarContenidoEImpresion(csvFile, numFilas);
+                objArticulos.copiarArregloAListaEnlazada();
+                objArticulos.imprimir();
                 break;
-            case 3:
+            case 3://..
+                 Proveedores objProveedores= new Proveedores();
+                 objProveedores.CopiarContenidoEImpresion(csvFile, numFilas);
                 
             case 4:
                 Clientes objClientes= new Clientes();
@@ -80,18 +87,29 @@ public class ImportadorCSV
                 break;
             case 5:
                 
-                //Pedidos objPedidos= new Pedidos();
-                //objPedidos.CopiarContenidoEImpresion(csvFile, numFilas);
+                Pedidos objPedidos= new Pedidos();
+                
+                objPedidos.setNumFilas(numFilas);
+                objPedidos.setCsvFile(csvFile);
+                
+                objPedidos.CopiarContenidoEImpresion(csvFile, numFilas);
+                objPedidos.copiarArregloAListaEnlazada();
+                objPedidos.imprimir();
                 break;
             case 6:
                 Detalles_Pedidos objDetalles_Pedidos= new Detalles_Pedidos();
+                objDetalles_Pedidos.setNumFilas(numFilas);
+                objDetalles_Pedidos.setCsvFile(csvFile);
+                
                 objDetalles_Pedidos.CopiarContenidoEImpresion(csvFile, numFilas);
+                objDetalles_Pedidos.copiarArregloAListaEnlazada();
+                objDetalles_Pedidos.imprimir();
                 
                
                 break;
             case 7:
-                //Compania_Envios objCompania= new Compania_Envios();
-                //objCompania.CopiarContenidoEImpresion(csvFile, numFilas);
+                CompaniasEnvios objCompania= new CompaniasEnvios();
+                objCompania.CopiarContenidoEImpresion(csvFile, numFilas);
                 break;
             default:
                 System.out.println("no coincide con ninguno de los casos anteriores");
@@ -132,7 +150,7 @@ public class ImportadorCSV
                 CaseDirectorio="D:\\Detalles_Pedidos.csv";
                 break;
             case 7:
-                CaseDirectorio="D:\\Compañias Envíos.csv";
+                CaseDirectorio="D:\\CompaniasEnvios.csv";
                 break;
             default:
                 System.out.println("no coincide con ninguno de los casos anteriores");
@@ -170,84 +188,5 @@ public class ImportadorCSV
         
     }
     
-   
-        
-        
-        
-      
-        
-    
-    
-    
-    
-
-   
-}
-
-
-
-
-class ObjetoCSV 
-    {
-    private String idCategoria;
-    private String NombreCategoria;
-    private String DescripcionCategoria;
-    
-    
-    public ObjetoCSV() 
-    {
-    
-    }
-
   
-    // Getters y setters para los atributos
-
-        public String getIdCategoria() {
-            return idCategoria;
-        }
-
-        public void setIdCategoria(String idCategoria) {
-            this.idCategoria = idCategoria;
-        }
-
-        public String getNombreCategoria() {
-            return NombreCategoria;
-        }
-
-        public void setNombreCategoria(String NombreCategoria) {
-            this.NombreCategoria = NombreCategoria;
-        }
-
-        public String getDescripcionCategoria() {
-            return DescripcionCategoria;
-        }
-
-        public void setDescripcionCategoria(String DescripcionCategoria) {
-            this.DescripcionCategoria = DescripcionCategoria;
-        }
-        
-        public void getDescripcionCategoria(String DescripcionCategoria) {
-            this.DescripcionCategoria = DescripcionCategoria;
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        @Override
-        public String toString() {
-        return idCategoria + "; " + NombreCategoria + "; " + DescripcionCategoria;
-        }
-    
-      
-    }
-
-
-
-
-
-
-    
+}

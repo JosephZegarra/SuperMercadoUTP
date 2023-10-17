@@ -135,34 +135,30 @@ public class Categorias
     ListaInterface listaEnlazadaCategorias = new ListaEnlasadaImpl();
     
     
-    public void copiarArregloAListaEnlazada()
-    {   
-        
-        Nodo nuevoNodo=null;
-        int dimensionArreglo=numFilas;
-        
-        
-        int c=1;
-        
-        for(int i=0; i<dimensionArreglo; i++)
+    public void copiarArregloAListaEnlazada() 
+    {
+        int dimensionArreglo = numFilas;
+        int c = 1;
+
+        for (int i = 0; i < dimensionArreglo; i++) 
         {
+            Categorias categoria = ListaArregloCopia[i]; // Obtener la categoría del arreglo
+
+            // Crear un nuevo nodo con la categoría y enlazarlo al siguiente nodo (si existe)
+            Nodo nuevoNodo = new Nodo(categoria);
             listaEnlazadaCategorias.insertarFinal(nuevoNodo);
-            listaEnlazadaCategorias.buscarIteradorIndice(c).setElemento(ListaArregloCopia[i]);
             c++;
-                   
         }
-        
-        
+
+        listaEnlazadaCategorias.imprimirLista(); // Imprimir la lista enlazada
+        System.out.println("el valorrrr es" + (listaEnlazadaCategorias.buscarIteradorIndice(2)).getElemento() );
     }
     
-    /*
-    Exception in thread "main" java.lang.NullPointerException: Cannot invoke "ListaEnlasada.Nodo.setElemento(Object)" because the return value of "ListaEnlasada.ListaInterface.buscarIteradorIndice(int)" is null
-	at Datos.Categorias.copiarArregloAListaEnlazada(Categorias.java:150)
-	at Datos.ImportadorCSV.main(ImportadorCSV.java:66)
-    */
+    
     public void imprimir()
     {
-        listaEnlazadaCategorias.imprimirLista();
+       System.out.println(listaEnlazadaCategorias.imprimirLista());
+        
     }
     
     
