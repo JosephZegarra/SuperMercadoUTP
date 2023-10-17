@@ -67,6 +67,11 @@ public class Estadisticas extends javax.swing.JFrame {
         jMenuArchivo.setText("Archivo");
 
         jMnuItemPrincipal.setText("Menu Principal");
+        jMnuItemPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnuItemPrincipalActionPerformed(evt);
+            }
+        });
         jMenuArchivo.add(jMnuItemPrincipal);
 
         jMenuBar1.add(jMenuArchivo);
@@ -125,6 +130,12 @@ public class Estadisticas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMnuItemPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuItemPrincipalActionPerformed
+    Ventana_Principal principal = new Ventana_Principal();
+    principal.setVisible(true);
+    this.setVisible(false);
+    }//GEN-LAST:event_jMnuItemPrincipalActionPerformed
 
     /**
      * @param args the command line arguments
