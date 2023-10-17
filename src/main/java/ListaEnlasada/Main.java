@@ -101,13 +101,10 @@ public static void main(String[] args) throws Exception
         case 10://Ordenar  lista por quicksort
             
             listaSimple.Ordenamiento_ShellSort();
-            System.out.println("La lista ordenada es: " + listaSimple.imprimirLista() );    
-            
+            System.out.println("La lista ordenada es: " + listaSimple.imprimirLista() );   
+
             break;   
-            
-            
-            
-        
+
 
         case 0:
         System.exit(0);

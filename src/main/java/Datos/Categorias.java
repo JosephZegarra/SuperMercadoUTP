@@ -117,7 +117,7 @@ public class Categorias
                     indice++;
                 }
                 //copia de  listaobjetos a  ListaArregloCopia
-                ListaArregloCopia=listaobjetos;
+                ListaArregloCopia=listaobjetos.clone();
                 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -132,15 +132,21 @@ public class Categorias
     }
     
     
-    ListaInterface listaEnlazadaCategorias = new ListaEnlasadaImpl() ;
+    ListaInterface listaEnlazadaCategorias = new ListaEnlasadaImpl();
+    
     
     public void copiarArregloAListaEnlazada()
-    {
+    {   
+        
+        Nodo nuevoNodo=null;
         int dimensionArreglo=numFilas;
-        listaEnlazadaCategorias.CrearListaVacia(dimensionArreglo);
+        
+        
+        int c=1;
+        
         for(int i=0; i<dimensionArreglo; i++)
         {
-            int c=1;
+            listaEnlazadaCategorias.insertarFinal(nuevoNodo);
             listaEnlazadaCategorias.buscarIteradorIndice(c).setElemento(ListaArregloCopia[i]);
             c++;
                    
@@ -149,7 +155,11 @@ public class Categorias
         
     }
     
-    
+    /*
+    Exception in thread "main" java.lang.NullPointerException: Cannot invoke "ListaEnlasada.Nodo.setElemento(Object)" because the return value of "ListaEnlasada.ListaInterface.buscarIteradorIndice(int)" is null
+	at Datos.Categorias.copiarArregloAListaEnlazada(Categorias.java:150)
+	at Datos.ImportadorCSV.main(ImportadorCSV.java:66)
+    */
     public void imprimir()
     {
         listaEnlazadaCategorias.imprimirLista();

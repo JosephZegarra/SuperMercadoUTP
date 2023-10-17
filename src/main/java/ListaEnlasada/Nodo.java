@@ -7,6 +7,7 @@ public class Nodo
     Nodo siguiente; //puntero al siguiente elemento
     
     //CONSTRUCTORES
+    
     //Nodo Solo, no tiene enlace al siguiente 
     public Nodo(Object obj) 
     {
