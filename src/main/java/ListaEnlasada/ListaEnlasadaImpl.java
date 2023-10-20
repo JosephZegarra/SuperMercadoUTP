@@ -242,9 +242,19 @@ public class ListaEnlasadaImpl implements ListaInterface
         
 
     }
+    
+    
+   
  
   
-
+    
+    
+    
+    
+    
+    
+    
+    
   
        // analizando e implementando
 

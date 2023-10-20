@@ -20,8 +20,8 @@ public class Categorias
     protected String Descripcion;
     
     //datos importados de main
-    protected String csvFile;
-    protected int numFilas;
+    protected String csvFile;//direccion del archivo a importar
+    protected int numFilas; //numero de filas del archivo
 
     public Categorias() 
     {
@@ -93,7 +93,8 @@ public class Categorias
     String csvDelimitador = ";"; // El delimitador que separa los valores en el CSV
     
     
-    public void CopiarContenidoEImpresion(String csvFile, int numFilas)
+    public void CopiarContenidoEImpresion(String csvFile, int numFilas)//importa el archivo .csv a un arreglo de 
+                                                                        //objetos tipo Categoria
     {  
         Categorias[] listaobjetos = new Categorias[numFilas];
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) 
@@ -138,7 +139,7 @@ public class Categorias
     public void copiarArregloAListaEnlazada() 
     {
         int dimensionArreglo = numFilas;
-        int c = 1;
+        
 
         for (int i = 0; i < dimensionArreglo; i++) 
         {
@@ -147,11 +148,11 @@ public class Categorias
             // Crear un nuevo nodo con la categoría y enlazarlo al siguiente nodo (si existe)
             Nodo nuevoNodo = new Nodo(categoria);
             listaEnlazadaCategorias.insertarFinal(nuevoNodo);
-            c++;
+            
         }
 
-        listaEnlazadaCategorias.imprimirLista(); // Imprimir la lista enlazada
-        System.out.println("el valorrrr es" + (listaEnlazadaCategorias.buscarIteradorIndice(2)).getElemento() );
+       
+        
     }
     
     
