@@ -2,7 +2,7 @@ package ListaEnlazadaArticulo;
 import ListaEnlasada.*;
 import ListaEnlasada.*;
 import java.util.Scanner;
-
+/*
 public class Main 
 {
     static Scanner consola = new Scanner(System.in);
@@ -33,7 +33,7 @@ public class Main
 public static void main(String[] args) throws Exception
 {
 //CREAMOS LA LISTA ENLAZADA
-    ListaInterface listaSimple = new ListaEnlasadaImpl() ;
+    ListaInterface listaSimple = new ListaEnlasadaArticuloImpl() ;
     int opcion;
     Main objPrincipal = new  Main();
     do
@@ -117,3 +117,6 @@ public static void main(String[] args) throws Exception
         }while(true);
     }
 }
+
+
+*/

@@ -1,10 +1,12 @@
 package ListaEnlazadaArticulo;
 
 import ListaEnlasada.*;
-import  
+import Datos.Articulos; 
+
 
 public class Nodo 
 {
+    
     //ATRIBUTOS
     Articulos elemento; //Elemento / Contenido
     Nodo siguiente; //puntero al siguiente elemento
@@ -12,26 +14,26 @@ public class Nodo
     //CONSTRUCTORES
     
     //Nodo Solo, no tiene enlace al siguiente 
-    public Nodo(Object obj) 
+    public Nodo(Articulos obj) 
     {
         this.elemento = obj;
         this.siguiente = null;
     }
     
     //Nodo con puntero a siguiente elemento
-    public  Nodo(Object obj, Nodo n)
+    public  Nodo(Articulos obj, Nodo n)
     {
         this.elemento = obj;
         this.siguiente = n ;
     }
     
     //METODOS GETTER AND SETTER
-    public Object getElemento() 
+    public Articulos getElemento() 
     {
         return elemento;
     }
 
-    public void setElemento(Object elemento) 
+    public void setElemento(Articulos elemento) 
     {
         this.elemento = elemento;
     }

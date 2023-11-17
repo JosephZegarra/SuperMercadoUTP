@@ -1,14 +1,16 @@
 
 package ListaEnlazadaArticulo;
 
-import ListaEnlasada.*;
+import Datos.Articulos;
 
 
-public class ListaEnlasadaImpl implements ListaInterface
+
+
+public class ListaEnlasadaArticuloImpl implements ListaInterface
 {
     private Nodo cabecera;
 
-    public ListaEnlasadaImpl() 
+    public ListaEnlasadaArticuloImpl() 
     {
         this.cabecera = new Nodo(null);
     }
@@ -272,13 +274,13 @@ public class ListaEnlasadaImpl implements ListaInterface
             for (int i = incremento; i <= n; i++) {
                 Nodo nodoActual = buscarIteradorIndice(i);
                 if (nodoActual != null) {
-                    Object valorActual = nodoActual.elemento;
+                    Articulos valorActual = nodoActual.elemento;
 
                     int j = i;
                     while (j >= incremento) {
                         Nodo nodoAnterior = buscarIteradorIndice(j - incremento);
                         if (nodoAnterior != null) {
-                            Object valorAnterior = nodoAnterior.elemento;
+                            Articulos valorAnterior = nodoAnterior.elemento;
                             if (compararAmenorQueB(valorActual, valorAnterior)) {
                                 buscarIteradorIndice(j).elemento = valorAnterior;
                                 j -= incremento;

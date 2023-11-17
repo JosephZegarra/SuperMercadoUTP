@@ -10,7 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
-import ListaEnlasada.*;
+import ListaEnlazadaArticulo.*;
 import Datos.Articulos;
 /**
  *
@@ -86,7 +86,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                 FileReader fichero = new FileReader(abrir);
                 BufferedReader leer = new BufferedReader(fichero);
                 //se crea la lista enlazada
-                ListaInterface ListaArticulos= new ListaEnlasadaImpl();
+                ListaInterface ListaArticulos= new ListaEnlasadaArticuloImpl();
 
                 while ((texto = leer.readLine()) != null) {
                     String registro[] = texto.split(";");
@@ -101,7 +101,9 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                     articulo.setUnidadesExistentes(registro[6]);
                     articulo.setUnidadesPedidas(registro[7]);
                     articulo.setSuspendido(registro[8]);
-
+                    
+                    
+                    
                     //ListaArticulos.insertarFinal(articulo); //se debe crear una lista enlazada para guardar objetos tipo clase Articulos
                     tablaDetalles.addRow(registro);
                 }
