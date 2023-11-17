@@ -1,0 +1,831 @@
+Id. de pedido;Cliente;Fecha de pedido;Fecha de entrega;Fecha de envío;Forma de envío;Cargo
+10248;Exotic Liquids;04-07-1996;01-08-1996;16-07-1996;Federal Shipping;32.38 €
+10249;New Orleans Cajun Delights;05-07-1996;16-08-1996;10-07-1996;Speedy Express;11.61 €
+10250;Grandma Kelly's Homestead;08-07-1996;05-08-1996;12-07-1996;United Package;65.83 €
+10251;Tokyo Traders;08-07-1996;05-08-1996;15-07-1996;Speedy Express;41.34 €
+10252;Cooperativa de Quesos 'Las Cabras';09-07-1996;06-08-1996;11-07-1996;United Package;51.30 €
+10253;Mayumi's;10-07-1996;24-07-1996;16-07-1996;United Package;58.17 €
+10254;Pavlova, Ltd.;11-07-1996;08-08-1996;23-07-1996;United Package;22.98 €
+10255;Specialty Biscuits, Ltd.;12-07-1996;09-08-1996;15-07-1996;Federal Shipping;148.33 €
+10256;PB Knäckebröd AB;15-07-1996;12-08-1996;17-07-1996;United Package;13.97 €
+10257;Refrescos Americanas LTDA;16-07-1996;13-08-1996;22-07-1996;Federal Shipping;81.91 €
+10258;Heli Süßwaren GmbH & Co. KG;17-07-1996;14-08-1996;23-07-1996;Speedy Express;140.51 €
+10259;Plutzer Lebensmittelgroßmärkte AG;18-07-1996;15-08-1996;25-07-1996;Federal Shipping;3.25 €
+10260;Nord-Ost-Fisch Handelsgesellschaft mbH;19-07-1996;16-08-1996;29-07-1996;Speedy Express;55.09 €
+10261;Formaggi Fortini s.r.l.;19-07-1996;16-08-1996;30-07-1996;United Package;3.05 €
+10262;Norske Meierier;22-07-1996;19-08-1996;25-07-1996;Federal Shipping;48.29 €
+10263;Bigfoot Breweries;23-07-1996;20-08-1996;31-07-1996;Federal Shipping;146.06 €
+10264;Svensk Sjöföda AB;24-07-1996;21-08-1996;23-08-1996;Federal Shipping;3.67 €
+10265;Aux joyeux ecclésiastiques;25-07-1996;22-08-1996;12-08-1996;Speedy Express;55.28 €
+10266;New England Seafood Cannery;26-07-1996;06-09-1996;31-07-1996;Federal Shipping;25.73 €
+10267;Leka Trading;29-07-1996;26-08-1996;06-08-1996;Speedy Express;208.58 €
+10268;Lyngbysild;30-07-1996;27-08-1996;02-08-1996;Federal Shipping;66.29 €
+10269;Zaanse Snoepfabriek;31-07-1996;14-08-1996;09-08-1996;Speedy Express;4.56 €
+10270;Karkki Oy;01-08-1996;29-08-1996;02-08-1996;Speedy Express;136.54 €
+10271;G'day, Mate;01-08-1996;29-08-1996;30-08-1996;United Package;4.54 €
+10272;Ma Maison;02-08-1996;30-08-1996;06-08-1996;United Package;98.03 €
+10273;Pasta Buttini s.r.l.;05-08-1996;02-09-1996;12-08-1996;Federal Shipping;76.07 €
+10274;Escargots Nouveaux;06-08-1996;03-09-1996;16-08-1996;Speedy Express;6.01 €
+10275;Gai pâturage;07-08-1996;04-09-1996;09-08-1996;Speedy Express;26.93 €
+10276;Forêts d'érables;08-08-1996;22-08-1996;14-08-1996;Federal Shipping;13.84 €
+10277;Exotic Liquids;09-08-1996;06-09-1996;13-08-1996;Federal Shipping;125.77 €
+10278;New Orleans Cajun Delights;12-08-1996;09-09-1996;16-08-1996;United Package;92.69 €
+10279;Grandma Kelly's Homestead;13-08-1996;10-09-1996;16-08-1996;United Package;25.83 €
+10280;Tokyo Traders;14-08-1996;11-09-1996;12-09-1996;Speedy Express;8.98 €
+10281;Cooperativa de Quesos 'Las Cabras';14-08-1996;28-08-1996;21-08-1996;Speedy Express;2.94 €
+10282;Mayumi's;15-08-1996;12-09-1996;21-08-1996;Speedy Express;12.69 €
+10283;Exotic Liquids;16-08-1996;13-09-1996;23-08-1996;Federal Shipping;84.81 €
+10284;New Orleans Cajun Delights;19-08-1996;16-09-1996;27-08-1996;Speedy Express;76.56 €
+10285;Grandma Kelly's Homestead;20-08-1996;17-09-1996;26-08-1996;United Package;76.83 €
+10286;Tokyo Traders;21-08-1996;18-09-1996;30-08-1996;Federal Shipping;229.24 €
+10287;Cooperativa de Quesos 'Las Cabras';22-08-1996;19-09-1996;28-08-1996;Federal Shipping;12.76 €
+10288;Mayumi's;23-08-1996;20-09-1996;03-09-1996;Speedy Express;7.45 €
+10289;Exotic Liquids;26-08-1996;23-09-1996;28-08-1996;Federal Shipping;22.77 €
+10290;New Orleans Cajun Delights;27-08-1996;24-09-1996;03-09-1996;Speedy Express;79.70 €
+10291;Grandma Kelly's Homestead;27-08-1996;24-09-1996;04-09-1996;United Package;6.40 €
+10292;Tokyo Traders;28-08-1996;25-09-1996;02-09-1996;United Package;1.35 €
+10293;Cooperativa de Quesos 'Las Cabras';29-08-1996;26-09-1996;11-09-1996;Federal Shipping;21.18 €
+10294;Mayumi's;30-08-1996;27-09-1996;05-09-1996;United Package;147.26 €
+10295;Exotic Liquids;02-09-1996;30-09-1996;10-09-1996;United Package;1.15 €
+10296;Heli Süßwaren GmbH & Co. KG;03-09-1996;01-10-1996;11-09-1996;Speedy Express;0.12 €
+10297;Plutzer Lebensmittelgroßmärkte AG;04-09-1996;16-10-1996;10-09-1996;United Package;5.74 €
+10298;Nord-Ost-Fisch Handelsgesellschaft mbH;05-09-1996;03-10-1996;11-09-1996;United Package;168.22 €
+10299;Zaanse Snoepfabriek;06-09-1996;04-10-1996;13-09-1996;United Package;29.76 €
+10300;Karkki Oy;09-09-1996;07-10-1996;18-09-1996;United Package;17.68 €
+10301;G'day, Mate;09-09-1996;07-10-1996;17-09-1996;United Package;45.08 €
+10302;Ma Maison;10-09-1996;08-10-1996;09-10-1996;United Package;6.27 €
+10303;Pasta Buttini s.r.l.;11-09-1996;09-10-1996;18-09-1996;United Package;107.83 €
+10304;Escargots Nouveaux;12-09-1996;10-10-1996;17-09-1996;United Package;63.79 €
+10305;Cooperativa de Quesos 'Las Cabras';13-09-1996;11-10-1996;09-10-1996;Federal Shipping;257.62 €
+10306;Mayumi's;16-09-1996;14-10-1996;23-09-1996;Federal Shipping;7.56 €
+10307;Exotic Liquids;17-09-1996;15-10-1996;25-09-1996;United Package;0.56 €
+10308;New Orleans Cajun Delights;18-09-1996;16-10-1996;24-09-1996;Federal Shipping;1.61 €
+10309;Grandma Kelly's Homestead;19-09-1996;17-10-1996;23-10-1996;Speedy Express;47.30 €
+10310;Tokyo Traders;20-09-1996;18-10-1996;27-09-1996;United Package;17.52 €
+10311;Cooperativa de Quesos 'Las Cabras';20-09-1996;04-10-1996;26-09-1996;Federal Shipping;24.69 €
+10312;Heli Süßwaren GmbH & Co. KG;23-09-1996;21-10-1996;03-10-1996;United Package;40.26 €
+10313;Plutzer Lebensmittelgroßmärkte AG;24-09-1996;22-10-1996;04-10-1996;United Package;1.96 €
+10314;Nord-Ost-Fisch Handelsgesellschaft mbH;25-09-1996;23-10-1996;04-10-1996;United Package;74.16 €
+10315;Formaggi Fortini s.r.l.;26-09-1996;24-10-1996;03-10-1996;United Package;41.76 €
+10316;Norske Meierier;27-09-1996;25-10-1996;08-10-1996;Federal Shipping;150.15 €
+10317;Bigfoot Breweries;30-09-1996;28-10-1996;10-10-1996;Speedy Express;12.69 €
+10318;Svensk Sjöföda AB;01-10-1996;29-10-1996;04-10-1996;United Package;4.73 €
+10319;Aux joyeux ecclésiastiques;02-10-1996;30-10-1996;11-10-1996;Federal Shipping;64.50 €
+10320;New Orleans Cajun Delights;03-10-1996;17-10-1996;18-10-1996;Federal Shipping;34.57 €
+10321;Grandma Kelly's Homestead;03-10-1996;31-10-1996;11-10-1996;United Package;3.43 €
+10322;Tokyo Traders;04-10-1996;01-11-1996;23-10-1996;Federal Shipping;0.40 €
+10323;Cooperativa de Quesos 'Las Cabras';07-10-1996;04-11-1996;14-10-1996;Speedy Express;4.88 €
+10324;Mayumi's;08-10-1996;05-11-1996;10-10-1996;Speedy Express;214.27 €
+10325;Exotic Liquids;09-10-1996;23-10-1996;14-10-1996;Federal Shipping;64.86 €
+10326;New Orleans Cajun Delights;10-10-1996;07-11-1996;14-10-1996;United Package;77.92 €
+10327;Grandma Kelly's Homestead;11-10-1996;08-11-1996;14-10-1996;Speedy Express;63.36 €
+10328;Tokyo Traders;14-10-1996;11-11-1996;17-10-1996;Federal Shipping;87.03 €
+10329;Svensk Sjöföda AB;15-10-1996;26-11-1996;23-10-1996;United Package;191.67 €
+10330;Aux joyeux ecclésiastiques;16-10-1996;13-11-1996;28-10-1996;Speedy Express;12.75 €
+10331;New England Seafood Cannery;16-10-1996;27-11-1996;21-10-1996;Speedy Express;10.19 €
+10332;Leka Trading;17-10-1996;28-11-1996;21-10-1996;United Package;52.84 €
+10333;Lyngbysild;18-10-1996;15-11-1996;25-10-1996;Federal Shipping;0.59 €
+10334;Zaanse Snoepfabriek;21-10-1996;18-11-1996;28-10-1996;United Package;8.56 €
+10335;Karkki Oy;22-10-1996;19-11-1996;24-10-1996;United Package;42.11 €
+10336;G'day, Mate;23-10-1996;20-11-1996;25-10-1996;United Package;15.51 €
+10337;Ma Maison;24-10-1996;21-11-1996;29-10-1996;Federal Shipping;108.26 €
+10338;New Orleans Cajun Delights;25-10-1996;22-11-1996;29-10-1996;Federal Shipping;84.21 €
+10339;Grandma Kelly's Homestead;28-10-1996;25-11-1996;04-11-1996;United Package;15.66 €
+10340;Tokyo Traders;29-10-1996;26-11-1996;08-11-1996;Federal Shipping;166.31 €
+10341;Cooperativa de Quesos 'Las Cabras';29-10-1996;26-11-1996;05-11-1996;Federal Shipping;26.78 €
+10342;Mayumi's;30-10-1996;13-11-1996;04-11-1996;United Package;54.83 €
+10343;Exotic Liquids;31-10-1996;28-11-1996;06-11-1996;Speedy Express;110.37 €
+10344;Zaanse Snoepfabriek;01-11-1996;29-11-1996;05-11-1996;United Package;23.29 €
+10345;Karkki Oy;04-11-1996;02-12-1996;11-11-1996;United Package;249.06 €
+10346;G'day, Mate;05-11-1996;17-12-1996;08-11-1996;Federal Shipping;142.08 €
+10347;Ma Maison;06-11-1996;04-12-1996;08-11-1996;Federal Shipping;3.10 €
+10348;Pasta Buttini s.r.l.;07-11-1996;05-12-1996;15-11-1996;United Package;0.78 €
+10349;Escargots Nouveaux;08-11-1996;06-12-1996;15-11-1996;Speedy Express;8.63 €
+10350;Exotic Liquids;11-11-1996;09-12-1996;03-12-1996;United Package;64.19 €
+10351;New Orleans Cajun Delights;11-11-1996;09-12-1996;20-11-1996;Speedy Express;162.33 €
+10352;Grandma Kelly's Homestead;12-11-1996;26-11-1996;18-11-1996;Federal Shipping;1.30 €
+10353;Tokyo Traders;13-11-1996;11-12-1996;25-11-1996;Federal Shipping;360.63 €
+10354;Cooperativa de Quesos 'Las Cabras';14-11-1996;12-12-1996;20-11-1996;Federal Shipping;53.80 €
+10355;Mayumi's;15-11-1996;13-12-1996;20-11-1996;Speedy Express;41.95 €
+10356;Pavlova, Ltd.;18-11-1996;16-12-1996;27-11-1996;United Package;36.71 €
+10357;Specialty Biscuits, Ltd.;19-11-1996;17-12-1996;02-12-1996;Federal Shipping;34.88 €
+10358;PB Knäckebröd AB;20-11-1996;18-12-1996;27-11-1996;Speedy Express;19.64 €
+10359;Refrescos Americanas LTDA;21-11-1996;19-12-1996;26-11-1996;Federal Shipping;288.43 €
+10360;Heli Süßwaren GmbH & Co. KG;22-11-1996;20-12-1996;02-12-1996;Federal Shipping;131.70 €
+10361;Plutzer Lebensmittelgroßmärkte AG;22-11-1996;20-12-1996;03-12-1996;United Package;183.17 €
+10362;Nord-Ost-Fisch Handelsgesellschaft mbH;25-11-1996;23-12-1996;28-11-1996;Speedy Express;96.04 €
+10363;Formaggi Fortini s.r.l.;26-11-1996;24-12-1996;04-12-1996;Federal Shipping;30.54 €
+10364;Norske Meierier;26-11-1996;07-01-1997;04-12-1996;Speedy Express;71.97 €
+10365;Bigfoot Breweries;27-11-1996;25-12-1996;02-12-1996;United Package;22.00 €
+10366;Svensk Sjöföda AB;28-11-1996;09-01-1997;30-12-1996;United Package;10.14 €
+10367;Aux joyeux ecclésiastiques;28-11-1996;26-12-1996;02-12-1996;Federal Shipping;13.55 €
+10368;New England Seafood Cannery;29-11-1996;27-12-1996;02-12-1996;United Package;101.95 €
+10369;Leka Trading;02-12-1996;30-12-1996;09-12-1996;United Package;195.68 €
+10370;Lyngbysild;03-12-1996;31-12-1996;27-12-1996;United Package;1.17 €
+10371;Zaanse Snoepfabriek;03-12-1996;31-12-1996;24-12-1996;Speedy Express;0.45 €
+10372;Karkki Oy;04-12-1996;01-01-1997;09-12-1996;United Package;890.78 €
+10373;G'day, Mate;05-12-1996;02-01-1997;11-12-1996;Federal Shipping;124.12 €
+10374;Ma Maison;05-12-1996;02-01-1997;09-12-1996;Federal Shipping;3.94 €
+10375;Pasta Buttini s.r.l.;06-12-1996;03-01-1997;09-12-1996;United Package;20.12 €
+10376;Escargots Nouveaux;09-12-1996;06-01-1997;13-12-1996;United Package;20.39 €
+10377;Gai pâturage;09-12-1996;06-01-1997;13-12-1996;Federal Shipping;22.21 €
+10378;Forêts d'érables;10-12-1996;07-01-1997;19-12-1996;Federal Shipping;5.44 €
+10379;Exotic Liquids;11-12-1996;08-01-1997;13-12-1996;Speedy Express;45.03 €
+10380;New Orleans Cajun Delights;12-12-1996;09-01-1997;16-01-1997;Federal Shipping;35.03 €
+10381;Grandma Kelly's Homestead;12-12-1996;09-01-1997;13-12-1996;Federal Shipping;7.99 €
+10382;Tokyo Traders;13-12-1996;10-01-1997;16-12-1996;Speedy Express;94.77 €
+10383;Cooperativa de Quesos 'Las Cabras';16-12-1996;13-01-1997;18-12-1996;Federal Shipping;34.24 €
+10384;Mayumi's;16-12-1996;13-01-1997;20-12-1996;Federal Shipping;168.64 €
+10385;Exotic Liquids;17-12-1996;14-01-1997;23-12-1996;United Package;30.96 €
+10386;New Orleans Cajun Delights;18-12-1996;01-01-1997;25-12-1996;Federal Shipping;13.99 €
+10387;Grandma Kelly's Homestead;18-12-1996;15-01-1997;20-12-1996;United Package;93.63 €
+10388;Tokyo Traders;19-12-1996;16-01-1997;20-12-1996;Speedy Express;34.86 €
+10389;Cooperativa de Quesos 'Las Cabras';20-12-1996;17-01-1997;24-12-1996;United Package;47.42 €
+10390;Mayumi's;23-12-1996;20-01-1997;26-12-1996;Speedy Express;126.38 €
+10391;Exotic Liquids;23-12-1996;20-01-1997;31-12-1996;Federal Shipping;5.45 €
+10392;New Orleans Cajun Delights;24-12-1996;21-01-1997;01-01-1997;Federal Shipping;122.46 €
+10393;Grandma Kelly's Homestead;25-12-1996;22-01-1997;03-01-1997;Federal Shipping;126.56 €
+10394;Tokyo Traders;25-12-1996;22-01-1997;03-01-1997;Federal Shipping;30.34 €
+10395;Cooperativa de Quesos 'Las Cabras';26-12-1996;23-01-1997;03-01-1997;Speedy Express;184.41 €
+10396;Mayumi's;27-12-1996;10-01-1997;06-01-1997;Federal Shipping;135.35 €
+10397;Exotic Liquids;27-12-1996;24-01-1997;02-01-1997;Speedy Express;60.26 €
+10398;Heli Süßwaren GmbH & Co. KG;30-12-1996;27-01-1997;09-01-1997;Federal Shipping;89.16 €
+10399;Plutzer Lebensmittelgroßmärkte AG;31-12-1996;14-01-1997;08-01-1997;Federal Shipping;27.36 €
+10400;Nord-Ost-Fisch Handelsgesellschaft mbH;01-01-1997;29-01-1997;16-01-1997;Federal Shipping;83.93 €
+10401;Zaanse Snoepfabriek;01-01-1997;29-01-1997;10-01-1997;Speedy Express;12.51 €
+10402;Karkki Oy;02-01-1997;13-02-1997;10-01-1997;United Package;67.88 €
+10403;G'day, Mate;03-01-1997;31-01-1997;09-01-1997;Federal Shipping;73.79 €
+10404;Ma Maison;03-01-1997;31-01-1997;08-01-1997;Speedy Express;155.97 €
+10405;Pasta Buttini s.r.l.;06-01-1997;03-02-1997;22-01-1997;Speedy Express;34.82 €
+10406;Escargots Nouveaux;07-01-1997;18-02-1997;13-01-1997;Speedy Express;108.04 €
+10407;Cooperativa de Quesos 'Las Cabras';07-01-1997;04-02-1997;30-01-1997;United Package;91.48 €
+10408;Mayumi's;08-01-1997;05-02-1997;14-01-1997;Speedy Express;11.26 €
+10409;Exotic Liquids;09-01-1997;06-02-1997;14-01-1997;Speedy Express;29.83 €
+10410;New Orleans Cajun Delights;10-01-1997;07-02-1997;15-01-1997;Federal Shipping;2.40 €
+10411;Grandma Kelly's Homestead;10-01-1997;07-02-1997;21-01-1997;Federal Shipping;23.65 €
+10412;Tokyo Traders;13-01-1997;10-02-1997;15-01-1997;United Package;3.77 €
+10413;Cooperativa de Quesos 'Las Cabras';14-01-1997;11-02-1997;16-01-1997;United Package;95.66 €
+10414;Heli Süßwaren GmbH & Co. KG;14-01-1997;11-02-1997;17-01-1997;Federal Shipping;21.48 €
+10415;Plutzer Lebensmittelgroßmärkte AG;15-01-1997;12-02-1997;24-01-1997;Speedy Express;0.20 €
+10416;Nord-Ost-Fisch Handelsgesellschaft mbH;16-01-1997;13-02-1997;27-01-1997;Federal Shipping;22.72 €
+10417;Formaggi Fortini s.r.l.;16-01-1997;13-02-1997;28-01-1997;Federal Shipping;70.29 €
+10418;Norske Meierier;17-01-1997;14-02-1997;24-01-1997;Speedy Express;17.55 €
+10419;Bigfoot Breweries;20-01-1997;17-02-1997;30-01-1997;United Package;137.35 €
+10420;Svensk Sjöföda AB;21-01-1997;18-02-1997;27-01-1997;Speedy Express;44.12 €
+10421;Aux joyeux ecclésiastiques;21-01-1997;04-03-1997;27-01-1997;Speedy Express;99.23 €
+10422;New Orleans Cajun Delights;22-01-1997;19-02-1997;31-01-1997;Speedy Express;3.02 €
+10423;Grandma Kelly's Homestead;23-01-1997;06-02-1997;24-02-1997;Federal Shipping;24.50 €
+10424;Tokyo Traders;23-01-1997;20-02-1997;27-01-1997;United Package;370.61 €
+10425;Cooperativa de Quesos 'Las Cabras';24-01-1997;21-02-1997;14-02-1997;United Package;7.93 €
+10426;Mayumi's;27-01-1997;24-02-1997;06-02-1997;Speedy Express;18.69 €
+10427;Exotic Liquids;27-01-1997;24-02-1997;03-03-1997;United Package;31.29 €
+10428;New Orleans Cajun Delights;28-01-1997;25-02-1997;04-02-1997;Speedy Express;11.09 €
+10429;Grandma Kelly's Homestead;29-01-1997;12-03-1997;07-02-1997;United Package;56.63 €
+10430;Tokyo Traders;30-01-1997;13-02-1997;03-02-1997;Speedy Express;458.78 €
+10431;Svensk Sjöföda AB;30-01-1997;13-02-1997;07-02-1997;United Package;44.17 €
+10432;Aux joyeux ecclésiastiques;31-01-1997;14-02-1997;07-02-1997;United Package;4.34 €
+10433;New England Seafood Cannery;03-02-1997;03-03-1997;04-03-1997;Federal Shipping;73.83 €
+10434;Leka Trading;03-02-1997;03-03-1997;13-02-1997;United Package;17.92 €
+10435;Lyngbysild;04-02-1997;18-03-1997;07-02-1997;United Package;9.21 €
+10436;Zaanse Snoepfabriek;05-02-1997;05-03-1997;11-02-1997;United Package;156.66 €
+10437;Karkki Oy;05-02-1997;05-03-1997;12-02-1997;Speedy Express;19.97 €
+10438;G'day, Mate;06-02-1997;06-03-1997;14-02-1997;United Package;8.24 €
+10439;Ma Maison;07-02-1997;07-03-1997;10-02-1997;Federal Shipping;4.07 €
+10440;New Orleans Cajun Delights;10-02-1997;10-03-1997;28-02-1997;United Package;86.53 €
+10441;Grandma Kelly's Homestead;10-02-1997;24-03-1997;14-03-1997;United Package;73.02 €
+10442;Tokyo Traders;11-02-1997;11-03-1997;18-02-1997;United Package;47.94 €
+10443;Cooperativa de Quesos 'Las Cabras';12-02-1997;12-03-1997;14-02-1997;Speedy Express;13.95 €
+10444;Mayumi's;12-02-1997;12-03-1997;21-02-1997;Federal Shipping;3.50 €
+10445;Exotic Liquids;13-02-1997;13-03-1997;20-02-1997;Speedy Express;9.30 €
+10446;Zaanse Snoepfabriek;14-02-1997;14-03-1997;19-02-1997;Speedy Express;14.68 €
+10447;Karkki Oy;14-02-1997;14-03-1997;07-03-1997;United Package;68.66 €
+10448;G'day, Mate;17-02-1997;17-03-1997;24-02-1997;United Package;38.82 €
+10449;Ma Maison;18-02-1997;18-03-1997;27-02-1997;United Package;53.30 €
+10450;Pasta Buttini s.r.l.;19-02-1997;19-03-1997;11-03-1997;United Package;7.23 €
+10451;Escargots Nouveaux;19-02-1997;05-03-1997;12-03-1997;Federal Shipping;189.09 €
+10452;Exotic Liquids;20-02-1997;20-03-1997;26-02-1997;Speedy Express;140.26 €
+10453;New Orleans Cajun Delights;21-02-1997;21-03-1997;26-02-1997;United Package;25.36 €
+10454;Grandma Kelly's Homestead;21-02-1997;21-03-1997;25-02-1997;Federal Shipping;2.74 €
+10455;Tokyo Traders;24-02-1997;07-04-1997;03-03-1997;United Package;180.45 €
+10456;Cooperativa de Quesos 'Las Cabras';25-02-1997;08-04-1997;28-02-1997;United Package;8.12 €
+10457;Mayumi's;25-02-1997;25-03-1997;03-03-1997;Speedy Express;11.57 €
+10458;Pavlova, Ltd.;26-02-1997;26-03-1997;04-03-1997;Federal Shipping;147.06 €
+10459;Specialty Biscuits, Ltd.;27-02-1997;27-03-1997;28-02-1997;United Package;25.09 €
+10460;PB Knäckebröd AB;28-02-1997;28-03-1997;03-03-1997;Speedy Express;16.27 €
+10461;Refrescos Americanas LTDA;28-02-1997;28-03-1997;05-03-1997;Federal Shipping;148.61 €
+10462;Heli Süßwaren GmbH & Co. KG;03-03-1997;31-03-1997;18-03-1997;Speedy Express;6.17 €
+10463;Plutzer Lebensmittelgroßmärkte AG;04-03-1997;01-04-1997;06-03-1997;Federal Shipping;14.78 €
+10464;Nord-Ost-Fisch Handelsgesellschaft mbH;04-03-1997;01-04-1997;14-03-1997;United Package;89.00 €
+10465;Formaggi Fortini s.r.l.;05-03-1997;02-04-1997;14-03-1997;Federal Shipping;145.04 €
+10466;Norske Meierier;06-03-1997;03-04-1997;13-03-1997;Speedy Express;11.93 €
+10467;Bigfoot Breweries;06-03-1997;03-04-1997;11-03-1997;United Package;4.93 €
+10468;Svensk Sjöföda AB;07-03-1997;04-04-1997;12-03-1997;Federal Shipping;44.12 €
+10469;Aux joyeux ecclésiastiques;10-03-1997;07-04-1997;14-03-1997;Speedy Express;60.18 €
+10470;New England Seafood Cannery;11-03-1997;08-04-1997;14-03-1997;United Package;64.56 €
+10471;Leka Trading;11-03-1997;08-04-1997;18-03-1997;Federal Shipping;45.59 €
+10472;Lyngbysild;12-03-1997;09-04-1997;19-03-1997;Speedy Express;4.20 €
+10473;Zaanse Snoepfabriek;13-03-1997;27-03-1997;21-03-1997;Federal Shipping;16.37 €
+10474;Karkki Oy;13-03-1997;10-04-1997;21-03-1997;United Package;83.49 €
+10475;G'day, Mate;14-03-1997;11-04-1997;04-04-1997;Speedy Express;68.52 €
+10476;Ma Maison;17-03-1997;14-04-1997;24-03-1997;Federal Shipping;4.41 €
+10477;Pasta Buttini s.r.l.;17-03-1997;14-04-1997;25-03-1997;United Package;13.02 €
+10478;Escargots Nouveaux;18-03-1997;01-04-1997;26-03-1997;Federal Shipping;4.81 €
+10479;Gai pâturage;19-03-1997;16-04-1997;21-03-1997;Federal Shipping;708.95 €
+10480;Forêts d'érables;20-03-1997;17-04-1997;24-03-1997;United Package;1.35 €
+10481;Exotic Liquids;20-03-1997;17-04-1997;25-03-1997;United Package;64.33 €
+10482;New Orleans Cajun Delights;21-03-1997;18-04-1997;10-04-1997;Federal Shipping;7.48 €
+10483;Grandma Kelly's Homestead;24-03-1997;21-04-1997;25-04-1997;United Package;15.28 €
+10484;Tokyo Traders;24-03-1997;21-04-1997;01-04-1997;Federal Shipping;6.88 €
+10485;Cooperativa de Quesos 'Las Cabras';25-03-1997;08-04-1997;31-03-1997;United Package;64.45 €
+10486;Mayumi's;26-03-1997;23-04-1997;02-04-1997;United Package;30.53 €
+10487;Exotic Liquids;26-03-1997;23-04-1997;28-03-1997;United Package;71.07 €
+10488;New Orleans Cajun Delights;27-03-1997;24-04-1997;02-04-1997;United Package;4.93 €
+10489;Grandma Kelly's Homestead;28-03-1997;25-04-1997;09-04-1997;United Package;5.29 €
+10490;Tokyo Traders;31-03-1997;28-04-1997;03-04-1997;United Package;210.19 €
+10491;Cooperativa de Quesos 'Las Cabras';31-03-1997;28-04-1997;08-04-1997;Federal Shipping;16.96 €
+10492;Mayumi's;01-04-1997;29-04-1997;11-04-1997;Speedy Express;62.89 €
+10493;Exotic Liquids;02-04-1997;30-04-1997;10-04-1997;Federal Shipping;10.64 €
+10494;New Orleans Cajun Delights;02-04-1997;30-04-1997;09-04-1997;United Package;65.99 €
+10495;Grandma Kelly's Homestead;03-04-1997;01-05-1997;11-04-1997;Federal Shipping;4.65 €
+10496;Tokyo Traders;04-04-1997;02-05-1997;07-04-1997;United Package;46.77 €
+10497;Cooperativa de Quesos 'Las Cabras';04-04-1997;02-05-1997;07-04-1997;Speedy Express;36.21 €
+10498;Mayumi's;07-04-1997;05-05-1997;11-04-1997;United Package;29.75 €
+10499;Exotic Liquids;08-04-1997;06-05-1997;16-04-1997;United Package;102.02 €
+10500;Heli Süßwaren GmbH & Co. KG;09-04-1997;07-05-1997;17-04-1997;Speedy Express;42.68 €
+10501;Plutzer Lebensmittelgroßmärkte AG;09-04-1997;07-05-1997;16-04-1997;Federal Shipping;8.85 €
+10502;Nord-Ost-Fisch Handelsgesellschaft mbH;10-04-1997;08-05-1997;29-04-1997;Speedy Express;69.32 €
+10503;Zaanse Snoepfabriek;11-04-1997;09-05-1997;16-04-1997;United Package;16.74 €
+10504;Karkki Oy;11-04-1997;09-05-1997;18-04-1997;Federal Shipping;59.13 €
+10505;G'day, Mate;14-04-1997;12-05-1997;21-04-1997;Federal Shipping;7.13 €
+10506;Ma Maison;15-04-1997;13-05-1997;02-05-1997;United Package;21.19 €
+10507;Pasta Buttini s.r.l.;15-04-1997;13-05-1997;22-04-1997;Speedy Express;47.45 €
+10508;Escargots Nouveaux;16-04-1997;14-05-1997;13-05-1997;United Package;4.99 €
+10509;Cooperativa de Quesos 'Las Cabras';17-04-1997;15-05-1997;29-04-1997;Speedy Express;0.15 €
+10510;Mayumi's;18-04-1997;16-05-1997;28-04-1997;Federal Shipping;367.63 €
+10511;Exotic Liquids;18-04-1997;16-05-1997;21-04-1997;Federal Shipping;350.64 €
+10512;New Orleans Cajun Delights;21-04-1997;19-05-1997;24-04-1997;United Package;3.53 €
+10513;Grandma Kelly's Homestead;22-04-1997;03-06-1997;28-04-1997;Speedy Express;105.65 €
+10514;Tokyo Traders;22-04-1997;20-05-1997;16-05-1997;United Package;789.95 €
+10515;Cooperativa de Quesos 'Las Cabras';23-04-1997;07-05-1997;23-05-1997;Speedy Express;204.47 €
+10516;Heli Süßwaren GmbH & Co. KG;24-04-1997;22-05-1997;01-05-1997;Federal Shipping;62.78 €
+10517;Plutzer Lebensmittelgroßmärkte AG;24-04-1997;22-05-1997;29-04-1997;Federal Shipping;32.07 €
+10518;Nord-Ost-Fisch Handelsgesellschaft mbH;25-04-1997;09-05-1997;05-05-1997;United Package;218.15 €
+10519;Formaggi Fortini s.r.l.;28-04-1997;26-05-1997;01-05-1997;Federal Shipping;91.76 €
+10520;Norske Meierier;29-04-1997;27-05-1997;01-05-1997;Speedy Express;13.37 €
+10521;Bigfoot Breweries;29-04-1997;27-05-1997;02-05-1997;United Package;17.22 €
+10522;Svensk Sjöföda AB;30-04-1997;28-05-1997;06-05-1997;Speedy Express;45.33 €
+10523;Aux joyeux ecclésiastiques;01-05-1997;29-05-1997;30-05-1997;United Package;77.63 €
+10524;New Orleans Cajun Delights;01-05-1997;29-05-1997;07-05-1997;United Package;244.79 €
+10525;Grandma Kelly's Homestead;02-05-1997;30-05-1997;23-05-1997;United Package;11.06 €
+10526;Tokyo Traders;05-05-1997;02-06-1997;15-05-1997;United Package;58.59 €
+10527;Cooperativa de Quesos 'Las Cabras';05-05-1997;02-06-1997;07-05-1997;Speedy Express;41.90 €
+10528;Mayumi's;06-05-1997;20-05-1997;09-05-1997;United Package;3.35 €
+10529;Exotic Liquids;07-05-1997;04-06-1997;09-05-1997;United Package;66.69 €
+10530;New Orleans Cajun Delights;08-05-1997;05-06-1997;12-05-1997;United Package;339.22 €
+10531;Grandma Kelly's Homestead;08-05-1997;05-06-1997;19-05-1997;Speedy Express;8.12 €
+10532;Tokyo Traders;09-05-1997;06-06-1997;12-05-1997;Federal Shipping;74.46 €
+10533;Svensk Sjöföda AB;12-05-1997;09-06-1997;22-05-1997;Speedy Express;188.04 €
+10534;Aux joyeux ecclésiastiques;12-05-1997;09-06-1997;14-05-1997;United Package;27.94 €
+10535;New England Seafood Cannery;13-05-1997;10-06-1997;21-05-1997;Speedy Express;15.64 €
+10536;Leka Trading;14-05-1997;11-06-1997;06-06-1997;United Package;58.88 €
+10537;Lyngbysild;14-05-1997;28-05-1997;19-05-1997;Speedy Express;78.85 €
+10538;Zaanse Snoepfabriek;15-05-1997;12-06-1997;16-05-1997;Federal Shipping;4.87 €
+10539;Karkki Oy;16-05-1997;13-06-1997;23-05-1997;Federal Shipping;12.36 €
+10540;G'day, Mate;19-05-1997;16-06-1997;13-06-1997;Federal Shipping;1,007.64 €
+10541;Ma Maison;19-05-1997;16-06-1997;29-05-1997;Speedy Express;68.65 €
+10542;New Orleans Cajun Delights;20-05-1997;17-06-1997;26-05-1997;Federal Shipping;10.95 €
+10543;Grandma Kelly's Homestead;21-05-1997;18-06-1997;23-05-1997;United Package;48.17 €
+10544;Tokyo Traders;21-05-1997;18-06-1997;30-05-1997;Speedy Express;24.91 €
+10545;Cooperativa de Quesos 'Las Cabras';22-05-1997;19-06-1997;26-06-1997;United Package;11.92 €
+10546;Mayumi's;23-05-1997;20-06-1997;27-05-1997;Federal Shipping;194.72 €
+10547;Exotic Liquids;23-05-1997;20-06-1997;02-06-1997;United Package;178.43 €
+10548;Zaanse Snoepfabriek;26-05-1997;23-06-1997;02-06-1997;United Package;1.43 €
+10549;Karkki Oy;27-05-1997;10-06-1997;30-05-1997;Speedy Express;171.24 €
+10550;G'day, Mate;28-05-1997;25-06-1997;06-06-1997;Federal Shipping;4.32 €
+10551;Ma Maison;28-05-1997;09-07-1997;06-06-1997;Federal Shipping;72.95 €
+10552;Pasta Buttini s.r.l.;29-05-1997;26-06-1997;05-06-1997;Speedy Express;83.22 €
+10553;Escargots Nouveaux;30-05-1997;27-06-1997;03-06-1997;United Package;149.49 €
+10554;Exotic Liquids;30-05-1997;27-06-1997;05-06-1997;Federal Shipping;120.97 €
+10555;New Orleans Cajun Delights;02-06-1997;30-06-1997;04-06-1997;Federal Shipping;252.49 €
+10556;Grandma Kelly's Homestead;03-06-1997;15-07-1997;13-06-1997;Speedy Express;9.80 €
+10557;Tokyo Traders;03-06-1997;17-06-1997;06-06-1997;United Package;96.72 €
+10558;Cooperativa de Quesos 'Las Cabras';04-06-1997;02-07-1997;10-06-1997;United Package;72.97 €
+10559;Mayumi's;05-06-1997;03-07-1997;13-06-1997;Speedy Express;8.05 €
+10560;Pavlova, Ltd.;06-06-1997;04-07-1997;09-06-1997;Speedy Express;36.65 €
+10561;Specialty Biscuits, Ltd.;06-06-1997;04-07-1997;09-06-1997;United Package;242.21 €
+10562;PB Knäckebröd AB;09-06-1997;07-07-1997;12-06-1997;Speedy Express;22.95 €
+10563;Refrescos Americanas LTDA;10-06-1997;22-07-1997;24-06-1997;United Package;60.43 €
+10564;Heli Süßwaren GmbH & Co. KG;10-06-1997;08-07-1997;16-06-1997;Federal Shipping;13.75 €
+10565;Plutzer Lebensmittelgroßmärkte AG;11-06-1997;09-07-1997;18-06-1997;United Package;7.15 €
+10566;Nord-Ost-Fisch Handelsgesellschaft mbH;12-06-1997;10-07-1997;18-06-1997;Speedy Express;88.40 €
+10567;Formaggi Fortini s.r.l.;12-06-1997;10-07-1997;17-06-1997;Speedy Express;33.97 €
+10568;Norske Meierier;13-06-1997;11-07-1997;09-07-1997;Federal Shipping;6.54 €
+10569;Bigfoot Breweries;16-06-1997;14-07-1997;11-07-1997;Speedy Express;58.98 €
+10570;Svensk Sjöföda AB;17-06-1997;15-07-1997;19-06-1997;Federal Shipping;188.99 €
+10571;Aux joyeux ecclésiastiques;17-06-1997;29-07-1997;04-07-1997;Federal Shipping;26.06 €
+10572;New England Seafood Cannery;18-06-1997;16-07-1997;25-06-1997;United Package;116.43 €
+10573;Leka Trading;19-06-1997;17-07-1997;20-06-1997;Federal Shipping;84.84 €
+10574;Lyngbysild;19-06-1997;17-07-1997;30-06-1997;United Package;37.60 €
+10575;Zaanse Snoepfabriek;20-06-1997;04-07-1997;30-06-1997;Speedy Express;127.34 €
+10576;Karkki Oy;23-06-1997;07-07-1997;30-06-1997;Federal Shipping;18.56 €
+10577;G'day, Mate;23-06-1997;04-08-1997;30-06-1997;United Package;25.41 €
+10578;Ma Maison;24-06-1997;22-07-1997;25-07-1997;Federal Shipping;29.60 €
+10579;Pasta Buttini s.r.l.;25-06-1997;23-07-1997;04-07-1997;United Package;13.73 €
+10580;Escargots Nouveaux;26-06-1997;24-07-1997;01-07-1997;Federal Shipping;75.89 €
+10581;Gai pâturage;26-06-1997;24-07-1997;02-07-1997;Speedy Express;3.01 €
+10582;Forêts d'érables;27-06-1997;25-07-1997;14-07-1997;United Package;27.71 €
+10583;Exotic Liquids;30-06-1997;28-07-1997;04-07-1997;United Package;7.28 €
+10584;New Orleans Cajun Delights;30-06-1997;28-07-1997;04-07-1997;Speedy Express;59.14 €
+10585;Grandma Kelly's Homestead;01-07-1997;29-07-1997;10-07-1997;Speedy Express;13.41 €
+10586;Tokyo Traders;02-07-1997;30-07-1997;09-07-1997;Speedy Express;0.48 €
+10587;Cooperativa de Quesos 'Las Cabras';02-07-1997;30-07-1997;09-07-1997;Speedy Express;62.52 €
+10588;Mayumi's;03-07-1997;31-07-1997;10-07-1997;Federal Shipping;194.67 €
+10589;Exotic Liquids;04-07-1997;01-08-1997;14-07-1997;United Package;4.42 €
+10590;New Orleans Cajun Delights;07-07-1997;04-08-1997;14-07-1997;Federal Shipping;44.77 €
+10591;Grandma Kelly's Homestead;07-07-1997;21-07-1997;16-07-1997;Speedy Express;55.92 €
+10592;Tokyo Traders;08-07-1997;05-08-1997;16-07-1997;Speedy Express;32.10 €
+10593;Cooperativa de Quesos 'Las Cabras';09-07-1997;06-08-1997;13-08-1997;United Package;174.20 €
+10594;Mayumi's;09-07-1997;06-08-1997;16-07-1997;United Package;5.24 €
+10595;Exotic Liquids;10-07-1997;07-08-1997;14-07-1997;Speedy Express;96.78 €
+10596;New Orleans Cajun Delights;11-07-1997;08-08-1997;12-08-1997;Speedy Express;16.34 €
+10597;Grandma Kelly's Homestead;11-07-1997;08-08-1997;18-07-1997;Federal Shipping;35.12 €
+10598;Tokyo Traders;14-07-1997;11-08-1997;18-07-1997;Federal Shipping;44.42 €
+10599;Cooperativa de Quesos 'Las Cabras';15-07-1997;26-08-1997;21-07-1997;Federal Shipping;29.98 €
+10600;Mayumi's;16-07-1997;13-08-1997;21-07-1997;Speedy Express;45.13 €
+10601;Exotic Liquids;16-07-1997;27-08-1997;22-07-1997;Speedy Express;58.30 €
+10602;Heli Süßwaren GmbH & Co. KG;17-07-1997;14-08-1997;22-07-1997;United Package;2.92 €
+10603;Plutzer Lebensmittelgroßmärkte AG;18-07-1997;15-08-1997;08-08-1997;United Package;48.77 €
+10604;Nord-Ost-Fisch Handelsgesellschaft mbH;18-07-1997;15-08-1997;29-07-1997;Speedy Express;7.46 €
+10605;Zaanse Snoepfabriek;21-07-1997;18-08-1997;29-07-1997;United Package;379.13 €
+10606;Karkki Oy;22-07-1997;19-08-1997;31-07-1997;Federal Shipping;79.40 €
+10607;G'day, Mate;22-07-1997;19-08-1997;25-07-1997;Speedy Express;200.24 €
+10608;Ma Maison;23-07-1997;20-08-1997;01-08-1997;United Package;27.79 €
+10609;Pasta Buttini s.r.l.;24-07-1997;21-08-1997;30-07-1997;United Package;1.85 €
+10610;Escargots Nouveaux;25-07-1997;22-08-1997;06-08-1997;Speedy Express;26.78 €
+10611;Cooperativa de Quesos 'Las Cabras';25-07-1997;22-08-1997;01-08-1997;United Package;80.65 €
+10612;Mayumi's;28-07-1997;25-08-1997;01-08-1997;United Package;544.08 €
+10613;Exotic Liquids;29-07-1997;26-08-1997;01-08-1997;United Package;8.11 €
+10614;New Orleans Cajun Delights;29-07-1997;26-08-1997;01-08-1997;Federal Shipping;1.93 €
+10615;Grandma Kelly's Homestead;30-07-1997;27-08-1997;06-08-1997;Federal Shipping;0.75 €
+10616;Tokyo Traders;31-07-1997;28-08-1997;05-08-1997;United Package;116.53 €
+10617;Cooperativa de Quesos 'Las Cabras';31-07-1997;28-08-1997;04-08-1997;United Package;18.53 €
+10618;Heli Süßwaren GmbH & Co. KG;01-08-1997;12-09-1997;08-08-1997;Speedy Express;154.68 €
+10619;Plutzer Lebensmittelgroßmärkte AG;04-08-1997;01-09-1997;07-08-1997;Federal Shipping;91.05 €
+10620;Nord-Ost-Fisch Handelsgesellschaft mbH;05-08-1997;02-09-1997;14-08-1997;Federal Shipping;0.94 €
+10621;Formaggi Fortini s.r.l.;05-08-1997;02-09-1997;11-08-1997;United Package;23.73 €
+10622;Norske Meierier;06-08-1997;03-09-1997;11-08-1997;Federal Shipping;50.97 €
+10623;Bigfoot Breweries;07-08-1997;04-09-1997;12-08-1997;United Package;97.18 €
+10624;Svensk Sjöföda AB;07-08-1997;04-09-1997;19-08-1997;United Package;94.80 €
+10625;Aux joyeux ecclésiastiques;08-08-1997;05-09-1997;14-08-1997;Speedy Express;43.90 €
+10626;New Orleans Cajun Delights;11-08-1997;08-09-1997;20-08-1997;United Package;138.69 €
+10627;Grandma Kelly's Homestead;11-08-1997;22-09-1997;21-08-1997;Federal Shipping;107.46 €
+10628;Tokyo Traders;12-08-1997;09-09-1997;20-08-1997;Federal Shipping;30.36 €
+10629;Cooperativa de Quesos 'Las Cabras';12-08-1997;09-09-1997;20-08-1997;Federal Shipping;85.46 €
+10630;Mayumi's;13-08-1997;10-09-1997;19-08-1997;United Package;32.35 €
+10631;Exotic Liquids;14-08-1997;11-09-1997;15-08-1997;Speedy Express;0.87 €
+10632;New Orleans Cajun Delights;14-08-1997;11-09-1997;19-08-1997;Speedy Express;41.38 €
+10633;Grandma Kelly's Homestead;15-08-1997;12-09-1997;18-08-1997;Federal Shipping;477.90 €
+10634;Tokyo Traders;15-08-1997;12-09-1997;21-08-1997;Federal Shipping;487.38 €
+10635;Svensk Sjöföda AB;18-08-1997;15-09-1997;21-08-1997;Federal Shipping;47.46 €
+10636;Aux joyeux ecclésiastiques;19-08-1997;16-09-1997;26-08-1997;Speedy Express;1.15 €
+10637;New England Seafood Cannery;19-08-1997;16-09-1997;26-08-1997;Speedy Express;201.29 €
+10638;Leka Trading;20-08-1997;17-09-1997;01-09-1997;Speedy Express;158.44 €
+10639;Lyngbysild;20-08-1997;17-09-1997;27-08-1997;Federal Shipping;38.64 €
+10640;Zaanse Snoepfabriek;21-08-1997;18-09-1997;28-08-1997;Speedy Express;23.55 €
+10641;Karkki Oy;22-08-1997;19-09-1997;26-08-1997;United Package;179.61 €
+10642;G'day, Mate;22-08-1997;19-09-1997;05-09-1997;Federal Shipping;41.89 €
+10643;Ma Maison;25-08-1997;22-09-1997;02-09-1997;United Package;29.46 €
+10644;New Orleans Cajun Delights;25-08-1997;22-09-1997;01-09-1997;United Package;0.14 €
+10645;Grandma Kelly's Homestead;26-08-1997;23-09-1997;02-09-1997;Speedy Express;12.41 €
+10646;Tokyo Traders;27-08-1997;08-10-1997;03-09-1997;Federal Shipping;142.33 €
+10647;Cooperativa de Quesos 'Las Cabras';27-08-1997;10-09-1997;03-09-1997;United Package;45.54 €
+10648;Mayumi's;28-08-1997;09-10-1997;09-09-1997;United Package;14.25 €
+10649;Exotic Liquids;28-08-1997;25-09-1997;29-08-1997;Federal Shipping;6.20 €
+10650;Zaanse Snoepfabriek;29-08-1997;26-09-1997;03-09-1997;Federal Shipping;176.81 €
+10651;Karkki Oy;01-09-1997;29-09-1997;11-09-1997;United Package;20.60 €
+10652;G'day, Mate;01-09-1997;29-09-1997;08-09-1997;United Package;7.14 €
+10653;Ma Maison;02-09-1997;30-09-1997;19-09-1997;Speedy Express;93.25 €
+10654;Pasta Buttini s.r.l.;02-09-1997;30-09-1997;11-09-1997;Speedy Express;55.26 €
+10655;Escargots Nouveaux;03-09-1997;01-10-1997;11-09-1997;United Package;4.41 €
+10656;Exotic Liquids;04-09-1997;02-10-1997;10-09-1997;Speedy Express;57.15 €
+10657;New Orleans Cajun Delights;04-09-1997;02-10-1997;15-09-1997;United Package;352.69 €
+10658;Grandma Kelly's Homestead;05-09-1997;03-10-1997;08-09-1997;Speedy Express;364.15 €
+10659;Tokyo Traders;05-09-1997;03-10-1997;10-09-1997;United Package;105.81 €
+10660;Cooperativa de Quesos 'Las Cabras';08-09-1997;06-10-1997;15-10-1997;Speedy Express;111.29 €
+10661;Mayumi's;09-09-1997;07-10-1997;15-09-1997;Federal Shipping;17.55 €
+10662;Pavlova, Ltd.;09-09-1997;07-10-1997;18-09-1997;United Package;1.28 €
+10663;Specialty Biscuits, Ltd.;10-09-1997;24-09-1997;03-10-1997;United Package;113.15 €
+10664;PB Knäckebröd AB;10-09-1997;08-10-1997;19-09-1997;Federal Shipping;1.27 €
+10665;Refrescos Americanas LTDA;11-09-1997;09-10-1997;17-09-1997;United Package;26.31 €
+10666;Heli Süßwaren GmbH & Co. KG;12-09-1997;10-10-1997;22-09-1997;United Package;232.42 €
+10667;Plutzer Lebensmittelgroßmärkte AG;12-09-1997;10-10-1997;19-09-1997;Speedy Express;78.09 €
+10668;Nord-Ost-Fisch Handelsgesellschaft mbH;15-09-1997;13-10-1997;23-09-1997;United Package;47.22 €
+10669;Formaggi Fortini s.r.l.;15-09-1997;13-10-1997;22-09-1997;Speedy Express;24.39 €
+10670;Norske Meierier;16-09-1997;14-10-1997;18-09-1997;Speedy Express;203.48 €
+10671;Bigfoot Breweries;17-09-1997;15-10-1997;24-09-1997;Speedy Express;30.34 €
+10672;Svensk Sjöföda AB;17-09-1997;01-10-1997;26-09-1997;United Package;95.75 €
+10673;Aux joyeux ecclésiastiques;18-09-1997;16-10-1997;19-09-1997;Speedy Express;22.76 €
+10674;New England Seafood Cannery;18-09-1997;16-10-1997;30-09-1997;United Package;0.90 €
+10675;Leka Trading;19-09-1997;17-10-1997;23-09-1997;United Package;31.85 €
+10676;Lyngbysild;22-09-1997;20-10-1997;29-09-1997;United Package;2.01 €
+10677;Zaanse Snoepfabriek;22-09-1997;20-10-1997;26-09-1997;Federal Shipping;4.03 €
+10678;Karkki Oy;23-09-1997;21-10-1997;16-10-1997;Federal Shipping;388.98 €
+10679;G'day, Mate;23-09-1997;21-10-1997;30-09-1997;Federal Shipping;27.94 €
+10680;Ma Maison;24-09-1997;22-10-1997;26-09-1997;Speedy Express;26.61 €
+10681;Pasta Buttini s.r.l.;25-09-1997;23-10-1997;30-09-1997;Federal Shipping;76.13 €
+10682;Escargots Nouveaux;25-09-1997;23-10-1997;01-10-1997;United Package;36.13 €
+10683;Gai pâturage;26-09-1997;24-10-1997;01-10-1997;Speedy Express;4.40 €
+10684;Forêts d'érables;26-09-1997;24-10-1997;30-09-1997;Speedy Express;145.63 €
+10685;Exotic Liquids;29-09-1997;13-10-1997;03-10-1997;United Package;33.75 €
+10686;New Orleans Cajun Delights;30-09-1997;28-10-1997;08-10-1997;Speedy Express;96.50 €
+10687;Grandma Kelly's Homestead;30-09-1997;28-10-1997;30-10-1997;United Package;296.43 €
+10688;Tokyo Traders;01-10-1997;15-10-1997;07-10-1997;United Package;299.09 €
+10689;Cooperativa de Quesos 'Las Cabras';01-10-1997;29-10-1997;07-10-1997;United Package;13.42 €
+10690;Mayumi's;02-10-1997;30-10-1997;03-10-1997;Speedy Express;15.80 €
+10691;Exotic Liquids;03-10-1997;14-11-1997;22-10-1997;United Package;810.05 €
+10692;New Orleans Cajun Delights;03-10-1997;31-10-1997;13-10-1997;United Package;61.02 €
+10693;Grandma Kelly's Homestead;06-10-1997;20-10-1997;10-10-1997;Federal Shipping;139.34 €
+10694;Tokyo Traders;06-10-1997;03-11-1997;09-10-1997;Federal Shipping;398.36 €
+10695;Cooperativa de Quesos 'Las Cabras';07-10-1997;18-11-1997;14-10-1997;Speedy Express;16.72 €
+10696;Mayumi's;08-10-1997;19-11-1997;14-10-1997;Federal Shipping;102.55 €
+10697;Exotic Liquids;08-10-1997;05-11-1997;14-10-1997;Speedy Express;45.52 €
+10698;New Orleans Cajun Delights;09-10-1997;06-11-1997;17-10-1997;Speedy Express;272.47 €
+10699;Grandma Kelly's Homestead;09-10-1997;06-11-1997;13-10-1997;Federal Shipping;0.58 €
+10700;Tokyo Traders;10-10-1997;07-11-1997;16-10-1997;Speedy Express;65.10 €
+10701;Cooperativa de Quesos 'Las Cabras';13-10-1997;27-10-1997;15-10-1997;Federal Shipping;220.31 €
+10702;Mayumi's;13-10-1997;24-11-1997;21-10-1997;Speedy Express;23.94 €
+10703;Exotic Liquids;14-10-1997;11-11-1997;20-10-1997;United Package;152.30 €
+10704;Heli Süßwaren GmbH & Co. KG;14-10-1997;11-11-1997;07-11-1997;Speedy Express;4.78 €
+10705;Plutzer Lebensmittelgroßmärkte AG;15-10-1997;12-11-1997;18-11-1997;United Package;3.52 €
+10706;Nord-Ost-Fisch Handelsgesellschaft mbH;16-10-1997;13-11-1997;21-10-1997;Federal Shipping;135.63 €
+10707;Zaanse Snoepfabriek;16-10-1997;30-10-1997;23-10-1997;Federal Shipping;21.74 €
+10708;Karkki Oy;17-10-1997;28-11-1997;05-11-1997;United Package;2.96 €
+10709;G'day, Mate;17-10-1997;14-11-1997;20-11-1997;Federal Shipping;210.80 €
+10710;Ma Maison;20-10-1997;17-11-1997;23-10-1997;Speedy Express;4.98 €
+10711;Pasta Buttini s.r.l.;21-10-1997;02-12-1997;29-10-1997;United Package;52.41 €
+10712;Escargots Nouveaux;21-10-1997;18-11-1997;31-10-1997;Speedy Express;89.93 €
+10713;Cooperativa de Quesos 'Las Cabras';22-10-1997;19-11-1997;24-10-1997;Speedy Express;167.05 €
+10714;Mayumi's;22-10-1997;19-11-1997;27-10-1997;Federal Shipping;24.49 €
+10715;Exotic Liquids;23-10-1997;06-11-1997;29-10-1997;Speedy Express;63.20 €
+10716;New Orleans Cajun Delights;24-10-1997;21-11-1997;27-10-1997;United Package;22.57 €
+10717;Grandma Kelly's Homestead;24-10-1997;21-11-1997;29-10-1997;United Package;59.25 €
+10718;Tokyo Traders;27-10-1997;24-11-1997;29-10-1997;Federal Shipping;170.88 €
+10719;Cooperativa de Quesos 'Las Cabras';27-10-1997;24-11-1997;05-11-1997;United Package;51.44 €
+10720;Heli Süßwaren GmbH & Co. KG;28-10-1997;11-11-1997;05-11-1997;United Package;9.53 €
+10721;Plutzer Lebensmittelgroßmärkte AG;29-10-1997;26-11-1997;31-10-1997;Federal Shipping;48.92 €
+10722;Nord-Ost-Fisch Handelsgesellschaft mbH;29-10-1997;10-12-1997;04-11-1997;Speedy Express;74.58 €
+10723;Formaggi Fortini s.r.l.;30-10-1997;27-11-1997;25-11-1997;Speedy Express;21.72 €
+10724;Norske Meierier;30-10-1997;11-12-1997;05-11-1997;United Package;57.75 €
+10725;Bigfoot Breweries;31-10-1997;28-11-1997;05-11-1997;Federal Shipping;10.83 €
+10726;Svensk Sjöföda AB;03-11-1997;17-11-1997;05-12-1997;Speedy Express;16.56 €
+10727;Aux joyeux ecclésiastiques;03-11-1997;01-12-1997;05-12-1997;Speedy Express;89.90 €
+10728;New Orleans Cajun Delights;04-11-1997;02-12-1997;11-11-1997;United Package;58.33 €
+10729;Grandma Kelly's Homestead;04-11-1997;16-12-1997;14-11-1997;Federal Shipping;141.06 €
+10730;Tokyo Traders;05-11-1997;03-12-1997;14-11-1997;Speedy Express;20.12 €
+10731;Cooperativa de Quesos 'Las Cabras';06-11-1997;04-12-1997;14-11-1997;Speedy Express;96.65 €
+10732;Mayumi's;06-11-1997;04-12-1997;07-11-1997;Speedy Express;16.97 €
+10733;Exotic Liquids;07-11-1997;05-12-1997;10-11-1997;Federal Shipping;110.11 €
+10734;New Orleans Cajun Delights;07-11-1997;05-12-1997;12-11-1997;Federal Shipping;1.63 €
+10735;Grandma Kelly's Homestead;10-11-1997;08-12-1997;21-11-1997;United Package;45.97 €
+10736;Tokyo Traders;11-11-1997;09-12-1997;21-11-1997;United Package;44.10 €
+10737;Svensk Sjöföda AB;11-11-1997;09-12-1997;18-11-1997;United Package;7.79 €
+10738;Aux joyeux ecclésiastiques;12-11-1997;10-12-1997;18-11-1997;Speedy Express;2.91 €
+10739;New England Seafood Cannery;12-11-1997;10-12-1997;17-11-1997;Federal Shipping;11.08 €
+10740;Leka Trading;13-11-1997;11-12-1997;25-11-1997;United Package;81.88 €
+10741;Lyngbysild;14-11-1997;28-11-1997;18-11-1997;Federal Shipping;10.96 €
+10742;Zaanse Snoepfabriek;14-11-1997;12-12-1997;18-11-1997;Federal Shipping;243.73 €
+10743;Karkki Oy;17-11-1997;15-12-1997;21-11-1997;United Package;23.72 €
+10744;G'day, Mate;17-11-1997;15-12-1997;24-11-1997;Speedy Express;69.19 €
+10745;Ma Maison;18-11-1997;16-12-1997;27-11-1997;Speedy Express;3.52 €
+10746;New Orleans Cajun Delights;19-11-1997;17-12-1997;21-11-1997;Federal Shipping;31.43 €
+10747;Grandma Kelly's Homestead;19-11-1997;17-12-1997;26-11-1997;Speedy Express;117.33 €
+10748;Tokyo Traders;20-11-1997;18-12-1997;28-11-1997;Speedy Express;232.55 €
+10749;Cooperativa de Quesos 'Las Cabras';20-11-1997;18-12-1997;19-12-1997;United Package;61.53 €
+10750;Mayumi's;21-11-1997;19-12-1997;24-11-1997;Speedy Express;79.30 €
+10751;Exotic Liquids;24-11-1997;22-12-1997;03-12-1997;Federal Shipping;130.79 €
+10752;Zaanse Snoepfabriek;24-11-1997;22-12-1997;28-11-1997;Federal Shipping;1.39 €
+10753;Karkki Oy;25-11-1997;23-12-1997;27-11-1997;Speedy Express;7.70 €
+10754;G'day, Mate;25-11-1997;23-12-1997;27-11-1997;Federal Shipping;2.38 €
+10755;Ma Maison;26-11-1997;24-12-1997;28-11-1997;United Package;16.71 €
+10756;Pasta Buttini s.r.l.;27-11-1997;25-12-1997;02-12-1997;United Package;73.21 €
+10757;Escargots Nouveaux;27-11-1997;25-12-1997;15-12-1997;Speedy Express;8.19 €
+10758;Exotic Liquids;28-11-1997;26-12-1997;04-12-1997;Federal Shipping;138.17 €
+10759;New Orleans Cajun Delights;28-11-1997;26-12-1997;12-12-1997;Federal Shipping;11.99 €
+10760;Grandma Kelly's Homestead;01-12-1997;29-12-1997;10-12-1997;Speedy Express;155.64 €
+10761;Tokyo Traders;02-12-1997;30-12-1997;08-12-1997;United Package;18.66 €
+10762;Cooperativa de Quesos 'Las Cabras';02-12-1997;30-12-1997;09-12-1997;Speedy Express;328.74 €
+10763;Mayumi's;03-12-1997;31-12-1997;08-12-1997;Federal Shipping;37.35 €
+10764;Pavlova, Ltd.;03-12-1997;31-12-1997;08-12-1997;Federal Shipping;145.45 €
+10765;Specialty Biscuits, Ltd.;04-12-1997;01-01-1998;09-12-1997;Federal Shipping;42.74 €
+10766;PB Knäckebröd AB;05-12-1997;02-01-1998;09-12-1997;Speedy Express;157.55 €
+10767;Refrescos Americanas LTDA;05-12-1997;02-01-1998;15-12-1997;Federal Shipping;1.59 €
+10768;Heli Süßwaren GmbH & Co. KG;08-12-1997;05-01-1998;15-12-1997;United Package;146.32 €
+10769;Plutzer Lebensmittelgroßmärkte AG;08-12-1997;05-01-1998;12-12-1997;Speedy Express;65.06 €
+10770;Nord-Ost-Fisch Handelsgesellschaft mbH;09-12-1997;06-01-1998;17-12-1997;Federal Shipping;5.32 €
+10771;Formaggi Fortini s.r.l.;10-12-1997;07-01-1998;02-01-1998;United Package;11.19 €
+10772;Norske Meierier;10-12-1997;07-01-1998;19-12-1997;United Package;91.28 €
+10773;Bigfoot Breweries;11-12-1997;08-01-1998;16-12-1997;Federal Shipping;96.43 €
+10774;Svensk Sjöföda AB;11-12-1997;25-12-1997;12-12-1997;Speedy Express;48.20 €
+10775;Aux joyeux ecclésiastiques;12-12-1997;09-01-1998;26-12-1997;Speedy Express;20.25 €
+10776;New England Seafood Cannery;15-12-1997;12-01-1998;18-12-1997;Federal Shipping;351.53 €
+10777;Leka Trading;15-12-1997;29-12-1997;21-01-1998;United Package;3.01 €
+10778;Lyngbysild;16-12-1997;13-01-1998;24-12-1997;Speedy Express;6.79 €
+10779;Zaanse Snoepfabriek;16-12-1997;13-01-1998;14-01-1998;United Package;58.13 €
+10780;Karkki Oy;16-12-1997;30-12-1997;25-12-1997;Speedy Express;42.13 €
+10781;G'day, Mate;17-12-1997;14-01-1998;19-12-1997;Federal Shipping;73.16 €
+10782;Ma Maison;17-12-1997;14-01-1998;22-12-1997;Federal Shipping;1.10 €
+10783;Pasta Buttini s.r.l.;18-12-1997;15-01-1998;19-12-1997;United Package;124.98 €
+10784;Escargots Nouveaux;18-12-1997;15-01-1998;22-12-1997;Federal Shipping;70.09 €
+10785;Gai pâturage;18-12-1997;15-01-1998;24-12-1997;Federal Shipping;1.51 €
+10786;Forêts d'érables;19-12-1997;16-01-1998;23-12-1997;Speedy Express;110.87 €
+10787;Exotic Liquids;19-12-1997;02-01-1998;26-12-1997;Speedy Express;249.93 €
+10788;New Orleans Cajun Delights;22-12-1997;19-01-1998;19-01-1998;United Package;42.70 €
+10789;Grandma Kelly's Homestead;22-12-1997;19-01-1998;31-12-1997;United Package;100.60 €
+10790;Tokyo Traders;22-12-1997;19-01-1998;26-12-1997;Speedy Express;28.23 €
+10791;Cooperativa de Quesos 'Las Cabras';23-12-1997;20-01-1998;01-01-1998;United Package;16.85 €
+10792;Mayumi's;23-12-1997;20-01-1998;31-12-1997;Federal Shipping;23.79 €
+10793;Exotic Liquids;24-12-1997;21-01-1998;08-01-1998;Federal Shipping;4.52 €
+10794;New Orleans Cajun Delights;24-12-1997;21-01-1998;02-01-1998;Speedy Express;21.49 €
+10795;Grandma Kelly's Homestead;24-12-1997;21-01-1998;20-01-1998;United Package;126.66 €
+10796;Tokyo Traders;25-12-1997;22-01-1998;14-01-1998;Speedy Express;26.52 €
+10797;Cooperativa de Quesos 'Las Cabras';25-12-1997;22-01-1998;05-01-1998;United Package;33.35 €
+10798;Mayumi's;26-12-1997;23-01-1998;05-01-1998;Speedy Express;2.33 €
+10799;Exotic Liquids;26-12-1997;06-02-1998;05-01-1998;Federal Shipping;30.76 €
+10800;New Orleans Cajun Delights;26-12-1997;23-01-1998;05-01-1998;Federal Shipping;137.44 €
+10801;Grandma Kelly's Homestead;29-12-1997;26-01-1998;31-12-1997;United Package;97.09 €
+10802;Tokyo Traders;29-12-1997;26-01-1998;02-01-1998;United Package;257.26 €
+10803;Cooperativa de Quesos 'Las Cabras';30-12-1997;27-01-1998;06-01-1998;Speedy Express;55.23 €
+10804;Mayumi's;30-12-1997;27-01-1998;07-01-1998;United Package;27.33 €
+10805;Exotic Liquids;30-12-1997;27-01-1998;09-01-1998;Federal Shipping;237.34 €
+10806;Heli Süßwaren GmbH & Co. KG;31-12-1997;28-01-1998;05-01-1998;United Package;22.11 €
+10807;Plutzer Lebensmittelgroßmärkte AG;31-12-1997;28-01-1998;30-01-1998;Speedy Express;1.36 €
+10808;Nord-Ost-Fisch Handelsgesellschaft mbH;01-01-1998;29-01-1998;09-01-1998;Federal Shipping;45.53 €
+10809;Zaanse Snoepfabriek;01-01-1998;29-01-1998;07-01-1998;Speedy Express;4.87 €
+10810;Karkki Oy;01-01-1998;29-01-1998;07-01-1998;Federal Shipping;4.33 €
+10811;G'day, Mate;02-01-1998;30-01-1998;08-01-1998;Speedy Express;31.22 €
+10812;Ma Maison;02-01-1998;30-01-1998;12-01-1998;Speedy Express;59.78 €
+10813;Pasta Buttini s.r.l.;05-01-1998;02-02-1998;09-01-1998;Speedy Express;47.38 €
+10814;Escargots Nouveaux;05-01-1998;02-02-1998;14-01-1998;Federal Shipping;130.94 €
+10815;Cooperativa de Quesos 'Las Cabras';05-01-1998;02-02-1998;14-01-1998;Federal Shipping;14.62 €
+10816;Mayumi's;06-01-1998;03-02-1998;04-02-1998;United Package;719.78 €
+10817;Exotic Liquids;06-01-1998;20-01-1998;13-01-1998;United Package;306.07 €
+10818;New Orleans Cajun Delights;07-01-1998;04-02-1998;12-01-1998;Federal Shipping;65.48 €
+10819;Grandma Kelly's Homestead;07-01-1998;04-02-1998;16-01-1998;Federal Shipping;19.76 €
+10820;Tokyo Traders;07-01-1998;04-02-1998;13-01-1998;United Package;37.52 €
+10821;Cooperativa de Quesos 'Las Cabras';08-01-1998;05-02-1998;15-01-1998;Speedy Express;36.68 €
+10822;Heli Süßwaren GmbH & Co. KG;08-01-1998;05-02-1998;16-01-1998;Federal Shipping;7.00 €
+10823;Plutzer Lebensmittelgroßmärkte AG;09-01-1998;06-02-1998;13-01-1998;United Package;163.97 €
+10824;Nord-Ost-Fisch Handelsgesellschaft mbH;09-01-1998;06-02-1998;30-01-1998;Speedy Express;1.23 €
+10825;Formaggi Fortini s.r.l.;09-01-1998;06-02-1998;14-01-1998;Speedy Express;79.25 €
+10826;Norske Meierier;12-01-1998;09-02-1998;06-02-1998;Speedy Express;7.09 €
+10827;Bigfoot Breweries;12-01-1998;26-01-1998;06-02-1998;United Package;63.54 €
+10828;Svensk Sjöföda AB;13-01-1998;27-01-1998;04-02-1998;Speedy Express;90.85 €
+10829;Aux joyeux ecclésiastiques;13-01-1998;10-02-1998;23-01-1998;Speedy Express;154.72 €
+10830;New Orleans Cajun Delights;13-01-1998;24-02-1998;21-01-1998;United Package;81.83 €
+10831;Grandma Kelly's Homestead;14-01-1998;11-02-1998;23-01-1998;United Package;72.19 €
+10832;Tokyo Traders;14-01-1998;11-02-1998;19-01-1998;United Package;43.26 €
+10833;Cooperativa de Quesos 'Las Cabras';15-01-1998;12-02-1998;23-01-1998;United Package;71.49 €
+10834;Mayumi's;15-01-1998;12-02-1998;19-01-1998;Federal Shipping;29.78 €
+10835;Exotic Liquids;15-01-1998;12-02-1998;21-01-1998;Federal Shipping;69.53 €
+10836;New Orleans Cajun Delights;16-01-1998;13-02-1998;21-01-1998;Speedy Express;411.88 €
+10837;Grandma Kelly's Homestead;16-01-1998;13-02-1998;23-01-1998;Federal Shipping;13.32 €
+10838;Tokyo Traders;19-01-1998;16-02-1998;23-01-1998;Federal Shipping;59.28 €
+10839;Svensk Sjöföda AB;19-01-1998;16-02-1998;22-01-1998;Federal Shipping;35.43 €
+10840;Aux joyeux ecclésiastiques;19-01-1998;02-03-1998;16-02-1998;United Package;2.71 €
+10841;New England Seafood Cannery;20-01-1998;17-02-1998;29-01-1998;United Package;424.30 €
+10842;Leka Trading;20-01-1998;17-02-1998;29-01-1998;Federal Shipping;54.42 €
+10843;Lyngbysild;21-01-1998;18-02-1998;26-01-1998;United Package;9.26 €
+10844;Zaanse Snoepfabriek;21-01-1998;18-02-1998;26-01-1998;United Package;25.22 €
+10845;Karkki Oy;21-01-1998;04-02-1998;30-01-1998;Speedy Express;212.98 €
+10846;G'day, Mate;22-01-1998;05-03-1998;23-01-1998;Federal Shipping;56.46 €
+10847;Ma Maison;22-01-1998;05-02-1998;10-02-1998;Federal Shipping;487.57 €
+10848;New Orleans Cajun Delights;23-01-1998;20-02-1998;29-01-1998;United Package;38.24 €
+10849;Grandma Kelly's Homestead;23-01-1998;20-02-1998;30-01-1998;United Package;0.56 €
+10850;Tokyo Traders;23-01-1998;06-03-1998;30-01-1998;Speedy Express;49.19 €
+10851;Cooperativa de Quesos 'Las Cabras';26-01-1998;23-02-1998;02-02-1998;Speedy Express;160.55 €
+10852;Mayumi's;26-01-1998;09-02-1998;30-01-1998;Speedy Express;174.05 €
+10853;Exotic Liquids;27-01-1998;24-02-1998;03-02-1998;United Package;53.83 €
+10854;Zaanse Snoepfabriek;27-01-1998;24-02-1998;05-02-1998;United Package;100.22 €
+10855;Karkki Oy;27-01-1998;24-02-1998;04-02-1998;Speedy Express;170.97 €
+10856;G'day, Mate;28-01-1998;25-02-1998;10-02-1998;United Package;58.43 €
+10857;Ma Maison;28-01-1998;25-02-1998;06-02-1998;United Package;188.85 €
+10858;Pasta Buttini s.r.l.;29-01-1998;26-02-1998;03-02-1998;Speedy Express;52.51 €
+10859;Escargots Nouveaux;29-01-1998;26-02-1998;02-02-1998;United Package;76.10 €
+10860;Exotic Liquids;29-01-1998;26-02-1998;04-02-1998;Federal Shipping;19.26 €
+10861;New Orleans Cajun Delights;30-01-1998;27-02-1998;17-02-1998;United Package;14.93 €
+10862;Grandma Kelly's Homestead;30-01-1998;13-03-1998;02-02-1998;United Package;53.23 €
+10863;Tokyo Traders;02-02-1998;02-03-1998;17-02-1998;United Package;30.26 €
+10864;Cooperativa de Quesos 'Las Cabras';02-02-1998;02-03-1998;09-02-1998;United Package;3.04 €
+10865;Mayumi's;02-02-1998;16-02-1998;12-02-1998;Speedy Express;348.14 €
+10866;Pavlova, Ltd.;03-02-1998;03-03-1998;12-02-1998;Speedy Express;109.11 €
+10867;Specialty Biscuits, Ltd.;03-02-1998;17-03-1998;11-02-1998;Speedy Express;1.93 €
+10868;PB Knäckebröd AB;04-02-1998;04-03-1998;23-02-1998;United Package;191.27 €
+10869;Refrescos Americanas LTDA;04-02-1998;04-03-1998;09-02-1998;Speedy Express;143.28 €
+10870;Heli Süßwaren GmbH & Co. KG;04-02-1998;04-03-1998;13-02-1998;Federal Shipping;12.04 €
+10871;Plutzer Lebensmittelgroßmärkte AG;05-02-1998;05-03-1998;10-02-1998;United Package;112.27 €
+10872;Nord-Ost-Fisch Handelsgesellschaft mbH;05-02-1998;05-03-1998;09-02-1998;United Package;175.32 €
+10873;Formaggi Fortini s.r.l.;06-02-1998;06-03-1998;09-02-1998;Speedy Express;0.82 €
+10874;Norske Meierier;06-02-1998;06-03-1998;11-02-1998;United Package;19.58 €
+10875;Bigfoot Breweries;06-02-1998;06-03-1998;03-03-1998;United Package;32.37 €
+10876;Svensk Sjöföda AB;09-02-1998;09-03-1998;12-02-1998;Federal Shipping;60.42 €
+10877;Aux joyeux ecclésiastiques;09-02-1998;09-03-1998;19-02-1998;Speedy Express;38.06 €
+10878;New England Seafood Cannery;10-02-1998;10-03-1998;12-02-1998;Speedy Express;46.69 €
+10879;Leka Trading;10-02-1998;10-03-1998;12-02-1998;Federal Shipping;8.50 €
+10880;Lyngbysild;10-02-1998;24-03-1998;18-02-1998;Speedy Express;88.01 €
+10881;Zaanse Snoepfabriek;11-02-1998;11-03-1998;18-02-1998;Speedy Express;2.84 €
+10882;Karkki Oy;11-02-1998;11-03-1998;20-02-1998;Federal Shipping;23.10 €
+10883;G'day, Mate;12-02-1998;12-03-1998;20-02-1998;Federal Shipping;0.53 €
+10884;Ma Maison;12-02-1998;12-03-1998;13-02-1998;United Package;90.97 €
+10885;Pasta Buttini s.r.l.;12-02-1998;12-03-1998;18-02-1998;Federal Shipping;5.64 €
+10886;Escargots Nouveaux;13-02-1998;13-03-1998;02-03-1998;Speedy Express;4.99 €
+10887;Gai pâturage;13-02-1998;13-03-1998;16-02-1998;Federal Shipping;1.25 €
+10888;Forêts d'érables;16-02-1998;16-03-1998;23-02-1998;United Package;51.87 €
+10889;Exotic Liquids;16-02-1998;16-03-1998;23-02-1998;Federal Shipping;280.61 €
+10890;New Orleans Cajun Delights;16-02-1998;16-03-1998;18-02-1998;Speedy Express;32.76 €
+10891;Grandma Kelly's Homestead;17-02-1998;17-03-1998;19-02-1998;United Package;20.37 €
+10892;Tokyo Traders;17-02-1998;17-03-1998;19-02-1998;United Package;120.27 €
+10893;Cooperativa de Quesos 'Las Cabras';18-02-1998;18-03-1998;20-02-1998;United Package;77.78 €
+10894;Mayumi's;18-02-1998;18-03-1998;20-02-1998;Speedy Express;116.13 €
+10895;Exotic Liquids;18-02-1998;18-03-1998;23-02-1998;Speedy Express;162.75 €
+10896;New Orleans Cajun Delights;19-02-1998;19-03-1998;27-02-1998;Federal Shipping;32.45 €
+10897;Grandma Kelly's Homestead;19-02-1998;19-03-1998;25-02-1998;United Package;603.54 €
+10898;Tokyo Traders;20-02-1998;20-03-1998;06-03-1998;United Package;1.27 €
+10899;Cooperativa de Quesos 'Las Cabras';20-02-1998;20-03-1998;26-02-1998;Federal Shipping;1.21 €
+10900;Mayumi's;20-02-1998;20-03-1998;04-03-1998;United Package;1.66 €
+10901;Exotic Liquids;23-02-1998;23-03-1998;26-02-1998;Speedy Express;62.09 €
+10902;New Orleans Cajun Delights;23-02-1998;23-03-1998;03-03-1998;Speedy Express;44.15 €
+10903;Grandma Kelly's Homestead;24-02-1998;24-03-1998;04-03-1998;Federal Shipping;36.71 €
+10904;Tokyo Traders;24-02-1998;24-03-1998;27-02-1998;Federal Shipping;162.95 €
+10905;Cooperativa de Quesos 'Las Cabras';24-02-1998;24-03-1998;06-03-1998;United Package;13.72 €
+10906;Mayumi's;25-02-1998;11-03-1998;03-03-1998;Federal Shipping;26.29 €
+10907;Exotic Liquids;25-02-1998;25-03-1998;27-02-1998;Federal Shipping;9.19 €
+10908;Heli Süßwaren GmbH & Co. KG;26-02-1998;26-03-1998;06-03-1998;United Package;32.96 €
+10909;Plutzer Lebensmittelgroßmärkte AG;26-02-1998;26-03-1998;10-03-1998;United Package;53.05 €
+10910;Nord-Ost-Fisch Handelsgesellschaft mbH;26-02-1998;26-03-1998;04-03-1998;Federal Shipping;38.11 €
+10911;Zaanse Snoepfabriek;26-02-1998;26-03-1998;05-03-1998;Speedy Express;38.19 €
+10912;Karkki Oy;26-02-1998;26-03-1998;18-03-1998;United Package;580.91 €
+10913;G'day, Mate;26-02-1998;26-03-1998;04-03-1998;Speedy Express;33.05 €
+10914;Ma Maison;27-02-1998;27-03-1998;02-03-1998;Speedy Express;21.19 €
+10915;Pasta Buttini s.r.l.;27-02-1998;27-03-1998;02-03-1998;United Package;3.51 €
+10916;Escargots Nouveaux;27-02-1998;27-03-1998;09-03-1998;United Package;63.77 €
+10917;Cooperativa de Quesos 'Las Cabras';02-03-1998;30-03-1998;11-03-1998;United Package;8.29 €
+10918;Mayumi's;02-03-1998;30-03-1998;11-03-1998;Federal Shipping;48.83 €
+10919;Exotic Liquids;02-03-1998;30-03-1998;04-03-1998;United Package;19.80 €
+10920;New Orleans Cajun Delights;03-03-1998;31-03-1998;09-03-1998;United Package;29.61 €
+10921;Grandma Kelly's Homestead;03-03-1998;14-04-1998;09-03-1998;Speedy Express;176.48 €
+10922;Tokyo Traders;03-03-1998;31-03-1998;05-03-1998;Federal Shipping;62.74 €
+10923;Cooperativa de Quesos 'Las Cabras';03-03-1998;14-04-1998;13-03-1998;Federal Shipping;68.26 €
+10924;Heli Süßwaren GmbH & Co. KG;04-03-1998;01-04-1998;08-04-1998;United Package;151.52 €
+10925;Plutzer Lebensmittelgroßmärkte AG;04-03-1998;01-04-1998;13-03-1998;Speedy Express;2.27 €
+10926;Nord-Ost-Fisch Handelsgesellschaft mbH;04-03-1998;01-04-1998;11-03-1998;Federal Shipping;39.92 €
+10927;Formaggi Fortini s.r.l.;05-03-1998;02-04-1998;08-04-1998;Speedy Express;19.79 €
+10928;Norske Meierier;05-03-1998;02-04-1998;18-03-1998;Speedy Express;1.36 €
+10929;Bigfoot Breweries;05-03-1998;02-04-1998;12-03-1998;Speedy Express;33.93 €
+10930;Svensk Sjöföda AB;06-03-1998;17-04-1998;18-03-1998;Federal Shipping;15.55 €
+10931;Aux joyeux ecclésiastiques;06-03-1998;20-03-1998;19-03-1998;United Package;13.60 €
+10932;New Orleans Cajun Delights;06-03-1998;03-04-1998;24-03-1998;Speedy Express;134.64 €
+10933;Grandma Kelly's Homestead;06-03-1998;03-04-1998;16-03-1998;Federal Shipping;54.15 €
+10934;Tokyo Traders;09-03-1998;06-04-1998;12-03-1998;Federal Shipping;32.01 €
+10935;Cooperativa de Quesos 'Las Cabras';09-03-1998;06-04-1998;18-03-1998;Federal Shipping;47.59 €
+10936;Mayumi's;09-03-1998;06-04-1998;18-03-1998;United Package;33.68 €
+10937;Exotic Liquids;10-03-1998;24-03-1998;13-03-1998;Federal Shipping;31.51 €
+10938;New Orleans Cajun Delights;10-03-1998;07-04-1998;16-03-1998;United Package;31.89 €
+10939;Grandma Kelly's Homestead;10-03-1998;07-04-1998;13-03-1998;United Package;76.33 €
+10940;Tokyo Traders;11-03-1998;08-04-1998;23-03-1998;Federal Shipping;19.77 €
+10941;Svensk Sjöföda AB;11-03-1998;08-04-1998;20-03-1998;United Package;400.81 €
+10942;Aux joyeux ecclésiastiques;11-03-1998;08-04-1998;18-03-1998;Federal Shipping;17.95 €
+10943;New England Seafood Cannery;11-03-1998;08-04-1998;19-03-1998;United Package;2.17 €
+10944;Leka Trading;12-03-1998;26-03-1998;13-03-1998;Federal Shipping;52.92 €
+10945;Lyngbysild;12-03-1998;09-04-1998;18-03-1998;Speedy Express;10.22 €
+10946;Zaanse Snoepfabriek;12-03-1998;09-04-1998;19-03-1998;United Package;27.20 €
+10947;Karkki Oy;13-03-1998;10-04-1998;16-03-1998;United Package;3.26 €
+10948;G'day, Mate;13-03-1998;10-04-1998;19-03-1998;Federal Shipping;23.39 €
+10949;Ma Maison;13-03-1998;10-04-1998;17-03-1998;Federal Shipping;74.44 €
+10950;New Orleans Cajun Delights;16-03-1998;13-04-1998;23-03-1998;United Package;2.50 €
+10951;Grandma Kelly's Homestead;16-03-1998;27-04-1998;07-04-1998;United Package;30.85 €
+10952;Tokyo Traders;16-03-1998;27-04-1998;24-03-1998;Speedy Express;40.42 €
+10953;Cooperativa de Quesos 'Las Cabras';16-03-1998;30-03-1998;25-03-1998;United Package;23.72 €
+10954;Mayumi's;17-03-1998;28-04-1998;20-03-1998;Speedy Express;27.91 €
+10955;Exotic Liquids;17-03-1998;14-04-1998;20-03-1998;United Package;3.26 €
+10956;Zaanse Snoepfabriek;17-03-1998;28-04-1998;20-03-1998;United Package;44.65 €
+10957;Karkki Oy;18-03-1998;15-04-1998;27-03-1998;Federal Shipping;105.36 €
+10958;G'day, Mate;18-03-1998;15-04-1998;27-03-1998;United Package;49.56 €
+10959;Ma Maison;18-03-1998;29-04-1998;23-03-1998;United Package;4.98 €
+10960;Pasta Buttini s.r.l.;19-03-1998;02-04-1998;08-04-1998;Speedy Express;2.08 €
+10961;Escargots Nouveaux;19-03-1998;16-04-1998;30-03-1998;Speedy Express;104.47 €
+10962;Exotic Liquids;19-03-1998;16-04-1998;23-03-1998;United Package;275.79 €
+10963;New Orleans Cajun Delights;19-03-1998;16-04-1998;26-03-1998;Federal Shipping;2.70 €
+10964;Grandma Kelly's Homestead;20-03-1998;17-04-1998;24-03-1998;United Package;87.38 €
+10965;Tokyo Traders;20-03-1998;17-04-1998;30-03-1998;Federal Shipping;144.38 €
+10966;Cooperativa de Quesos 'Las Cabras';20-03-1998;17-04-1998;08-04-1998;Speedy Express;27.19 €
+10967;Mayumi's;23-03-1998;20-04-1998;02-04-1998;United Package;62.22 €
+10968;Exotic Liquids;23-03-1998;20-04-1998;01-04-1998;Federal Shipping;74.60 €
+10969;New Orleans Cajun Delights;23-03-1998;20-04-1998;30-03-1998;United Package;0.21 €
+10970;Grandma Kelly's Homestead;24-03-1998;07-04-1998;24-04-1998;Speedy Express;16.16 €
+10971;Tokyo Traders;24-03-1998;21-04-1998;02-04-1998;United Package;121.82 €
+10972;Svensk Sjöföda AB;24-03-1998;21-04-1998;26-03-1998;United Package;0.02 €
+10973;Aux joyeux ecclésiastiques;24-03-1998;21-04-1998;27-03-1998;United Package;15.17 €
+10974;New England Seafood Cannery;25-03-1998;08-04-1998;03-04-1998;Federal Shipping;12.96 €
+10975;Leka Trading;25-03-1998;22-04-1998;27-03-1998;Federal Shipping;32.27 €
+10976;Lyngbysild;25-03-1998;06-05-1998;03-04-1998;Speedy Express;37.97 €
+10977;Zaanse Snoepfabriek;26-03-1998;23-04-1998;10-04-1998;Federal Shipping;208.50 €
+10978;Karkki Oy;26-03-1998;23-04-1998;23-04-1998;United Package;32.82 €
+10979;G'day, Mate;26-03-1998;23-04-1998;31-03-1998;United Package;353.07 €
+10980;Ma Maison;27-03-1998;08-05-1998;17-04-1998;Speedy Express;1.26 €
+10981;New Orleans Cajun Delights;27-03-1998;24-04-1998;02-04-1998;United Package;193.37 €
+10982;Grandma Kelly's Homestead;27-03-1998;24-04-1998;08-04-1998;Speedy Express;14.01 €
+10983;Tokyo Traders;27-03-1998;24-04-1998;06-04-1998;United Package;657.54 €
+10984;Cooperativa de Quesos 'Las Cabras';30-03-1998;27-04-1998;03-04-1998;Federal Shipping;211.22 €
+10985;Mayumi's;30-03-1998;27-04-1998;02-04-1998;Speedy Express;91.51 €
+10986;Exotic Liquids;30-03-1998;27-04-1998;21-04-1998;United Package;217.86 €
+10987;Zaanse Snoepfabriek;31-03-1998;28-04-1998;06-04-1998;Speedy Express;185.48 €
+10988;Karkki Oy;31-03-1998;28-04-1998;10-04-1998;United Package;61.14 €
+10989;G'day, Mate;31-03-1998;28-04-1998;02-04-1998;Speedy Express;34.76 €
+10990;Ma Maison;01-04-1998;13-05-1998;07-04-1998;Federal Shipping;117.61 €
+10991;Pasta Buttini s.r.l.;01-04-1998;29-04-1998;07-04-1998;Speedy Express;38.51 €
+10992;Escargots Nouveaux;01-04-1998;29-04-1998;03-04-1998;Federal Shipping;4.27 €
+10993;Exotic Liquids;01-04-1998;29-04-1998;10-04-1998;Federal Shipping;8.81 €
+10994;New Orleans Cajun Delights;02-04-1998;16-04-1998;09-04-1998;Federal Shipping;65.53 €
+10995;Grandma Kelly's Homestead;02-04-1998;30-04-1998;06-04-1998;Federal Shipping;46.00 €
+10996;Tokyo Traders;02-04-1998;30-04-1998;10-04-1998;United Package;1.12 €
+10997;Cooperativa de Quesos 'Las Cabras';03-04-1998;15-05-1998;13-04-1998;United Package;73.91 €
+10998;Mayumi's;03-04-1998;17-04-1998;17-04-1998;United Package;20.31 €
+10999;Exotic Liquids;03-04-1998;01-05-1998;10-04-1998;United Package;96.35 €
+11000;New Orleans Cajun Delights;06-04-1998;04-05-1998;14-04-1998;Federal Shipping;55.12 €
+11001;Grandma Kelly's Homestead;06-04-1998;04-05-1998;14-04-1998;United Package;197.30 €
+11002;Tokyo Traders;06-04-1998;04-05-1998;16-04-1998;Speedy Express;141.16 €
+11003;Svensk Sjöföda AB;06-04-1998;04-05-1998;08-04-1998;Federal Shipping;14.91 €
+11004;Aux joyeux ecclésiastiques;07-04-1998;05-05-1998;20-04-1998;Speedy Express;44.84 €
+11005;New England Seafood Cannery;07-04-1998;05-05-1998;10-04-1998;Speedy Express;0.75 €
+11006;Leka Trading;07-04-1998;05-05-1998;15-04-1998;United Package;25.19 €
+11007;Lyngbysild;08-04-1998;06-05-1998;13-04-1998;United Package;202.24 €
+11008;Zaanse Snoepfabriek;08-04-1998;06-05-1998;;Federal Shipping;79.46 €
+11009;Karkki Oy;08-04-1998;06-05-1998;10-04-1998;Speedy Express;59.11 €
+11010;G'day, Mate;09-04-1998;07-05-1998;21-04-1998;United Package;28.71 €
+11011;Ma Maison;09-04-1998;07-05-1998;13-04-1998;Speedy Express;1.21 €
+11012;New Orleans Cajun Delights;09-04-1998;23-04-1998;17-04-1998;Federal Shipping;242.95 €
+11013;Grandma Kelly's Homestead;09-04-1998;07-05-1998;10-04-1998;Speedy Express;32.99 €
+11014;Tokyo Traders;10-04-1998;08-05-1998;15-04-1998;Federal Shipping;23.60 €
+11015;Cooperativa de Quesos 'Las Cabras';10-04-1998;24-04-1998;20-04-1998;United Package;4.62 €
+11016;Mayumi's;10-04-1998;08-05-1998;13-04-1998;United Package;33.80 €
+11017;Exotic Liquids;13-04-1998;11-05-1998;20-04-1998;United Package;754.26 €
+11018;Zaanse Snoepfabriek;13-04-1998;11-05-1998;16-04-1998;United Package;11.65 €
+11019;Karkki Oy;13-04-1998;11-05-1998;;Federal Shipping;3.17 €
+11020;G'day, Mate;14-04-1998;12-05-1998;16-04-1998;United Package;43.30 €
+11021;Ma Maison;14-04-1998;12-05-1998;21-04-1998;Speedy Express;297.18 €
+11022;Pasta Buttini s.r.l.;14-04-1998;12-05-1998;04-05-1998;United Package;6.27 €
+11023;Escargots Nouveaux;14-04-1998;28-04-1998;24-04-1998;United Package;123.83 €
+11024;Exotic Liquids;15-04-1998;13-05-1998;20-04-1998;Speedy Express;74.36 €
+11025;New Orleans Cajun Delights;15-04-1998;13-05-1998;24-04-1998;Federal Shipping;29.17 €
+11026;Grandma Kelly's Homestead;15-04-1998;13-05-1998;28-04-1998;Speedy Express;47.09 €
+11027;Tokyo Traders;16-04-1998;14-05-1998;20-04-1998;Speedy Express;52.52 €
+11028;Cooperativa de Quesos 'Las Cabras';16-04-1998;14-05-1998;22-04-1998;Speedy Express;29.59 €
+11029;Mayumi's;16-04-1998;14-05-1998;27-04-1998;Speedy Express;47.84 €
+11030;Exotic Liquids;17-04-1998;15-05-1998;27-04-1998;United Package;830.75 €
+11031;New Orleans Cajun Delights;17-04-1998;15-05-1998;24-04-1998;United Package;227.22 €
+11032;Grandma Kelly's Homestead;17-04-1998;15-05-1998;23-04-1998;Federal Shipping;606.19 €
+11033;Tokyo Traders;17-04-1998;15-05-1998;23-04-1998;Federal Shipping;84.74 €
+11034;Svensk Sjöföda AB;20-04-1998;01-06-1998;27-04-1998;Speedy Express;40.32 €
+11035;Aux joyeux ecclésiastiques;20-04-1998;18-05-1998;24-04-1998;United Package;0.17 €
+11036;New England Seafood Cannery;20-04-1998;18-05-1998;22-04-1998;Federal Shipping;149.47 €
+11037;Leka Trading;21-04-1998;19-05-1998;27-04-1998;Speedy Express;3.20 €
+11038;Lyngbysild;21-04-1998;19-05-1998;30-04-1998;United Package;29.59 €
+11039;Zaanse Snoepfabriek;21-04-1998;19-05-1998;;United Package;65.00 €
+11040;Karkki Oy;22-04-1998;20-05-1998;;Federal Shipping;18.84 €
+11041;G'day, Mate;22-04-1998;20-05-1998;28-04-1998;United Package;48.22 €
+11042;Ma Maison;22-04-1998;06-05-1998;01-05-1998;Speedy Express;29.99 €
+11043;New Orleans Cajun Delights;22-04-1998;20-05-1998;29-04-1998;United Package;8.80 €
+11044;Grandma Kelly's Homestead;23-04-1998;21-05-1998;01-05-1998;Speedy Express;8.72 €
+11045;Tokyo Traders;23-04-1998;21-05-1998;;United Package;70.58 €
+11046;Cooperativa de Quesos 'Las Cabras';23-04-1998;21-05-1998;24-04-1998;United Package;71.64 €
+11047;Mayumi's;24-04-1998;22-05-1998;01-05-1998;Federal Shipping;46.62 €
+11048;Exotic Liquids;24-04-1998;22-05-1998;30-04-1998;Federal Shipping;24.12 €
+11049;Zaanse Snoepfabriek;24-04-1998;22-05-1998;04-05-1998;Speedy Express;8.34 €
+11050;Karkki Oy;27-04-1998;25-05-1998;05-05-1998;United Package;59.41 €
+11051;G'day, Mate;27-04-1998;25-05-1998;;Federal Shipping;2.79 €
+11052;Ma Maison;27-04-1998;25-05-1998;01-05-1998;Speedy Express;67.26 €
+11053;Pasta Buttini s.r.l.;27-04-1998;25-05-1998;29-04-1998;United Package;53.05 €
+11054;Escargots Nouveaux;28-04-1998;26-05-1998;;Speedy Express;0.33 €
+11055;Exotic Liquids;28-04-1998;26-05-1998;05-05-1998;United Package;120.92 €
+11056;New Orleans Cajun Delights;28-04-1998;12-05-1998;01-05-1998;United Package;278.96 €
+11057;Grandma Kelly's Homestead;29-04-1998;27-05-1998;01-05-1998;Federal Shipping;4.13 €
+11058;Tokyo Traders;29-04-1998;27-05-1998;;Federal Shipping;31.14 €
+11059;Cooperativa de Quesos 'Las Cabras';29-04-1998;10-06-1998;;United Package;85.80 €
+11060;Mayumi's;30-04-1998;28-05-1998;04-05-1998;United Package;10.98 €
+11061;Exotic Liquids;30-04-1998;11-06-1998;;Federal Shipping;14.01 €
+11062;New Orleans Cajun Delights;30-04-1998;28-05-1998;;United Package;29.93 €
+11063;Grandma Kelly's Homestead;30-04-1998;28-05-1998;06-05-1998;United Package;81.73 €
+11064;Tokyo Traders;01-05-1998;29-05-1998;04-05-1998;Speedy Express;30.09 €
+11065;Svensk Sjöföda AB;01-05-1998;29-05-1998;;Speedy Express;12.91 €
+11066;Aux joyeux ecclésiastiques;01-05-1998;29-05-1998;04-05-1998;United Package;44.72 €
+11067;New England Seafood Cannery;04-05-1998;18-05-1998;06-05-1998;United Package;7.98 €
+11068;Leka Trading;04-05-1998;01-06-1998;;United Package;81.75 €
+11069;Lyngbysild;04-05-1998;01-06-1998;06-05-1998;United Package;15.67 €
+11070;Zaanse Snoepfabriek;05-05-1998;02-06-1998;;Speedy Express;136.00 €
+11071;Karkki Oy;05-05-1998;02-06-1998;;Speedy Express;0.93 €
+11072;G'day, Mate;05-05-1998;02-06-1998;;United Package;258.64 €
+11073;Ma Maison;05-05-1998;02-06-1998;;United Package;24.95 €
+11074;New Orleans Cajun Delights;06-05-1998;03-06-1998;;United Package;18.44 €
+11075;Grandma Kelly's Homestead;06-05-1998;03-06-1998;;United Package;6.19 €
+11076;Tokyo Traders;06-05-1998;03-06-1998;;United Package;38.28 €
+11077;Cooperativa de Quesos 'Las Cabras';06-05-1998;03-06-1998;;United Package;8.53 €

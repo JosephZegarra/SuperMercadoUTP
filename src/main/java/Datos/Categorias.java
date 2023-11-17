@@ -79,7 +79,7 @@ public class Categorias
     
     
     
-    
+    //
     @Override
     public String toString() {
         return IdCategoria + "; " + NombreCategoria + "; " + Descripcion;
@@ -96,8 +96,8 @@ public class Categorias
     public void CopiarContenidoEImpresion(String csvFile, int numFilas)//importa el archivo .csv a un arreglo de 
                                                                         //objetos tipo Categoria
     {  
-        Categorias[] listaobjetos = new Categorias[numFilas];
-        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) 
+        Categorias[] listaobjetos = new Categorias[numFilas];                         //Buffer para leer el archivo e interactua
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) //File para abrir el archivo csv 
             {
                 int indice = 0;
                 
@@ -150,9 +150,6 @@ public class Categorias
             listaEnlazadaCategorias.insertarFinal(nuevoNodo);
             
         }
-
-       
-        
     }
     
     

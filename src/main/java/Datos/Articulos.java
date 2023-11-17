@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Datos;
 
 import java.io.BufferedReader;
@@ -9,8 +5,6 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
-
 import ListaEnlasada.*;
 
 public class Articulos 
@@ -134,11 +128,6 @@ public class Articulos
         this.numFilas = numFilas;
     }
     
-    
-    
-    
-    
-
     @Override
     public String toString() 
     {
@@ -163,6 +152,7 @@ public class Articulos
                     String[] partes = line.split(csvDelimitador);
 
                             Articulos objeto=new Articulos();
+                            
                             /*
                             objeto.setIdProducto(partes[0]);
                             objeto.setNombreProducto(partes[1]);
@@ -185,7 +175,9 @@ public class Articulos
                                     objeto.setUnidadesExistentes(partes[6]);
                                     objeto.setUnidadesPedidas(partes[7]);
                                     objeto.setSuspendido(partes[8]);
-                                } else {
+                                } 
+                                else 
+                                {
                                     // Manejar el caso en el que la línea no tiene suficientes elementos
                                     System.err.println("La línea no tiene suficientes elementos: " + line);
                                 }
@@ -197,10 +189,10 @@ public class Articulos
                 
                 ListaArregloCopia=listaobjetos.clone();
                 
-            } catch (IOException e) {
+            } 
+                catch (IOException e) {
                 e.printStackTrace();
             }
-
 
             // Ahora, objetos contiene todos los objetos creados a partir del archivo CSV
             for (Articulos objeto : listaobjetos) 
@@ -227,13 +219,48 @@ public class Articulos
         }
 
     }
-    
-    
+   
     public void imprimir()
     {
-       System.out.println(listaEnlazadaCategorias.imprimirLista());
-        
+       System.out.println(listaEnlazadaCategorias.imprimirLista());   
     } 
     
+    //FILTRAR POR NOMBRE 
+    public ListaInterface filtrarPorNombre(String nombre) 
+    {
+        ListaInterface listaFiltrada = new ListaEnlasadaImpl();
+        for (Articulos articulo : ListaArregloCopia) {
+            if (articulo.getNombreProducto().equalsIgnoreCase(nombre)) 
+            {
+            Nodo nuevoNodo = new Nodo(articulo);
+            listaFiltrada.insertarFinal(nuevoNodo);
+            }
+    }
+    return listaFiltrada;
     
+    }
+    
+    
+    
+    ///////////////////////////MODIFICACION SEBAS////////////////////////////////////////////////////////
+    public void FiltrarDatosPorNombres ()
+    {
+        String archivoCSV = "Articulos.csv";
+        int numeroFilas = 1;  // Reemplazar con el número correcto de filas
+
+        // Crear una instancia de la clase Articulos
+        Articulos articulos = new Articulos();
+
+        // Realizar la copia del contenido e impresión desde el archivo CSV
+        articulos.CopiarContenidoEImpresion(archivoCSV, numeroFilas);
+
+        // Filtrar por nombre (por ejemplo, buscar productos con el nombre "Té Dharamsala")
+        String nombreBuscado = "Té Dharamsala";
+        ListaInterface listaFiltrada = articulos.filtrarPorNombre(nombreBuscado);
+
+        // Imprimir la lista filtrada
+        System.out.println("Resultados de la búsqueda por nombre '" + nombreBuscado + "':");
+        System.out.println(listaFiltrada.imprimirLista());
+    }
 }
+

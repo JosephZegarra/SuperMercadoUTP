@@ -1,0 +1,386 @@
+Id. de producto;Nombre de producto;PROVEEDORES;Categoría;Cantidad por unidad;Precio por unidad;Unidades en existencia;Unidades pedidas;Suspendido
+1;Té Dharamsala;Exotic Liquids;Bebidas;10 cajas x 20 bolsas;18.00 €;39;0;FALSO
+2;Cerveza tibetana Barley;Exotic Liquids;Bebidas;24 - bot. 12 l;19.00 €;17;40;FALSO
+3;Sirope de regaliz;Exotic Liquids;Condimentos;12 - bot. 550 ml;10.00 €;13;70;FALSO
+4;Especias Cajun del chef Anton;New Orleans Cajun Delights;Condimentos;48 - frascos 6 l;22.00 €;53;0;FALSO
+5;Mezcla Gumbo del chef Anton;New Orleans Cajun Delights;Condimentos;36 cajas;21.35 €;0;0;FALSO
+6;Mermelada de grosellas de la abuela;Grandma Kelly's Homestead;Condimentos;12 - frascos 8 l;25.00 €;120;0;FALSO
+7;Peras secas orgánicas del tío Bob;Grandma Kelly's Homestead;Frutas/Verduras;12 - paq. 1 kg;30.00 €;15;0;FALSO
+8;Salsa de arándanos Northwoods;Grandma Kelly's Homestead;Condimentos;12 - frascos 12 l;40.00 €;6;0;FALSO
+9;Buey Mishi Kobe;Tokyo Traders;Carnes;18 - paq. 500 g;97.00 €;29;0;FALSO
+10;Pez espada;Tokyo Traders;Pescado/Marisco;12 - frascos 200 ml;31.00 €;31;0;FALSO
+11;Queso Cabrales;Cooperativa de Quesos 'Las Cabras';Lácteos;paq. 1 kg;21.00 €;22;30;FALSO
+12;Queso Manchego La Pastora;Cooperativa de Quesos 'Las Cabras';Lácteos;10 - paq. 500 g;38.00 €;86;0;FALSO
+13;Algas Konbu;Mayumi's;Pescado/Marisco;caja 2 kg;6.00 €;24;0;FALSO
+14;Cuajada de judías;Mayumi's;Frutas/Verduras;40 - paq. 100 g;23.25 €;35;0;FALSO
+15;Salsa de soja baja en sodio;Mayumi's;Condimentos;24 - bot. 250 ml;15.50 €;39;0;FALSO
+16;Postre de merengue Pavlova;Pavlova, Ltd.;Repostería;32 - cajas 500 g;17.45 €;29;0;FALSO
+17;Cordero Alice Springs;Pavlova, Ltd.;Carnes;20 - latas 1 kg;39.00 €;0;0;FALSO
+18;Langostinos tigre Carnarvon;Pavlova, Ltd.;Pescado/Marisco;paq. 16 kg;62.50 €;42;0;FALSO
+19;Pastas de té de chocolate;Specialty Biscuits, Ltd.;Repostería;10 cajas x 12 piezas;9.20 €;25;0;FALSO
+20;Mermelada de Sir Rodney's;Specialty Biscuits, Ltd.;Repostería;30 cajas regalo;81.00 €;40;0;FALSO
+21;Bollos de Sir Rodney's;Specialty Biscuits, Ltd.;Repostería;24 paq. x 4 piezas;10.00 €;3;40;FALSO
+22;Pan de centeno crujiente estilo Gustaf's;PB Knäckebröd AB;Granos/Cereales;24 - paq. 500 g;21.00 €;104;0;FALSO
+23;Pan fino;PB Knäckebröd AB;Granos/Cereales;12 - paq. 250 g;9.00 €;61;0;FALSO
+24;Refresco Guaraná Fantástica;Refrescos Americanas LTDA;Bebidas;12 - latas 355 ml;4.50 €;20;0;FALSO
+25;Crema de chocolate y nueces NuNuCa;Heli Süßwaren GmbH & Co. KG;Repostería;20 - vasos  450 g;14.00 €;76;0;FALSO
+26;Ositos de goma Gumbär;Heli Süßwaren GmbH & Co. KG;Repostería;100 - bolsas 250 g;31.23 €;15;0;FALSO
+27;Chocolate Schoggi;Heli Süßwaren GmbH & Co. KG;Repostería;100 - piezas 100 g;43.90 €;49;0;FALSO
+28;Col fermentada Rössle;Plutzer Lebensmittelgroßmärkte AG;Frutas/Verduras;25 - latas 825 g;45.60 €;26;0;FALSO
+29;Salchicha Thüringer;Plutzer Lebensmittelgroßmärkte AG;Carnes;50 bolsas x 30 salch;123.79 €;0;0;FALSO
+30;Arenque blanco del noroeste;Nord-Ost-Fisch Handelsgesellschaft mbH;Pescado/Marisco;10 - vasos 200 g;25.89 €;10;0;FALSO
+31;Queso gorgonzola Telino;Formaggi Fortini s.r.l.;Lácteos;12 - paq. 100 g;12.50 €;0;70;FALSO
+32;Queso Mascarpone Fabioli;Formaggi Fortini s.r.l.;Lácteos;24 - paq. 200 g;32.00 €;9;40;FALSO
+33;Queso de cabra;Norske Meierier;Lácteos;500 g;2.50 €;112;0;FALSO
+34;Cerveza Sasquatch;Bigfoot Breweries;Bebidas;24 - bot. 12 l;14.00 €;111;0;FALSO
+35;Cerveza negra Steeleye;Bigfoot Breweries;Bebidas;24 - bot. 12 l;18.00 €;20;0;FALSO
+36;Escabeche de arenque;Svensk Sjöföda AB;Pescado/Marisco;24 - frascos 250 g;19.00 €;112;0;FALSO
+37;Salmón ahumado Gravad;Svensk Sjöföda AB;Pescado/Marisco;12 - paq. 500 g;26.00 €;11;50;FALSO
+38;Vino Côte de Blaye;Aux joyeux ecclésiastiques;Bebidas;12 - bot. 75 cl;263.50 €;17;0;FALSO
+39;Licor verde Chartreuse;Aux joyeux ecclésiastiques;Bebidas;750 cc por bot.;18.00 €;69;0;FALSO
+40;Carne de cangrejo de Boston;New England Seafood Cannery;Pescado/Marisco;24 - latas 4 l;18.40 €;123;0;FALSO
+41;Crema de almejas estilo Nueva Inglaterra;New England Seafood Cannery;Pescado/Marisco;12 - latas 12 l;9.65 €;85;0;FALSO
+42;Tallarines de Singapur;Leka Trading;Granos/Cereales;32 - 1 kg paq.;14.00 €;26;0;FALSO
+43;Café de Malasia;Leka Trading;Bebidas;16 - latas 500 g;46.00 €;17;10;FALSO
+44;Azúcar negra Malacca;Leka Trading;Condimentos;20 - bolsas 2 kg;19.45 €;27;0;FALSO
+45;Arenque ahumado;Lyngbysild;Pescado/Marisco;paq. 1k;9.50 €;5;70;FALSO
+46;Arenque salado;Lyngbysild;Pescado/Marisco;4 - vasos 450 g;12.00 €;95;0;FALSO
+47;Galletas Zaanse;Zaanse Snoepfabriek;Repostería;10 - cajas 4 l;9.50 €;36;0;FALSO
+48;Chocolate holandés;Zaanse Snoepfabriek;Repostería;10 paq.;12.75 €;15;70;FALSO
+49;Regaliz;Karkki Oy;Repostería;24 - paq. 50 g;20.00 €;10;60;FALSO
+50;Chocolate blanco;Karkki Oy;Repostería;12 - barras 100 g;16.25 €;65;0;FALSO
+51;Manzanas secas Manjimup;G'day, Mate;Frutas/Verduras;50 - paq. 300 g;53.00 €;20;0;FALSO
+52;Cereales para Filo;G'day, Mate;Granos/Cereales;16 - cajas 2 kg;7.00 €;38;0;FALSO
+53;Empanada de carne;G'day, Mate;Carnes;48 porc.;32.80 €;0;0;FALSO
+54;Empanada de cerdo;Ma Maison;Carnes;16 tartas;7.45 €;21;0;FALSO
+55;Paté chino;Ma Maison;Carnes;24 cajas x 2 tartas;24.00 €;115;0;FALSO
+56;Gnocchi de la abuela Alicia;Pasta Buttini s.r.l.;Granos/Cereales;24 - paq. 250 g;38.00 €;21;10;FALSO
+57;Raviolis Angelo;Pasta Buttini s.r.l.;Granos/Cereales;24 - paq. 250 g;19.50 €;36;0;FALSO
+58;Caracoles de Borgoña;Escargots Nouveaux;Pescado/Marisco;24 porc.;13.25 €;62;0;FALSO
+59;Raclet de queso Courdavault;Gai pâturage;Lácteos;paq. 5 kg;55.00 €;79;0;FALSO
+60;Camembert Pierrot;Gai pâturage;Lácteos;15 - paq. 300 g;34.00 €;19;0;FALSO
+61;Sirope de arce;Forêts d'érables;Condimentos;24 - bot. 500 ml;28.50 €;113;0;FALSO
+62;Tarta de azúcar;Forêts d'érables;Repostería;48 tartas;49.30 €;17;0;FALSO
+63;Sandwich de vegetales;Pavlova, Ltd.;Condimentos;15 - frascos 625 g;43.90 €;24;0;FALSO
+64;Bollos de pan de Wimmer;Plutzer Lebensmittelgroßmärkte AG;Granos/Cereales;20 bolsas x 4 porc.;33.25 €;22;80;FALSO
+65;Salsa de pimiento picante de Luisiana;New Orleans Cajun Delights;Condimentos;32 - bot. 8 l;21.05 €;76;0;FALSO
+66;Especias picantes de Luisiana;New Orleans Cajun Delights;Condimentos;24 - frascos 8 l;17.00 €;4;100;FALSO
+67;Cerveza Laughing Lumberjack;Bigfoot Breweries;Bebidas;24 - bot. 12 l;14.00 €;52;0;FALSO
+68;Barras de pan de Escocia;Specialty Biscuits, Ltd.;Repostería;10 cajas x 8 porc.;12.50 €;6;10;FALSO
+69;Queso Gudbrandsdals;Norske Meierier;Lácteos;paq. 10 kg;36.00 €;26;0;FALSO
+70;Cerveza Outback;Pavlova, Ltd.;Bebidas;24 - bot. 355 ml;15.00 €;15;10;FALSO
+71;Crema de queso Fløtemys;Norske Meierier;Lácteos;10 - paq. 500 g;21.50 €;26;0;FALSO
+72;Queso Mozzarella Giovanni;Formaggi Fortini s.r.l.;Lácteos;24 - paq. 200 g;34.80 €;14;0;FALSO
+73;Caviar rojo;Svensk Sjöföda AB;Pescado/Marisco;24 - frascos150 g;15.00 €;101;0;FALSO
+74;Queso de soja Longlife;Tokyo Traders;Frutas/Verduras;paq. 5 kg;10.00 €;4;20;FALSO
+75;Cerveza Klosterbier Rhönbräu;Plutzer Lebensmittelgroßmärkte AG;Bebidas;24 - bot. 0,5 l;7.75 €;125;0;FALSO
+76;Licor Cloudberry;Karkki Oy;Bebidas;500 ml;18.00 €;57;0;FALSO
+77;Salsa verde original Frankfurter;Plutzer Lebensmittelgroßmärkte AG;Condimentos;12 cajas;13.00 €;32;0;FALSO
+78;Té Dharamsala;Pavlova, Ltd.;Bebidas;10 cajas x 20 bolsas;18.00 €;39;0;FALSO
+79;Cerveza tibetana Barley;Pavlova, Ltd.;Bebidas;24 - bot. 12 l;19.00 €;17;0;FALSO
+80;Sirope de regaliz;Pavlova, Ltd.;Condimentos;12 - bot. 550 ml;10.00 €;13;0;FALSO
+81;Especias Cajun del chef Anton;Specialty Biscuits, Ltd.;Condimentos;48 - frascos 6 l;22.00 €;53;0;FALSO
+82;Mezcla Gumbo del chef Anton;Specialty Biscuits, Ltd.;Condimentos;36 cajas;21.35 €;0;2;FALSO
+83;Mermelada de grosellas de la abuela;Specialty Biscuits, Ltd.;Condimentos;12 - frascos 8 l;25.00 €;120;0;FALSO
+84;Peras secas orgánicas del tío Bob;PB Knäckebröd AB;Frutas/Verduras;12 - paq. 1 kg;30.00 €;15;0;FALSO
+85;Salsa de arándanos Northwoods;PB Knäckebröd AB;Condimentos;12 - frascos 12 l;40.00 €;6;3;FALSO
+86;Buey Mishi Kobe;Refrescos Americanas LTDA;Carnes;18 - paq. 500 g;97.00 €;29;0;FALSO
+87;Pez espada;Heli Süßwaren GmbH & Co. KG;Pescado/Marisco;12 - frascos 200 ml;31.00 €;31;1;FALSO
+88;Queso Cabrales;Heli Süßwaren GmbH & Co. KG;Lácteos;paq. 1 kg;21.00 €;22;0;FALSO
+89;Queso Manchego La Pastora;Heli Süßwaren GmbH & Co. KG;Lácteos;10 - paq. 500 g;38.00 €;86;5;FALSO
+90;Algas Konbu;Plutzer Lebensmittelgroßmärkte AG;Pescado/Marisco;caja 2 kg;6.00 €;24;0;FALSO
+91;Cuajada de judías;Plutzer Lebensmittelgroßmärkte AG;Frutas/Verduras;40 - paq. 100 g;23.25 €;35;0;FALSO
+92;Salsa de soja baja en sodio;Nord-Ost-Fisch Handelsgesellschaft mbH;Condimentos;24 - bot. 250 ml;15.50 €;39;0;FALSO
+93;Postre de merengue Pavlova;Formaggi Fortini s.r.l.;Repostería;32 - cajas 500 g;17.45 €;29;4;FALSO
+94;Cordero Alice Springs;Formaggi Fortini s.r.l.;Carnes;20 - latas 1 kg;39.00 €;0;0;FALSO
+95;Langostinos tigre Carnarvon;Norske Meierier;Pescado/Marisco;paq. 16 kg;62.50 €;42;2;FALSO
+96;Pastas de té de chocolate;Bigfoot Breweries;Repostería;10 cajas x 12 piezas;9.20 €;25;0;FALSO
+97;Mermelada de Sir Rodney's;Bigfoot Breweries;Repostería;30 cajas regalo;81.00 €;40;3;FALSO
+98;Bollos de Sir Rodney's;Svensk Sjöföda AB;Repostería;24 paq. x 4 piezas;10.00 €;3;0;FALSO
+99;Pan de centeno crujiente estilo Gustaf's;Svensk Sjöföda AB;Granos/Cereales;24 - paq. 500 g;21.00 €;104;0;FALSO
+100;Pan fino;Aux joyeux ecclésiastiques;Granos/Cereales;12 - paq. 250 g;9.00 €;61;0;FALSO
+101;Refresco Guaraná Fantástica;Aux joyeux ecclésiastiques;Bebidas;12 - latas 355 ml;4.50 €;20;0;FALSO
+102;Crema de chocolate y nueces NuNuCa;New England Seafood Cannery;Repostería;20 - vasos  450 g;14.00 €;76;0;FALSO
+103;Ositos de goma Gumbär;New England Seafood Cannery;Repostería;100 - bolsas 250 g;31.23 €;15;0;FALSO
+104;Chocolate Schoggi;Leka Trading;Repostería;100 - piezas 100 g;43.90 €;49;0;FALSO
+105;Col fermentada Rössle;Leka Trading;Frutas/Verduras;25 - latas 825 g;45.60 €;26;2;FALSO
+106;Salchicha Thüringer;Leka Trading;Carnes;50 bolsas x 30 salch;123.79 €;0;0;FALSO
+107;Arenque blanco del noroeste;Lyngbysild;Pescado/Marisco;10 - vasos 200 g;25.89 €;22;0;FALSO
+108;Queso gorgonzola Telino;Lyngbysild;Lácteos;12 - paq. 100 g;12.50 €;76;3;FALSO
+109;Queso Mascarpone Fabioli;Zaanse Snoepfabriek;Lácteos;24 - paq. 200 g;32.00 €;4;0;FALSO
+110;Queso de cabra;Zaanse Snoepfabriek;Lácteos;500 g;2.50 €;52;1;FALSO
+111;Cerveza Sasquatch;Karkki Oy;Bebidas;24 - bot. 12 l;14.00 €;6;0;FALSO
+112;Cerveza negra Steeleye;Karkki Oy;Bebidas;24 - bot. 12 l;18.00 €;26;5;FALSO
+113;Escabeche de arenque;G'day, Mate;Pescado/Marisco;24 - frascos 250 g;19.00 €;15;0;FALSO
+114;Salmón ahumado Gravad;G'day, Mate;Pescado/Marisco;12 - paq. 500 g;26.00 €;26;0;FALSO
+115;Vino Côte de Blaye;G'day, Mate;Bebidas;12 - bot. 75 cl;263.50 €;14;0;FALSO
+116;Licor verde Chartreuse;Ma Maison;Bebidas;750 cc por bot.;18.00 €;101;4;FALSO
+117;Carne de cangrejo de Boston;Ma Maison;Pescado/Marisco;24 - latas 4 l;18.40 €;4;0;FALSO
+118;Crema de almejas estilo Nueva Inglaterra;Exotic Liquids;Pescado/Marisco;12 - latas 12 l;9.65 €;125;2;FALSO
+119;Tallarines de Singapur;Exotic Liquids;Granos/Cereales;32 - 1 kg paq.;14.00 €;57;0;FALSO
+120;Café de Malasia;Exotic Liquids;Bebidas;16 - latas 500 g;46.00 €;32;3;FALSO
+121;Azúcar negra Malacca;New Orleans Cajun Delights;Condimentos;20 - bolsas 2 kg;19.45 €;39;0;FALSO
+122;Arenque ahumado;New Orleans Cajun Delights;Pescado/Marisco;paq. 1k;9.50 €;17;0;FALSO
+123;Arenque salado;Grandma Kelly's Homestead;Pescado/Marisco;4 - vasos 450 g;12.00 €;13;0;FALSO
+124;Galletas Zaanse;Grandma Kelly's Homestead;Repostería;10 - cajas 4 l;9.50 €;53;0;FALSO
+125;Chocolate holandés;Grandma Kelly's Homestead;Repostería;10 paq.;12.75 €;0;0;FALSO
+126;Regaliz;Tokyo Traders;Repostería;24 - paq. 50 g;20.00 €;120;0;FALSO
+127;Chocolate blanco;Tokyo Traders;Repostería;12 - barras 100 g;16.25 €;15;0;FALSO
+128;Manzanas secas Manjimup;Cooperativa de Quesos 'Las Cabras';Frutas/Verduras;50 - paq. 300 g;53.00 €;6;2;FALSO
+129;Cereales para Filo;Cooperativa de Quesos 'Las Cabras';Granos/Cereales;16 - cajas 2 kg;7.00 €;29;0;FALSO
+130;Empanada de carne;Mayumi's;Carnes;48 porc.;32.80 €;31;0;FALSO
+131;Empanada de cerdo;Mayumi's;Carnes;16 tartas;7.45 €;22;3;FALSO
+132;Paté chino;Mayumi's;Carnes;24 cajas x 2 tartas;24.00 €;86;0;FALSO
+133;Gnocchi de la abuela Alicia;Pavlova, Ltd.;Granos/Cereales;24 - paq. 250 g;38.00 €;24;1;FALSO
+134;Raviolis Angelo;Pavlova, Ltd.;Granos/Cereales;24 - paq. 250 g;19.50 €;35;0;FALSO
+135;Caracoles de Borgoña;Pavlova, Ltd.;Pescado/Marisco;24 porc.;13.25 €;39;5;FALSO
+136;Raclet de queso Courdavault;Specialty Biscuits, Ltd.;Lácteos;paq. 5 kg;55.00 €;29;0;FALSO
+137;Camembert Pierrot;Specialty Biscuits, Ltd.;Lácteos;15 - paq. 300 g;34.00 €;24;0;FALSO
+138;Sirope de arce;Specialty Biscuits, Ltd.;Condimentos;24 - bot. 500 ml;28.50 €;35;0;FALSO
+139;Tarta de azúcar;PB Knäckebröd AB;Repostería;48 tartas;49.30 €;39;4;FALSO
+140;Sandwich de vegetales;PB Knäckebröd AB;Condimentos;15 - frascos 625 g;43.90 €;29;0;FALSO
+141;Bollos de pan de Wimmer;Refrescos Americanas LTDA;Granos/Cereales;20 bolsas x 4 porc.;33.25 €;0;2;FALSO
+142;Salsa de pimiento picante de Luisiana;Heli Süßwaren GmbH & Co. KG;Condimentos;32 - bot. 8 l;21.05 €;42;0;FALSO
+143;Especias picantes de Luisiana;Specialty Biscuits, Ltd.;Condimentos;24 - frascos 8 l;17.00 €;25;3;FALSO
+144;Cerveza Laughing Lumberjack;Specialty Biscuits, Ltd.;Bebidas;24 - bot. 12 l;14.00 €;40;0;FALSO
+145;Barras de pan de Escocia;PB Knäckebröd AB;Repostería;10 cajas x 8 porc.;12.50 €;3;0;FALSO
+146;Queso Gudbrandsdals;PB Knäckebröd AB;Lácteos;paq. 10 kg;36.00 €;104;0;FALSO
+147;Cerveza Outback;Refrescos Americanas LTDA;Bebidas;24 - bot. 355 ml;15.00 €;61;0;FALSO
+148;Crema de queso Fløtemys;Heli Süßwaren GmbH & Co. KG;Lácteos;10 - paq. 500 g;21.50 €;20;0;FALSO
+149;Queso Mozzarella Giovanni;Heli Süßwaren GmbH & Co. KG;Lácteos;24 - paq. 200 g;34.80 €;76;0;FALSO
+150;Caviar rojo;Heli Süßwaren GmbH & Co. KG;Pescado/Marisco;24 - frascos150 g;15.00 €;15;0;FALSO
+151;Queso de soja Longlife;Plutzer Lebensmittelgroßmärkte AG;Frutas/Verduras;paq. 5 kg;10.00 €;49;2;FALSO
+152;Cerveza Klosterbier Rhönbräu;Plutzer Lebensmittelgroßmärkte AG;Bebidas;24 - bot. 0,5 l;7.75 €;26;0;FALSO
+153;Licor Cloudberry;Nord-Ost-Fisch Handelsgesellschaft mbH;Bebidas;500 ml;18.00 €;0;0;FALSO
+154;Salsa verde original Frankfurter;Formaggi Fortini s.r.l.;Condimentos;12 cajas;13.00 €;10;3;FALSO
+155;Té Dharamsala;Formaggi Fortini s.r.l.;Bebidas;10 cajas x 20 bolsas;18.00 €;0;0;FALSO
+156;Cerveza tibetana Barley;Norske Meierier;Bebidas;24 - bot. 12 l;19.00 €;9;1;FALSO
+157;Sirope de regaliz;Bigfoot Breweries;Condimentos;12 - bot. 550 ml;10.00 €;112;0;FALSO
+158;Especias Cajun del chef Anton;Bigfoot Breweries;Condimentos;48 - frascos 6 l;22.00 €;111;5;FALSO
+159;Mezcla Gumbo del chef Anton;Svensk Sjöföda AB;Condimentos;36 cajas;21.35 €;20;0;FALSO
+160;Mermelada de grosellas de la abuela;Svensk Sjöföda AB;Condimentos;12 - frascos 8 l;25.00 €;112;0;FALSO
+161;Peras secas orgánicas del tío Bob;Aux joyeux ecclésiastiques;Frutas/Verduras;12 - paq. 1 kg;30.00 €;11;0;FALSO
+162;Salsa de arándanos Northwoods;Aux joyeux ecclésiastiques;Condimentos;12 - frascos 12 l;40.00 €;17;4;FALSO
+163;Buey Mishi Kobe;New England Seafood Cannery;Carnes;18 - paq. 500 g;97.00 €;69;0;FALSO
+164;Pez espada;New England Seafood Cannery;Pescado/Marisco;12 - frascos 200 ml;31.00 €;123;2;FALSO
+165;Queso Cabrales;Leka Trading;Lácteos;paq. 1 kg;21.00 €;85;0;FALSO
+166;Queso Manchego La Pastora;Leka Trading;Lácteos;10 - paq. 500 g;38.00 €;26;3;FALSO
+167;Algas Konbu;Leka Trading;Pescado/Marisco;caja 2 kg;6.00 €;17;0;FALSO
+168;Cuajada de judías;Lyngbysild;Frutas/Verduras;40 - paq. 100 g;23.25 €;27;0;FALSO
+169;Salsa de soja baja en sodio;Lyngbysild;Condimentos;24 - bot. 250 ml;15.50 €;5;0;FALSO
+170;Postre de merengue Pavlova;Zaanse Snoepfabriek;Repostería;32 - cajas 500 g;17.45 €;95;0;FALSO
+171;Cordero Alice Springs;Zaanse Snoepfabriek;Carnes;20 - latas 1 kg;39.00 €;36;0;FALSO
+172;Langostinos tigre Carnarvon;Karkki Oy;Pescado/Marisco;paq. 16 kg;62.50 €;15;0;FALSO
+173;Pastas de té de chocolate;Karkki Oy;Repostería;10 cajas x 12 piezas;9.20 €;10;0;FALSO
+174;Mermelada de Sir Rodney's;G'day, Mate;Repostería;30 cajas regalo;81.00 €;65;2;FALSO
+175;Bollos de Sir Rodney's;G'day, Mate;Repostería;24 paq. x 4 piezas;10.00 €;20;0;FALSO
+176;Pan de centeno crujiente estilo Gustaf's;G'day, Mate;Granos/Cereales;24 - paq. 500 g;21.00 €;38;0;FALSO
+177;Pan fino;Ma Maison;Granos/Cereales;12 - paq. 250 g;9.00 €;0;3;FALSO
+178;Refresco Guaraná Fantástica;Ma Maison;Bebidas;12 - latas 355 ml;4.50 €;21;0;FALSO
+179;Crema de chocolate y nueces NuNuCa;Exotic Liquids;Repostería;20 - vasos  450 g;14.00 €;115;1;FALSO
+180;Ositos de goma Gumbär;Exotic Liquids;Repostería;100 - bolsas 250 g;31.23 €;21;0;FALSO
+181;Chocolate Schoggi;Exotic Liquids;Repostería;100 - piezas 100 g;43.90 €;36;5;FALSO
+182;Col fermentada Rössle;New Orleans Cajun Delights;Frutas/Verduras;25 - latas 825 g;45.60 €;62;0;FALSO
+183;Salchicha Thüringer;New Orleans Cajun Delights;Carnes;50 bolsas x 30 salch;123.79 €;79;0;FALSO
+184;Arenque blanco del noroeste;Grandma Kelly's Homestead;Pescado/Marisco;10 - vasos 200 g;25.89 €;19;0;FALSO
+185;Queso gorgonzola Telino;Karkki Oy;Lácteos;12 - paq. 100 g;12.50 €;113;4;FALSO
+186;Queso Mascarpone Fabioli;Karkki Oy;Lácteos;24 - paq. 200 g;32.00 €;17;0;FALSO
+187;Queso de cabra;G'day, Mate;Lácteos;500 g;2.50 €;24;2;FALSO
+188;Cerveza Sasquatch;G'day, Mate;Bebidas;24 - bot. 12 l;14.00 €;22;0;FALSO
+189;Cerveza negra Steeleye;G'day, Mate;Bebidas;24 - bot. 12 l;18.00 €;76;3;FALSO
+190;Escabeche de arenque;Ma Maison;Pescado/Marisco;24 - frascos 250 g;19.00 €;4;0;FALSO
+191;Salmón ahumado Gravad;Ma Maison;Pescado/Marisco;12 - paq. 500 g;26.00 €;52;0;FALSO
+192;Vino Côte de Blaye;Pasta Buttini s.r.l.;Bebidas;12 - bot. 75 cl;263.50 €;6;0;FALSO
+193;Licor verde Chartreuse;Pasta Buttini s.r.l.;Bebidas;750 cc por bot.;18.00 €;26;0;FALSO
+194;Carne de cangrejo de Boston;Escargots Nouveaux;Pescado/Marisco;24 - latas 4 l;18.40 €;15;0;FALSO
+195;Crema de almejas estilo Nueva Inglaterra;Gai pâturage;Pescado/Marisco;12 - latas 12 l;9.65 €;26;0;FALSO
+196;Tallarines de Singapur;Gai pâturage;Granos/Cereales;32 - 1 kg paq.;14.00 €;24;0;FALSO
+197;Café de Malasia;Forêts d'érables;Bebidas;16 - latas 500 g;46.00 €;35;2;FALSO
+198;Azúcar negra Malacca;Forêts d'érables;Condimentos;20 - bolsas 2 kg;19.45 €;39;0;FALSO
+199;Arenque ahumado;Pavlova, Ltd.;Pescado/Marisco;paq. 1k;9.50 €;29;0;FALSO
+200;Arenque salado;Plutzer Lebensmittelgroßmärkte AG;Pescado/Marisco;4 - vasos 450 g;12.00 €;0;3;FALSO
+201;Galletas Zaanse;New Orleans Cajun Delights;Repostería;10 - cajas 4 l;9.50 €;42;0;FALSO
+202;Chocolate holandés;New Orleans Cajun Delights;Repostería;10 paq.;12.75 €;25;1;FALSO
+203;Regaliz;Bigfoot Breweries;Repostería;24 - paq. 50 g;20.00 €;40;0;FALSO
+204;Chocolate blanco;Specialty Biscuits, Ltd.;Repostería;12 - barras 100 g;16.25 €;3;5;FALSO
+205;Manzanas secas Manjimup;Norske Meierier;Frutas/Verduras;50 - paq. 300 g;53.00 €;104;0;FALSO
+206;Cereales para Filo;Pavlova, Ltd.;Granos/Cereales;16 - cajas 2 kg;7.00 €;61;0;FALSO
+207;Empanada de carne;Norske Meierier;Carnes;48 porc.;32.80 €;20;0;FALSO
+208;Empanada de cerdo;Formaggi Fortini s.r.l.;Carnes;16 tartas;7.45 €;76;4;FALSO
+209;Paté chino;Svensk Sjöföda AB;Carnes;24 cajas x 2 tartas;24.00 €;15;0;FALSO
+210;Gnocchi de la abuela Alicia;Tokyo Traders;Granos/Cereales;24 - paq. 250 g;38.00 €;49;2;FALSO
+211;Raviolis Angelo;Plutzer Lebensmittelgroßmärkte AG;Granos/Cereales;24 - paq. 250 g;19.50 €;26;0;FALSO
+212;Caracoles de Borgoña;Karkki Oy;Pescado/Marisco;24 porc.;13.25 €;0;3;FALSO
+213;Raclet de queso Courdavault;Plutzer Lebensmittelgroßmärkte AG;Lácteos;paq. 5 kg;55.00 €;10;0;FALSO
+214;Camembert Pierrot;Pavlova, Ltd.;Lácteos;15 - paq. 300 g;34.00 €;0;0;FALSO
+215;Sirope de arce;Pavlova, Ltd.;Condimentos;24 - bot. 500 ml;28.50 €;9;0;FALSO
+216;Tarta de azúcar;Pavlova, Ltd.;Repostería;48 tartas;49.30 €;112;0;FALSO
+217;Sandwich de vegetales;Specialty Biscuits, Ltd.;Condimentos;15 - frascos 625 g;43.90 €;111;0;FALSO
+218;Bollos de pan de Wimmer;Specialty Biscuits, Ltd.;Granos/Cereales;20 bolsas x 4 porc.;33.25 €;20;0;FALSO
+219;Salsa de pimiento picante de Luisiana;Specialty Biscuits, Ltd.;Condimentos;32 - bot. 8 l;21.05 €;112;0;FALSO
+220;Especias picantes de Luisiana;Refrescos Americanas LTDA;Condimentos;24 - frascos 8 l;17.00 €;11;2;FALSO
+221;Cerveza Laughing Lumberjack;Heli Süßwaren GmbH & Co. KG;Bebidas;24 - bot. 12 l;14.00 €;17;0;FALSO
+222;Barras de pan de Escocia;Heli Süßwaren GmbH & Co. KG;Repostería;10 cajas x 8 porc.;12.50 €;69;0;FALSO
+223;Queso Gudbrandsdals;Heli Süßwaren GmbH & Co. KG;Lácteos;paq. 10 kg;36.00 €;123;3;FALSO
+224;Cerveza Outback;Plutzer Lebensmittelgroßmärkte AG;Bebidas;24 - bot. 355 ml;15.00 €;85;0;FALSO
+225;Crema de queso Fløtemys;Plutzer Lebensmittelgroßmärkte AG;Lácteos;10 - paq. 500 g;21.50 €;26;1;FALSO
+226;Queso Mozzarella Giovanni;Nord-Ost-Fisch Handelsgesellschaft mbH;Lácteos;24 - paq. 200 g;34.80 €;17;0;FALSO
+227;Caviar rojo;Formaggi Fortini s.r.l.;Pescado/Marisco;24 - frascos150 g;15.00 €;27;5;FALSO
+228;Queso de soja Longlife;Formaggi Fortini s.r.l.;Frutas/Verduras;paq. 5 kg;10.00 €;5;0;FALSO
+229;Cerveza Klosterbier Rhönbräu;Norske Meierier;Bebidas;24 - bot. 0,5 l;7.75 €;95;0;FALSO
+230;Licor Cloudberry;Bigfoot Breweries;Bebidas;500 ml;18.00 €;36;0;FALSO
+231;Salsa verde original Frankfurter;Bigfoot Breweries;Condimentos;12 cajas;13.00 €;15;4;FALSO
+232;Té Dharamsala;Svensk Sjöföda AB;Bebidas;10 cajas x 20 bolsas;18.00 €;10;0;FALSO
+233;Cerveza tibetana Barley;Svensk Sjöföda AB;Bebidas;24 - bot. 12 l;19.00 €;65;2;FALSO
+234;Sirope de regaliz;Aux joyeux ecclésiastiques;Condimentos;12 - bot. 550 ml;10.00 €;20;0;FALSO
+235;Especias Cajun del chef Anton;Aux joyeux ecclésiastiques;Condimentos;48 - frascos 6 l;22.00 €;38;3;FALSO
+236;Mezcla Gumbo del chef Anton;New England Seafood Cannery;Condimentos;36 cajas;21.35 €;0;0;FALSO
+237;Mermelada de grosellas de la abuela;New England Seafood Cannery;Condimentos;12 - frascos 8 l;25.00 €;21;0;FALSO
+238;Peras secas orgánicas del tío Bob;Leka Trading;Frutas/Verduras;12 - paq. 1 kg;30.00 €;115;0;FALSO
+239;Salsa de arándanos Northwoods;Leka Trading;Condimentos;12 - frascos 12 l;40.00 €;21;0;FALSO
+240;Buey Mishi Kobe;Leka Trading;Carnes;18 - paq. 500 g;97.00 €;36;0;FALSO
+241;Pez espada;Lyngbysild;Pescado/Marisco;12 - frascos 200 ml;31.00 €;62;0;FALSO
+242;Queso Cabrales;Lyngbysild;Lácteos;paq. 1 kg;21.00 €;79;0;FALSO
+243;Queso Manchego La Pastora;Zaanse Snoepfabriek;Lácteos;10 - paq. 500 g;38.00 €;19;2;FALSO
+244;Algas Konbu;Zaanse Snoepfabriek;Pescado/Marisco;caja 2 kg;6.00 €;113;0;FALSO
+245;Cuajada de judías;Karkki Oy;Frutas/Verduras;40 - paq. 100 g;23.25 €;17;0;FALSO
+246;Salsa de soja baja en sodio;Karkki Oy;Condimentos;24 - bot. 250 ml;15.50 €;24;3;FALSO
+247;Postre de merengue Pavlova;G'day, Mate;Repostería;32 - cajas 500 g;17.45 €;22;0;FALSO
+248;Cordero Alice Springs;G'day, Mate;Carnes;20 - latas 1 kg;39.00 €;76;1;FALSO
+249;Langostinos tigre Carnarvon;G'day, Mate;Pescado/Marisco;paq. 16 kg;62.50 €;4;0;FALSO
+250;Pastas de té de chocolate;Ma Maison;Repostería;10 cajas x 12 piezas;9.20 €;52;5;FALSO
+251;Mermelada de Sir Rodney's;Ma Maison;Repostería;30 cajas regalo;81.00 €;6;0;FALSO
+252;Bollos de Sir Rodney's;Pasta Buttini s.r.l.;Repostería;24 paq. x 4 piezas;10.00 €;26;0;FALSO
+253;Pan de centeno crujiente estilo Gustaf's;Pasta Buttini s.r.l.;Granos/Cereales;24 - paq. 500 g;21.00 €;15;0;FALSO
+254;Pan fino;Escargots Nouveaux;Granos/Cereales;12 - paq. 250 g;9.00 €;26;4;FALSO
+255;Refresco Guaraná Fantástica;Gai pâturage;Bebidas;12 - latas 355 ml;4.50 €;24;0;FALSO
+256;Crema de chocolate y nueces NuNuCa;Gai pâturage;Repostería;20 - vasos  450 g;14.00 €;35;2;FALSO
+257;Ositos de goma Gumbär;Forêts d'érables;Repostería;100 - bolsas 250 g;31.23 €;39;0;FALSO
+258;Chocolate Schoggi;Forêts d'érables;Repostería;100 - piezas 100 g;43.90 €;29;3;FALSO
+259;Col fermentada Rössle;Pavlova, Ltd.;Frutas/Verduras;25 - latas 825 g;45.60 €;0;0;FALSO
+260;Salchicha Thüringer;Plutzer Lebensmittelgroßmärkte AG;Carnes;50 bolsas x 30 salch;123.79 €;42;0;FALSO
+261;Arenque blanco del noroeste;New Orleans Cajun Delights;Pescado/Marisco;10 - vasos 200 g;25.89 €;25;0;FALSO
+262;Queso gorgonzola Telino;New Orleans Cajun Delights;Lácteos;12 - paq. 100 g;12.50 €;40;0;FALSO
+263;Queso Mascarpone Fabioli;Bigfoot Breweries;Lácteos;24 - paq. 200 g;32.00 €;3;0;FALSO
+264;Queso de cabra;Specialty Biscuits, Ltd.;Lácteos;500 g;2.50 €;104;0;FALSO
+265;Cerveza Sasquatch;Norske Meierier;Bebidas;24 - bot. 12 l;14.00 €;61;0;FALSO
+266;Cerveza negra Steeleye;Pavlova, Ltd.;Bebidas;24 - bot. 12 l;18.00 €;20;2;FALSO
+267;Escabeche de arenque;Norske Meierier;Pescado/Marisco;24 - frascos 250 g;19.00 €;76;0;FALSO
+268;Salmón ahumado Gravad;Formaggi Fortini s.r.l.;Pescado/Marisco;12 - paq. 500 g;26.00 €;15;0;FALSO
+269;Vino Côte de Blaye;Svensk Sjöföda AB;Bebidas;12 - bot. 75 cl;263.50 €;49;3;FALSO
+270;Licor verde Chartreuse;Tokyo Traders;Bebidas;750 cc por bot.;18.00 €;26;0;FALSO
+271;Carne de cangrejo de Boston;Plutzer Lebensmittelgroßmärkte AG;Pescado/Marisco;24 - latas 4 l;18.40 €;0;1;FALSO
+272;Crema de almejas estilo Nueva Inglaterra;Karkki Oy;Pescado/Marisco;12 - latas 12 l;9.65 €;10;0;FALSO
+273;Tallarines de Singapur;Plutzer Lebensmittelgroßmärkte AG;Granos/Cereales;32 - 1 kg paq.;14.00 €;0;5;FALSO
+274;Café de Malasia;Pavlova, Ltd.;Bebidas;16 - latas 500 g;46.00 €;9;0;FALSO
+275;Azúcar negra Malacca;Pavlova, Ltd.;Condimentos;20 - bolsas 2 kg;19.45 €;112;0;FALSO
+276;Arenque ahumado;Pavlova, Ltd.;Pescado/Marisco;paq. 1k;9.50 €;111;0;FALSO
+277;Arenque salado;Specialty Biscuits, Ltd.;Pescado/Marisco;4 - vasos 450 g;12.00 €;20;4;FALSO
+278;Galletas Zaanse;Specialty Biscuits, Ltd.;Repostería;10 - cajas 4 l;9.50 €;112;0;FALSO
+279;Chocolate holandés;Specialty Biscuits, Ltd.;Repostería;10 paq.;12.75 €;11;2;FALSO
+280;Regaliz;PB Knäckebröd AB;Repostería;24 - paq. 50 g;20.00 €;17;0;FALSO
+281;Chocolate blanco;PB Knäckebröd AB;Repostería;12 - barras 100 g;16.25 €;69;3;FALSO
+282;Manzanas secas Manjimup;Refrescos Americanas LTDA;Frutas/Verduras;50 - paq. 300 g;53.00 €;123;0;FALSO
+283;Cereales para Filo;Heli Süßwaren GmbH & Co. KG;Granos/Cereales;16 - cajas 2 kg;7.00 €;85;0;FALSO
+284;Empanada de carne;Heli Süßwaren GmbH & Co. KG;Carnes;48 porc.;32.80 €;26;0;FALSO
+285;Empanada de cerdo;Heli Süßwaren GmbH & Co. KG;Carnes;16 tartas;7.45 €;17;0;FALSO
+286;Paté chino;Plutzer Lebensmittelgroßmärkte AG;Carnes;24 cajas x 2 tartas;24.00 €;27;0;FALSO
+287;Gnocchi de la abuela Alicia;Plutzer Lebensmittelgroßmärkte AG;Granos/Cereales;24 - paq. 250 g;38.00 €;5;0;FALSO
+288;Raviolis Angelo;Nord-Ost-Fisch Handelsgesellschaft mbH;Granos/Cereales;24 - paq. 250 g;19.50 €;95;0;FALSO
+289;Caracoles de Borgoña;Formaggi Fortini s.r.l.;Pescado/Marisco;24 porc.;13.25 €;36;2;FALSO
+290;Raclet de queso Courdavault;Formaggi Fortini s.r.l.;Lácteos;paq. 5 kg;55.00 €;15;0;FALSO
+291;Camembert Pierrot;Norske Meierier;Lácteos;15 - paq. 300 g;34.00 €;10;0;FALSO
+292;Sirope de arce;Bigfoot Breweries;Condimentos;24 - bot. 500 ml;28.50 €;65;3;FALSO
+293;Tarta de azúcar;Bigfoot Breweries;Repostería;48 tartas;49.30 €;20;0;FALSO
+294;Sandwich de vegetales;Svensk Sjöföda AB;Condimentos;15 - frascos 625 g;43.90 €;38;1;FALSO
+295;Bollos de pan de Wimmer;Svensk Sjöföda AB;Granos/Cereales;20 bolsas x 4 porc.;33.25 €;0;0;FALSO
+296;Salsa de pimiento picante de Luisiana;Aux joyeux ecclésiastiques;Condimentos;32 - bot. 8 l;21.05 €;21;5;FALSO
+297;Especias picantes de Luisiana;Aux joyeux ecclésiastiques;Condimentos;24 - frascos 8 l;17.00 €;115;0;FALSO
+298;Cerveza Laughing Lumberjack;New England Seafood Cannery;Bebidas;24 - bot. 12 l;14.00 €;21;0;FALSO
+299;Barras de pan de Escocia;New England Seafood Cannery;Repostería;10 cajas x 8 porc.;12.50 €;36;0;FALSO
+300;Queso Gudbrandsdals;Leka Trading;Lácteos;paq. 10 kg;36.00 €;62;4;FALSO
+301;Cerveza Outback;Leka Trading;Bebidas;24 - bot. 355 ml;15.00 €;79;0;FALSO
+302;Crema de queso Fløtemys;Leka Trading;Lácteos;10 - paq. 500 g;21.50 €;19;2;FALSO
+303;Queso Mozzarella Giovanni;Lyngbysild;Lácteos;24 - paq. 200 g;34.80 €;113;0;FALSO
+304;Caviar rojo;Lyngbysild;Pescado/Marisco;24 - frascos150 g;15.00 €;17;3;FALSO
+305;Queso de soja Longlife;Zaanse Snoepfabriek;Frutas/Verduras;paq. 5 kg;10.00 €;24;0;FALSO
+306;Cerveza Klosterbier Rhönbräu;Zaanse Snoepfabriek;Bebidas;24 - bot. 0,5 l;7.75 €;22;0;FALSO
+307;Licor Cloudberry;Karkki Oy;Bebidas;500 ml;18.00 €;76;0;FALSO
+308;Salsa verde original Frankfurter;Karkki Oy;Condimentos;12 cajas;13.00 €;4;0;FALSO
+309;Té Dharamsala;G'day, Mate;Bebidas;10 cajas x 20 bolsas;18.00 €;52;0;FALSO
+310;Cerveza tibetana Barley;G'day, Mate;Bebidas;24 - bot. 12 l;19.00 €;6;0;FALSO
+311;Sirope de regaliz;G'day, Mate;Condimentos;12 - bot. 550 ml;10.00 €;26;0;FALSO
+312;Especias Cajun del chef Anton;Ma Maison;Condimentos;48 - frascos 6 l;22.00 €;15;2;FALSO
+313;Mezcla Gumbo del chef Anton;Ma Maison;Condimentos;36 cajas;21.35 €;26;0;FALSO
+314;Mermelada de grosellas de la abuela;Exotic Liquids;Condimentos;12 - frascos 8 l;25.00 €;24;0;FALSO
+315;Peras secas orgánicas del tío Bob;Exotic Liquids;Frutas/Verduras;12 - paq. 1 kg;30.00 €;35;3;FALSO
+316;Salsa de arándanos Northwoods;Exotic Liquids;Condimentos;12 - frascos 12 l;40.00 €;39;0;FALSO
+317;Buey Mishi Kobe;New Orleans Cajun Delights;Carnes;18 - paq. 500 g;97.00 €;29;1;FALSO
+318;Pez espada;New Orleans Cajun Delights;Pescado/Marisco;12 - frascos 200 ml;31.00 €;0;0;FALSO
+319;Queso Cabrales;Aux joyeux ecclésiastiques;Lácteos;paq. 1 kg;21.00 €;42;5;FALSO
+320;Queso Manchego La Pastora;New England Seafood Cannery;Lácteos;10 - paq. 500 g;38.00 €;25;0;FALSO
+321;Algas Konbu;New England Seafood Cannery;Pescado/Marisco;caja 2 kg;6.00 €;40;0;FALSO
+322;Cuajada de judías;Leka Trading;Frutas/Verduras;40 - paq. 100 g;23.25 €;3;0;FALSO
+323;Salsa de soja baja en sodio;Leka Trading;Condimentos;24 - bot. 250 ml;15.50 €;104;4;FALSO
+324;Postre de merengue Pavlova;Leka Trading;Repostería;32 - cajas 500 g;17.45 €;61;0;FALSO
+325;Cordero Alice Springs;Lyngbysild;Carnes;20 - latas 1 kg;39.00 €;20;2;FALSO
+326;Langostinos tigre Carnarvon;Lyngbysild;Pescado/Marisco;paq. 16 kg;62.50 €;76;0;FALSO
+327;Pastas de té de chocolate;Zaanse Snoepfabriek;Repostería;10 cajas x 12 piezas;9.20 €;15;3;FALSO
+328;Mermelada de Sir Rodney's;Zaanse Snoepfabriek;Repostería;30 cajas regalo;81.00 €;49;0;FALSO
+329;Bollos de Sir Rodney's;Karkki Oy;Repostería;24 paq. x 4 piezas;10.00 €;26;0;FALSO
+330;Pan de centeno crujiente estilo Gustaf's;Karkki Oy;Granos/Cereales;24 - paq. 500 g;21.00 €;0;0;FALSO
+331;Pan fino;G'day, Mate;Granos/Cereales;12 - paq. 250 g;9.00 €;10;0;FALSO
+332;Refresco Guaraná Fantástica;G'day, Mate;Bebidas;12 - latas 355 ml;4.50 €;0;0;FALSO
+333;Crema de chocolate y nueces NuNuCa;G'day, Mate;Repostería;20 - vasos  450 g;14.00 €;9;0;FALSO
+334;Ositos de goma Gumbär;Ma Maison;Repostería;100 - bolsas 250 g;31.23 €;112;0;FALSO
+335;Chocolate Schoggi;Ma Maison;Repostería;100 - piezas 100 g;43.90 €;111;2;FALSO
+336;Col fermentada Rössle;Exotic Liquids;Frutas/Verduras;25 - latas 825 g;45.60 €;20;0;FALSO
+337;Salchicha Thüringer;Exotic Liquids;Carnes;50 bolsas x 30 salch;123.79 €;112;0;FALSO
+338;Arenque blanco del noroeste;Exotic Liquids;Pescado/Marisco;10 - vasos 200 g;25.89 €;11;3;FALSO
+339;Queso gorgonzola Telino;New Orleans Cajun Delights;Lácteos;12 - paq. 100 g;12.50 €;17;0;FALSO
+340;Queso Mascarpone Fabioli;New Orleans Cajun Delights;Lácteos;24 - paq. 200 g;32.00 €;69;1;FALSO
+341;Queso de cabra;Grandma Kelly's Homestead;Lácteos;500 g;2.50 €;123;0;FALSO
+342;Cerveza Sasquatch;Grandma Kelly's Homestead;Bebidas;24 - bot. 12 l;14.00 €;85;5;FALSO
+343;Cerveza negra Steeleye;Grandma Kelly's Homestead;Bebidas;24 - bot. 12 l;18.00 €;26;0;FALSO
+344;Escabeche de arenque;Tokyo Traders;Pescado/Marisco;24 - frascos 250 g;19.00 €;17;0;FALSO
+345;Salmón ahumado Gravad;Tokyo Traders;Pescado/Marisco;12 - paq. 500 g;26.00 €;27;0;FALSO
+346;Vino Côte de Blaye;Cooperativa de Quesos 'Las Cabras';Bebidas;12 - bot. 75 cl;263.50 €;5;4;FALSO
+347;Licor verde Chartreuse;Cooperativa de Quesos 'Las Cabras';Bebidas;750 cc por bot.;18.00 €;95;0;FALSO
+348;Carne de cangrejo de Boston;Mayumi's;Pescado/Marisco;24 - latas 4 l;18.40 €;36;2;FALSO
+349;Crema de almejas estilo Nueva Inglaterra;Mayumi's;Pescado/Marisco;12 - latas 12 l;9.65 €;15;0;FALSO
+350;Tallarines de Singapur;Mayumi's;Granos/Cereales;32 - 1 kg paq.;14.00 €;10;3;FALSO
+351;Café de Malasia;Pavlova, Ltd.;Bebidas;16 - latas 500 g;46.00 €;65;0;FALSO
+352;Azúcar negra Malacca;Pavlova, Ltd.;Condimentos;20 - bolsas 2 kg;19.45 €;20;0;FALSO
+353;Arenque ahumado;Pavlova, Ltd.;Pescado/Marisco;paq. 1k;9.50 €;38;0;FALSO
+354;Arenque salado;Specialty Biscuits, Ltd.;Pescado/Marisco;4 - vasos 450 g;12.00 €;0;0;FALSO
+355;Galletas Zaanse;Specialty Biscuits, Ltd.;Repostería;10 - cajas 4 l;9.50 €;21;0;FALSO
+356;Chocolate holandés;Specialty Biscuits, Ltd.;Repostería;10 paq.;12.75 €;115;0;FALSO
+357;Regaliz;PB Knäckebröd AB;Repostería;24 - paq. 50 g;20.00 €;21;0;FALSO
+358;Chocolate blanco;PB Knäckebröd AB;Repostería;12 - barras 100 g;16.25 €;36;2;FALSO
+359;Manzanas secas Manjimup;Refrescos Americanas LTDA;Frutas/Verduras;50 - paq. 300 g;53.00 €;62;0;FALSO
+360;Cereales para Filo;Heli Süßwaren GmbH & Co. KG;Granos/Cereales;16 - cajas 2 kg;7.00 €;79;0;FALSO
+361;Empanada de carne;Specialty Biscuits, Ltd.;Carnes;48 porc.;32.80 €;19;3;FALSO
+362;Empanada de cerdo;Specialty Biscuits, Ltd.;Carnes;16 tartas;7.45 €;113;0;FALSO
+363;Paté chino;PB Knäckebröd AB;Carnes;24 cajas x 2 tartas;24.00 €;17;1;FALSO
+364;Gnocchi de la abuela Alicia;PB Knäckebröd AB;Granos/Cereales;24 - paq. 250 g;38.00 €;24;0;FALSO
+365;Raviolis Angelo;Refrescos Americanas LTDA;Granos/Cereales;24 - paq. 250 g;19.50 €;22;5;FALSO
+366;Caracoles de Borgoña;Heli Süßwaren GmbH & Co. KG;Pescado/Marisco;24 porc.;13.25 €;76;0;FALSO
+367;Raclet de queso Courdavault;Heli Süßwaren GmbH & Co. KG;Lácteos;paq. 5 kg;55.00 €;4;0;FALSO
+368;Camembert Pierrot;Heli Süßwaren GmbH & Co. KG;Lácteos;15 - paq. 300 g;34.00 €;52;0;FALSO
+369;Sirope de arce;Plutzer Lebensmittelgroßmärkte AG;Condimentos;24 - bot. 500 ml;28.50 €;6;4;FALSO
+370;Tarta de azúcar;Plutzer Lebensmittelgroßmärkte AG;Repostería;48 tartas;49.30 €;26;0;FALSO
+371;Sandwich de vegetales;Nord-Ost-Fisch Handelsgesellschaft mbH;Condimentos;15 - frascos 625 g;43.90 €;15;2;FALSO
+372;Bollos de pan de Wimmer;Formaggi Fortini s.r.l.;Granos/Cereales;20 bolsas x 4 porc.;33.25 €;26;0;FALSO
+373;Salsa de pimiento picante de Luisiana;Formaggi Fortini s.r.l.;Condimentos;32 - bot. 8 l;21.05 €;21;3;FALSO
+374;Especias picantes de Luisiana;Norske Meierier;Condimentos;24 - frascos 8 l;17.00 €;115;0;FALSO
+375;Cerveza Laughing Lumberjack;Bigfoot Breweries;Bebidas;24 - bot. 12 l;14.00 €;21;0;FALSO
+376;Barras de pan de Escocia;Bigfoot Breweries;Repostería;10 cajas x 8 porc.;12.50 €;36;0;FALSO
+377;Queso Gudbrandsdals;Svensk Sjöföda AB;Lácteos;paq. 10 kg;36.00 €;62;0;FALSO
+378;Cerveza Outback;Svensk Sjöföda AB;Bebidas;24 - bot. 355 ml;15.00 €;79;0;FALSO
+379;Crema de queso Fløtemys;Aux joyeux ecclésiastiques;Lácteos;10 - paq. 500 g;21.50 €;19;0;FALSO
+380;Queso Mozzarella Giovanni;Aux joyeux ecclésiastiques;Lácteos;24 - paq. 200 g;34.80 €;113;0;FALSO
+381;Caviar rojo;New England Seafood Cannery;Pescado/Marisco;24 - frascos150 g;15.00 €;17;2;FALSO
+382;Queso de soja Longlife;New England Seafood Cannery;Frutas/Verduras;paq. 5 kg;10.00 €;24;0;FALSO
+383;Cerveza Klosterbier Rhönbräu;Leka Trading;Bebidas;24 - bot. 0,5 l;7.75 €;62;0;FALSO
+384;Licor Cloudberry;Leka Trading;Bebidas;500 ml;18.00 €;79;3;FALSO
+385;Salsa verde original Frankfurter;Leka Trading;Condimentos;12 cajas;13.00 €;19;0;FALSO
