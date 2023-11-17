@@ -10,7 +10,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
-
+import ListaEnlasada.*;
+import Datos.Articulos;
 /**
  *
  * @author ROBSKY
@@ -57,12 +58,60 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                    
     }
     
+    
+    
+    
     public Consulta_de_Articulos() {
         initComponents();
         
         this.setTitle(" Consulta de Artículos");
         this.setLocationRelativeTo(this);
          
+    }
+    
+    //instanciacion de lista enlazada
+    
+    
+    
+    private void cargarArticulosListaEnlazada() {
+        try {
+            String texto = "";
+            Object cabeceras[] = {"Id. de producto","Nombre de producto","PROVEEDORES","Categoría","Cantidad por unidad","Precio por unidad","Unidades en existencia","Unidades pedidas","Suspendido"};
+            tablaDetalles = new DefaultTableModel(cabeceras,0);
+            archivo.showOpenDialog(this);
+            File abrir = archivo.getSelectedFile();
+            Object[] elemento = new Object[9];
+            if (abrir != null){
+                
+                FileReader fichero = new FileReader(abrir);
+                BufferedReader leer = new BufferedReader(fichero);
+                //se crea la lista enlazada
+                ListaInterface ListaArticulos= new ListaEnlasadaImpl();
+
+                while ((texto = leer.readLine()) != null) {
+                    String registro[] = texto.split(";");
+
+                    Articulos articulo = new Articulos();
+                    articulo.setIdProducto(registro[0]);
+                    articulo.setNombreProducto(registro[1]);
+                    articulo.setProveedores(registro[2]);
+                    articulo.setCategoria(registro[3]);
+                    articulo.setCantidadPorUnidad(registro[4]);
+                    articulo.setPrecioPorUnidad(registro[5]);
+                    articulo.setUnidadesExistentes(registro[6]);
+                    articulo.setUnidadesPedidas(registro[7]);
+                    articulo.setSuspendido(registro[8]);
+
+                    //ListaArticulos.insertarFinal(articulo); //se debe crear una lista enlazada para guardar objetos tipo clase Articulos
+                    tablaDetalles.addRow(registro);
+                }
+
+                jTableAticulos.setModel(tablaDetalles);
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error" + e);
+        }
     }
 
     /**
@@ -87,6 +136,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
+        imagenPrueba = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMnuItemPrincipal = new javax.swing.JMenuItem();
@@ -124,6 +174,8 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         jLabel10.setText("Nombre de la Categoria:");
 
         jBtnFiltrarArticulos.setText("Filtrar");
+
+        imagenPrueba.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida-de-emergencia.png"))); // NOI18N
 
         jMenu1.setText("Archivo");
 
@@ -166,9 +218,15 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(imagenPrueba)))
                 .addGap(185, 185, 185)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -193,7 +251,6 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                             .addComponent(jBtnFiltrarArticulos)
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(332, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +258,9 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(104, 104, 104)
+                        .addComponent(imagenPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addComponent(jLabel1)
@@ -282,6 +341,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel imagenPrueba;
     private javax.swing.JButton jBtnFiltrarArticulos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

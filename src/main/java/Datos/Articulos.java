@@ -262,5 +262,6 @@ public class Articulos
         System.out.println("Resultados de la búsqueda por nombre '" + nombreBuscado + "':");
         System.out.println(listaFiltrada.imprimirLista());
     }
+    
 }
 
