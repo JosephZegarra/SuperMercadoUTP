@@ -1,6 +1,5 @@
 package ListaEnlazadaArticulo;
 
-import ListaEnlasada.*;
 import Datos.Articulos; 
 
 

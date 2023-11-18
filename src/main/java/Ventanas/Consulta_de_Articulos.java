@@ -10,7 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
-import ListaEnlazadaArticulo.*;
+import ListaEnlasada.*;
 import Datos.Articulos;
 /**
  *
@@ -70,10 +70,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
     }
     
     //instanciacion de lista enlazada
-    
-    
-    
-    private void cargarArticulosListaEnlazada() {
+     private void cargarArticulosListaEnlazada() {
         try {
             String texto = "";
             Object cabeceras[] = {"Id. de producto","Nombre de producto","PROVEEDORES","Categoría","Cantidad por unidad","Precio por unidad","Unidades en existencia","Unidades pedidas","Suspendido"};
@@ -86,7 +83,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                 FileReader fichero = new FileReader(abrir);
                 BufferedReader leer = new BufferedReader(fichero);
                 //se crea la lista enlazada
-                ListaInterface ListaArticulos= new ListaEnlasadaArticuloImpl();
+                ListaInterface ListaArticulos= new ListaEnlasadaImpl();
 
                 while ((texto = leer.readLine()) != null) {
                     String registro[] = texto.split(";");
@@ -102,9 +99,9 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                     articulo.setUnidadesPedidas(registro[7]);
                     articulo.setSuspendido(registro[8]);
                     
+                    Nodo nuevoNodo = new Nodo(articulo);
                     
-                    
-                    //ListaArticulos.insertarFinal(articulo); //se debe crear una lista enlazada para guardar objetos tipo clase Articulos
+                    ListaArticulos.insertarFinal(nuevoNodo); //se debe crear una lista enlazada para guardar objetos tipo clase Articulos
                     tablaDetalles.addRow(registro);
                 }
 
@@ -115,6 +112,9 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
             System.out.println("Error" + e);
         }
     }
+    
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -6,7 +6,7 @@ import Datos.Articulos;
 
 
 
-public class ListaEnlasadaArticuloImpl implements ListaInterface
+public class ListaEnlasadaArticuloImpl implements ListaInterfaceArticulo
 {
     private Nodo cabecera;
 

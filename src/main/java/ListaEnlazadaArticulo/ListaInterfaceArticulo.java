@@ -2,7 +2,7 @@ package ListaEnlazadaArticulo;
 
 import ListaEnlasada.*;
 
-public interface ListaInterface 
+public interface ListaInterfaceArticulo 
 {
     //METODOS PUBLICOS
     public void insertarFinal(Nodo nuevoNodo);//
