@@ -42,7 +42,7 @@ public class Estadisticas extends javax.swing.JFrame {
         jMnuItemB = new javax.swing.JMenuItem();
         jMnuItemC = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
