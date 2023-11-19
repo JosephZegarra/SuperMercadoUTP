@@ -244,7 +244,40 @@ public class ListaEnlasadaImpl implements ListaInterface
     }
     
     
-   
+    
+    
+    /*
+    
+    //eliminar luego deexperimentar
+    
+    @Override
+    public Nodo buscarObjetoFiltrar(int Object) 
+    {
+        Boolean encontrado = false;
+        Nodo Iterador = cabecera;
+        int contador = 1; // Inicializamos el contador en 1 para la primera posición.
+
+        while (Iterador != null) 
+        {   
+            if (Iterador.elemento.equals(Object)) 
+            {
+                encontrado = true;
+                //creo una lista enlazada y guardo los nodos
+                
+            } 
+            else 
+            {
+                Iterador = Iterador.siguiente;
+                contador++;
+            }
+        }
+
+        return contador;
+        
+
+    }
+    
+    */
  
   
     

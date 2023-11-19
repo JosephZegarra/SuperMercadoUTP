@@ -231,7 +231,7 @@
                               <Component id="jLabel27" min="-2" pref="179" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="410" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <Component id="jScrollBar1" min="-2" pref="0" max="-2" attributes="0"/>
