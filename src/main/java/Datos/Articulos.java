@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import ListaEnlasada.*;
 import ListaEnlazadaArticulo.*;
 
 public class Articulos 
@@ -313,6 +314,7 @@ public class Articulos
             System.out.println("Error" + e);
         }
     }
+     
      
      
      ListaInterfaceArticulo ListaFiltroCategoriaArticulo= new ListaEnlasadaArticuloImpl();
