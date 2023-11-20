@@ -1,34 +1,34 @@
-package ListaEnlasada;
+package ListaEnlazadaGenerica;
 
-public class Nodo
+public class NodoGenerico<T>
 {
     //ATRIBUTOS
-    Object elemento; //Elemento / Contenido
-    Nodo siguiente; //puntero al siguiente elemento
+    T elemento; //Elemento / Contenido
+    NodoGenerico siguiente; //puntero al siguiente elemento
     
     //CONSTRUCTORES
     
     //Nodo Solo, no tiene enlace al siguiente 
-    public Nodo(Object obj) 
+    public NodoGenerico(T obj) 
     {
         this.elemento = obj;
         this.siguiente = null;
     }
     
     //Nodo con puntero a siguiente elemento
-    public  Nodo(Object obj, Nodo n)
+    public  NodoGenerico(T obj, NodoGenerico n)
     {
         this.elemento = obj;
         this.siguiente = n ;
     }
     
     //METODOS GETTER AND SETTER
-    public Object getElemento() 
+    public T getElemento() 
     {
         return elemento;
     }
 
-    public void setElemento(Object elemento) 
+    public void setElemento(T elemento) 
     {
         this.elemento = elemento;
     }

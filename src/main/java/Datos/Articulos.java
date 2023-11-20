@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import ListaEnlasada.*;
-import ListaEnlazadaArticulo.*;
+
 
 public class Articulos 
 {
@@ -265,10 +265,21 @@ public class Articulos
     }
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
      //codigo para filtrar por combo box, se filtraran los nombres de categoria de productos 
     //que se repiten en los registros
     //para ingresarlos como valores en el combobox
     
+   
     
       //instanciacion de lista enlazada
     ListaInterfaceArticulo ListaArticulos= new ListaEnlasadaArticuloImpl();
@@ -353,6 +364,8 @@ public class Articulos
         
      }
      
+     
+     */
     
     
     
