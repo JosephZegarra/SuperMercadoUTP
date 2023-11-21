@@ -12,7 +12,9 @@ import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.Element;
-
+import ListaEnlazadaGenerica.*;
+import Datos.Detalles_Pedidos;
+import Datos.Pedidos;
 /**
  *
  * @author ROBSKY
@@ -25,6 +27,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
    //mostrar un diálogo de selección de archivos
    JFileChooser archivo = new JFileChooser(System.getProperty("user.dir"));
     
+   ListaInterfaceGenerica<Detalles_Pedidos> ListaDetallePedidos= new ListaEnlasadaGenericaImpl<Detalles_Pedidos>();
     private void cargarDetallePedidos()
     { 
         try {
@@ -36,7 +39,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
             //Muestra el diálogo de selección de archivos
             archivo.showOpenDialog(this);
             File abrir = archivo.getSelectedFile();
-            Object[] elemento = new Object[5];
+            
             if (abrir != null)
             {
                 //abrir el archivo seleccionado
@@ -45,15 +48,24 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                 BufferedReader leer = new BufferedReader(fichero);
                 
                 while ((texto=leer.readLine()) != null)
-                {
+                {   
+                    Detalles_Pedidos objDetallePedido= new Detalles_Pedidos();
                     // Divide la línea de texto en campos
                     String registro[] = texto.split(";");
-                    elemento[0] = registro[0];
-                    elemento[1] = registro[1];
-                    elemento[2] = registro[2];
-                    elemento[3] = registro[3];
-                    elemento[4] = registro[4];
-                    tablaDetalles.addRow(elemento);
+                    
+                    objDetallePedido.setIdPedido(registro[0]);
+                    objDetallePedido.setProducto(registro[1]);
+                    objDetallePedido.setPrecioUnidad(registro[2]);
+                    objDetallePedido.setCantidad(registro[3]);
+                    objDetallePedido.setDescuento(registro[4]);
+                    
+                    
+                    NodoGenerico<Detalles_Pedidos> nuevoNodo = new NodoGenerico<>(objDetallePedido);
+                    
+                    ListaDetallePedidos.insertarFinal(nuevoNodo);
+                    
+                    tablaDetalles.addRow(registro);
+                    
                     
                 }
                 jTableDetalPedido.setModel(tablaDetalles);
@@ -64,6 +76,19 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                    
     }
     
+    public ListaInterfaceGenerica<Detalles_Pedidos> GetListaDetallePedidos()
+    {
+        return ListaDetallePedidos;
+    }
+    
+    
+    
+    
+    
+    
+     ListaInterfaceGenerica<Pedidos> ListaPedidos= new ListaEnlasadaGenericaImpl<Pedidos>();
+    
+    
     private void cargarDatosPedidos()
     {
         
@@ -73,7 +98,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
             tablaDetalles = new DefaultTableModel(cabeceras,0);
             archivo.showOpenDialog(this);
             File abrir = archivo.getSelectedFile();
-            Object[] elemento = new Object[7];
+            
             if (abrir != null)
             {
                 FileReader fichero = new FileReader(abrir);
@@ -83,15 +108,22 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                 while ((texto=leer.readLine()) != null)
                 {
                     String registro[] = texto.split(";");
-                    elemento[0] = registro[0];
-                    elemento[1] = registro[1];
-                    elemento[2] = registro[2];
-                    elemento[3] = registro[3];
-                    elemento[4] = registro[4];
-                    elemento[5] = registro[5];
-                    elemento[6] = registro[6];
                     
-                    tablaDetalles.addRow(elemento);
+                    Pedidos ObjPedido= new Pedidos();
+                    
+                    ObjPedido.setIdPedido(registro[0]);
+                    ObjPedido.setCliente(registro[1]);
+                    ObjPedido.setFechaPedido(registro[2]);
+                    ObjPedido.setFechaEntrega(registro[3]);
+                    ObjPedido.setFechaEnvio(registro[4]);
+                    ObjPedido.setFormaEnvio(registro[5]);
+                    ObjPedido.setCargo(registro[6]);
+                    
+                    NodoGenerico<Pedidos> nuevoNodo = new NodoGenerico<>(ObjPedido);
+                    
+                    ListaPedidos.insertarFinal(nuevoNodo);
+                    
+                    tablaDetalles.addRow(registro);
                     
                 }
                 jTablePedido.setModel(tablaDetalles);
@@ -101,6 +133,18 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         }
                    
     }
+    
+     public ListaInterfaceGenerica<Pedidos> GetListaPedidos()
+    {
+        return ListaPedidos;
+    }
+    
+     
+     
+     
+     
+     
+     
    public Registro_de_Pedidos() {
         initComponents();
         
