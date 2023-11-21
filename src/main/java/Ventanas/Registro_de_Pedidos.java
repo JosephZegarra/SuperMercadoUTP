@@ -155,6 +155,23 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         //String ids [] ={"Id Pedido","Producto","Cantidad","Precio Unidad","Descuento"};
         //tablaDetalles.setColumnIdentifiers(ids);
         //jTableDetalPedido.setModel(tablaDetalles);
+        
+        
+        Pedidos ObjPedido= new Pedidos();
+        /*
+        ObjPedido.setIdPedido(registro[0]);
+        ObjPedido.setCliente(registro[1]);
+        ObjPedido.setFechaPedido(registro[2]);
+        ObjPedido.setFechaEntrega(registro[3]);
+        ObjPedido.setFechaEnvio(registro[4]);
+        ObjPedido.setFormaEnvio(registro[5]);
+        ObjPedido.setCargo(registro[6]);
+        
+        NodoGenerico<Pedidos> nuevoNodo = new NodoGenerico<>(ObjPedido);
+                    
+        ListaPedidos.insertarFinal(nuevoNodo);
+        */
+        
     }
 
     /**
@@ -243,6 +260,12 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         jLabel7.setText("Forma de envio:");
 
         jLabel20.setText("Cargo:");
+
+        jTextId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextIdActionPerformed(evt);
+            }
+        });
 
         jBtnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Guardar.png"))); // NOI18N
         jBtnGuardar.setText("Guardar Pedido");
@@ -536,7 +559,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                                     .addComponent(jBtnGuardar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(26, 26, 26)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel27)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -628,11 +651,18 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
 
     private void jBtnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGuardar1ActionPerformed
         // TODO add your handling code here:
+        
+        
+        
     }//GEN-LAST:event_jBtnGuardar1ActionPerformed
 
     private void jBtnGuardar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGuardar2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBtnGuardar2ActionPerformed
+
+    private void jTextIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextIdActionPerformed
 
     /**
      * @param args the command line arguments
