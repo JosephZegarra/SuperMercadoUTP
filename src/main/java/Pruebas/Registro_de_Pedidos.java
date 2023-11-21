@@ -19,7 +19,7 @@ import javax.swing.text.Element;
 public class Registro_de_Pedidos extends javax.swing.JFrame {
     //almacenar los datos
     
-     
+   //COMETARIOOOOOO SEBAS
    DefaultTableModel tablaDetalles;
     ListaInterfaceGenerica<Pedidos> listaPedidos = new ListaEnlazadaGenerica<Pedidos>();
     
