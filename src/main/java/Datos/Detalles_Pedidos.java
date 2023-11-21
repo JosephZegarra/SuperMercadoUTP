@@ -23,6 +23,7 @@ public class Detalles_Pedidos
     protected String Cantidad;
     protected String Descuento;
     
+    
      //datos importados de main
     protected String csvFile;
     protected int numFilas;

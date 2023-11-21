@@ -10,7 +10,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
-import ListaEnlasada.*;
+import ListaEnlazadaArticulo.*;
+import ListaEnlazadaGenerica.*;
 import Datos.Articulos;
 /**
  *
@@ -47,6 +48,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                     elemento[6] = registro[6];
                     elemento[7] = registro[7];
                     elemento[8] = registro[8];
+                    
                     tablaDetalles.addRow(elemento);
                     
                 }
@@ -60,16 +62,11 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
     
     
     
+  
+   
+      //instanciacion de lista enlazada
+    ListaInterfaceGenerica<Articulos> ListaArticulos= new ListaEnlasadaGenericaImpl<Articulos>();
     
-    public Consulta_de_Articulos() {
-        initComponents();
-        
-        this.setTitle(" Consulta de Artículos");
-        this.setLocationRelativeTo(this);
-         
-    }
-    
-    //instanciacion de lista enlazada
      private void cargarArticulosListaEnlazada() {
         try {
             String texto = "";
@@ -83,12 +80,13 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                 FileReader fichero = new FileReader(abrir);
                 BufferedReader leer = new BufferedReader(fichero);
                 //se crea la lista enlazada
-                ListaInterface ListaArticulos= new ListaEnlasadaImpl();
+                
 
                 while ((texto = leer.readLine()) != null) {
                     String registro[] = texto.split(";");
 
                     Articulos articulo = new Articulos();
+                    
                     articulo.setIdProducto(registro[0]);
                     articulo.setNombreProducto(registro[1]);
                     articulo.setProveedores(registro[2]);
@@ -99,9 +97,10 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                     articulo.setUnidadesPedidas(registro[7]);
                     articulo.setSuspendido(registro[8]);
                     
-                    Nodo nuevoNodo = new Nodo(articulo);
+                    NodoGenerico<Articulos> nuevoNodo = new NodoGenerico<Articulos>(articulo);
                     
                     ListaArticulos.insertarFinal(nuevoNodo); //se debe crear una lista enlazada para guardar objetos tipo clase Articulos
+                    
                     tablaDetalles.addRow(registro);
                 }
 
@@ -112,6 +111,231 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
             System.out.println("Error" + e);
         }
     }
+     
+     public ListaInterfaceGenerica<Articulos> GetListaArticulos()
+    {
+        return ListaArticulos;
+    }
+     
+   
+    
+     
+    /* 
+     
+     
+     ListaInterfaceArticulo ListaFiltroCategoriaArticulo= new ListaEnlasadaArticuloImpl();
+     public void  FiltroCategoriaArticulo()
+     {
+        int tamanio=ListaArticulos.TamanioLista();
+        
+        ListaFiltroCategoriaArticulo.insertarFinal(ListaArticulos.buscarIteradorIndice(1));
+        
+        int tamanioFiltro=ListaFiltroCategoriaArticulo.TamanioLista();
+        for(int i=1; i<=tamanio; i++ )
+        {
+            Articulos objArticulo = ListaArticulos.buscarIteradorIndice(i).getElemento();
+            
+            
+            boolean Encontrado=false;
+            for(int j=1; j<=tamanioFiltro; j++ )
+            {
+              Articulos ObjArticuloFiltroCategoria=ListaFiltroCategoriaArticulo.buscarIteradorIndice(j).getElemento();
+              if(objArticulo.getCategoria() == ObjArticuloFiltroCategoria.getCategoria()) //si el objeto existe en la lista enlazada de filtro no agregar nada y si no existe entonces agregar
+              {
+                  Encontrado=true;
+                  break;
+              }
+                
+            }
+            
+            Nodo nuevoNodo = null;
+            
+            if(Encontrado==false)
+            {   
+                nuevoNodo.setElemento(objArticulo);
+                ListaFiltroCategoriaArticulo.insertarFinal(nuevoNodo);
+            }
+            
+            
+                    
+        }
+        
+     }
+     
+     
+    public ListaInterfaceArticulo GetListaArticulos()
+    {
+        return ListaArticulos;
+    }
+     
+    public ListaInterfaceArticulo GetFiltroCategoriaArticulo()
+    {
+        return ListaFiltroCategoriaArticulo;
+    }
+     
+     
+    
+    
+    
+    
+    
+    
+   
+    --------------------------------------------------
+    // Instanciación de lista enlazada
+ListaInterfaceArticulo<> ListaArticulos = new ListaEnlasadaArticuloImpl<>();
+// Nueva lista enlazada duplicada
+ListaInterfaceArticulo<> ListaArticulosDuplicada = new ListaEnlasadaArticuloImpl<>();
+
+private void cargarArticulosListaEnlazada() {
+    try {
+        String texto = "";
+        Object cabeceras[] = {"Id. de producto", "Nombre de producto", "PROVEEDORES", "Categoría", "Cantidad por unidad", "Precio por unidad", "Unidades en existencia", "Unidades pedidas", "Suspendido"};
+        tablaDetalles = new DefaultTableModel(cabeceras, 0);
+        archivo.showOpenDialog(this);
+        File abrir = archivo.getSelectedFile();
+        Object[] elemento = new Object[9];
+        if (abrir != null) {
+
+            FileReader fichero = new FileReader(abrir);
+            BufferedReader leer = new BufferedReader(fichero);
+            // Se crea la lista enlazada original
+
+            while ((texto = leer.readLine()) != null) {
+                String registro[] = texto.split(";");
+
+                Articulos articulo = new Articulos();
+
+                articulo.setIdProducto(registro[0]);
+                articulo.setNombreProducto(registro[1]);
+                articulo.setProveedores(registro[2]);
+                articulo.setCategoria(registro[3]);
+                articulo.setCantidadPorUnidad(registro[4]);
+                articulo.setPrecioPorUnidad(registro[5]);
+                articulo.setUnidadesExistentes(registro[6]);
+                articulo.setUnidadesPedidas(registro[7]);
+                articulo.setSuspendido(registro[8]);
+
+                // Insertar en la lista original
+                Nodogenerico<Articulos> nuevoNodo = new Nodo<Articulos>(articulo);
+                ListaArticulos.insertarFinal(nuevoNodo);
+
+                // Insertar en la lista duplicada
+                Nodogenerico<Articulos> nuevoNodoDuplicado = new Nodo<Articulos>(articulo);
+                ListaArticulosDuplicada.insertarFinal(nuevoNodoDuplicado);
+
+                tablaDetalles.addRow(registro);
+            }
+
+            // Establecer el modelo de datos del JTable con la lista original
+            jTableAticulos.setModel(tablaDetalles);
+
+            // Puedes usar la ListaArticulosDuplicada para otros propósitos si es necesario.
+        }
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+    
+ */    
+    
+    
+    
+     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
+    
+    
+    Articulos valorActual =new Articulos();
+    
+    public void Ordenamiento_ShellSort_Nombre() 
+    {
+        
+        int n = ListaArticulos.TamanioLista();
+        int incremento = n;
+
+        do {
+            incremento = incremento / 2;
+            for (int i = incremento; i <= n; i++) {
+                NodoGenerico<Articulos> nodoActual = ListaArticulos.buscarIteradorIndice(i);
+                if (nodoActual != null) {
+                    Articulos valorActual = nodoActual.getElemento();
+
+                    int j = i;
+                    while (j >= incremento) {
+                        NodoGenerico<Articulos> nodoAnterior = ListaArticulos.buscarIteradorIndice(j - incremento);
+                        if (nodoAnterior != null) {
+                            Articulos valorAnterior = nodoAnterior.getElemento();
+                            if (compararAmenorQueB(valorActual.getNombreProducto(), valorAnterior.getNombreProducto()) ) {
+                                ListaArticulos.buscarIteradorIndice(j).setElemento(valorAnterior);
+                                System.out.print("Valor intercambiado correctamente");
+                                j -= incremento;
+                            } else {
+                                break;
+                            }
+                        } else {
+                            break;
+                        }
+                    }
+
+                    ListaArticulos.buscarIteradorIndice(j).setElemento(valorActual);
+                }
+            }
+        } while (incremento > 1);
+        
+        
+        
+        
+    }    
+    
+    //orden ascendente
+
+   public boolean compararAmenorQueB(String a, String b) 
+   {
+    // Comparar los Strings directamente
+    return a.compareTo(b) < 0;
+    }
+
+     
+   
+  
+     
+   
+     
+     
+     
+     
+    
+    
+    
+    
+    public Consulta_de_Articulos() {
+        initComponents();
+        
+        this.setTitle(" Consulta de Artículos");
+        this.setLocationRelativeTo(this);
+         
+    }
+    
     
     
    
@@ -139,7 +363,6 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         imagenPrueba = new javax.swing.JLabel();
-        jComboBoxFiltroCategoria = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMnuItemPrincipal = new javax.swing.JMenuItem();
@@ -178,9 +401,13 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
 
         jBtnFiltrarArticulos.setText("Filtrar");
 
-        imagenPrueba.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida-de-emergencia.png"))); // NOI18N
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
 
-        jComboBoxFiltroCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        
 
         jMenu1.setText("Archivo");
 
@@ -232,11 +459,8 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(52, 52, 52)
-                                .addComponent(imagenPrueba))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(110, 110, 110)
-                                .addComponent(jComboBoxFiltroCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(113, 113, 113)
+                                .addComponent(imagenPrueba)))
+                        .addGap(185, 185, 185)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(100, 100, 100)
@@ -256,11 +480,12 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jBtnFiltrarArticulos)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 326, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
+                                .addComponent(jBtnFiltrarArticulos)))
+                        .addGap(0, 311, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -278,8 +503,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxFiltroCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
@@ -289,14 +513,17 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                             .addComponent(jLabel10)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel9)
                         .addGap(18, 18, 18)
                         .addComponent(jBtnFiltrarArticulos)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(132, 132, 132))))
         );
 
         pack();
@@ -315,6 +542,10 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
     private void jMnuArticulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuArticulosActionPerformed
         cargarArticulos();
     }//GEN-LAST:event_jMnuArticulosActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -343,6 +574,44 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        
+         Consulta_de_Articulos consultaVista= new Consulta_de_Articulos();
+        
+         
+         /*
+
+        //obtener listas enlazada importada e imprimir listas enlazada importada
+        consultaVista.GetListaArticulos().imprimirLista();
+        
+        
+        //obtener lista enlazada filtrada e imprimir lista enlazada filtrada
+        consultaVista.GetFiltroCategoriaArticulo().imprimirLista();
+        
+        */
+         
+         
+         consultaVista.cargarArticulosListaEnlazada();
+         ListaInterfaceGenerica<Articulos> listaVista=  new ListaEnlasadaGenericaImpl<Articulos>();  
+         
+         //obtenemos e imprimimos la lista enlazada
+         consultaVista.GetListaArticulos().imprimirLista();
+         
+         //ordenamos
+         consultaVista.Ordenamiento_ShellSort_Nombre();
+         //imprimimmos lista ordenada
+         consultaVista.GetListaArticulos();
+         
+         
+         
+        
+         
+         
+         
+        
+        
+        
+
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -355,7 +624,6 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel imagenPrueba;
     private javax.swing.JButton jBtnFiltrarArticulos;
-    private javax.swing.JComboBox<String> jComboBoxFiltroCategoria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel7;

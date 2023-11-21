@@ -272,103 +272,10 @@ public class Articulos
     
     
     
+  
     
-    
-    /*
-     //codigo para filtrar por combo box, se filtraran los nombres de categoria de productos 
-    //que se repiten en los registros
-    //para ingresarlos como valores en el combobox
     
    
-    
-      //instanciacion de lista enlazada
-    ListaInterfaceArticulo ListaArticulos= new ListaEnlasadaArticuloImpl();
-     private void cargarArticulosListaEnlazada() {
-        try {
-            String texto = "";
-            Object cabeceras[] = {"Id. de producto","Nombre de producto","PROVEEDORES","Categoría","Cantidad por unidad","Precio por unidad","Unidades en existencia","Unidades pedidas","Suspendido"};
-            tablaDetalles = new DefaultTableModel(cabeceras,0);
-            archivo.showOpenDialog(this);
-            File abrir = archivo.getSelectedFile();
-            Object[] elemento = new Object[9];
-            if (abrir != null){
-                
-                FileReader fichero = new FileReader(abrir);
-                BufferedReader leer = new BufferedReader(fichero);
-                //se crea la lista enlazada
-                
-
-                while ((texto = leer.readLine()) != null) {
-                    String registro[] = texto.split(";");
-
-                    Articulos articulo = new Articulos();
-                    articulo.setIdProducto(registro[0]);
-                    articulo.setNombreProducto(registro[1]);
-                    articulo.setProveedores(registro[2]);
-                    articulo.setCategoria(registro[3]);
-                    articulo.setCantidadPorUnidad(registro[4]);
-                    articulo.setPrecioPorUnidad(registro[5]);
-                    articulo.setUnidadesExistentes(registro[6]);
-                    articulo.setUnidadesPedidas(registro[7]);
-                    articulo.setSuspendido(registro[8]);
-                    
-                    Nodo nuevoNodo = new Nodo(articulo);
-                    
-                    ListaArticulos.insertarFinal(nuevoNodo); //se debe crear una lista enlazada para guardar objetos tipo clase Articulos
-                    tablaDetalles.addRow(registro);
-                }
-
-                jTableAticulos.setModel(tablaDetalles);
-            }
-
-        } catch (IOException e) {
-            System.out.println("Error" + e);
-        }
-    }
-     
-     
-     
-     ListaInterfaceArticulo ListaFiltroCategoriaArticulo= new ListaEnlasadaArticuloImpl();
-     public void FiltroCategoriaArticulo()
-     {
-        int tamanio=ListaArticulos.TamanioLista();
-        int tamanioFiltro=ListaFiltroCategoriaArticulo.TamanioLista();
-        ListaFiltroCategoriaArticulo.insertarFinal(ListaArticulos.buscarIteradorIndice(1));
-        for(int i=1; i<=tamanio; i++ )
-        {
-            Articulos objArticulo = ListaArticulos.buscarIteradorIndice(i).getElemento();
-            
-            
-            boolean Encontrado=false;
-            for(int j=1; j<=tamanioFiltro; j++ )
-            {
-              Articulos ObjArticuloFiltroCategoria=ListaFiltroCategoriaArticulo.buscarIteradorIndice(j).getElemento();
-              if(objArticulo.Categoria == ObjArticuloFiltroCategoria.Categoria) //si el objeto existe en la lista enlazada de filtro no agregar nada y si no existe entonces agregar
-              {
-                  Encontrado=true;
-                  break;
-              }
-                
-            }
-            
-            Nodo nuevoNodo = null;
-            
-            if(Encontrado==false)
-                
-                nuevoNodo.setElemento(objArticulo);
-                ListaFiltroCategoriaArticulo.insertarFinal(nuevoNodo);
-            
-            
-                    
-        }
-        
-     }
-     
-     
-     */
-    
-    
-    
     
     
     

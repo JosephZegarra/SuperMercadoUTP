@@ -2,9 +2,9 @@ package ListaEnlazadaGenerica;
 
 public class NodoGenerico<T>
 {
-    //ATRIBUTOS
+    //ATRIBUTOS    
     T elemento; //Elemento / Contenido
-    NodoGenerico siguiente; //puntero al siguiente elemento
+    NodoGenerico<T> siguiente; //puntero al siguiente elemento
     
     //CONSTRUCTORES
     

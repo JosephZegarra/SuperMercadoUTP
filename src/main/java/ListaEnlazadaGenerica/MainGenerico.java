@@ -1,10 +1,12 @@
 package ListaEnlazadaGenerica;
 import java.util.Scanner;
 
-public class MainGenerico 
+
+public class MainGenerico<T> 
 {
     static Scanner consola = new Scanner(System.in);
-    private int menu()
+    
+private int menu()
 { 
     int opcion;
     System.out.println(
@@ -31,24 +33,27 @@ public class MainGenerico
 public static void main(String[] args) throws Exception
 {
 //CREAMOS LA LISTA ENLAZADA
-    ListaInterfaceGenerica<Integer> listaSimple = new ListaEnlasadaGenericaImpl<Integer>();
-    int opcion;
-    MainGenerico objPrincipal = new  MainGenerico();
-    do
+    ListaInterfaceGenerica<String> listaSimple = new ListaEnlasadaGenericaImpl<String>();
+    int opcion2;
+    MainGenerico<String> objPrincipal = new MainGenerico<String>();
+do
 { 
-    opcion = objPrincipal.menu();
-    switch(opcion)
+    opcion2 = objPrincipal.menu();
+    
+    switch(opcion2)
     {
         case 1://INSERTAR AL FINAL
-        System.out.println("Ingrese el Número :");
-        int item = consola.nextInt();
+        consola.nextLine();
+        System.out.println("Ingrese el valor :");
+        String item = consola.nextLine();
+        
         listaSimple.insertarFinal(new NodoGenerico<>(item));
         System.out.println(listaSimple.imprimirLista());
         break;
 
         case 2: //INSERTAR AL INICIO
         System.out.println("Ingrese el Número :");
-        int item2 = consola.nextInt();
+        String item2 = consola.nextLine();
         listaSimple.insertarInicio(new NodoGenerico<>(item2));
         System.out.println(listaSimple.imprimirLista());
         break;
@@ -71,7 +76,7 @@ public static void main(String[] args) throws Exception
             
         case 6: //BUSCAR VALOR
            System.out.println("Ingrese el Valor que desea buscar:");
-            int itembuscado = consola.nextInt();
+            String itembuscado = consola.nextLine();
             System.out.println("Suvalor está en el indice: " + listaSimple.buscar(itembuscado));
             break;
             
@@ -82,7 +87,7 @@ public static void main(String[] args) throws Exception
             int item3 = consola.nextInt();
             System.out.println("Ingrese el numero");
             int item4 = consola.nextInt();
-            listaSimple.insertarDentro(new NodoGenerico<>(item4),item3);
+            //listaSimple.insertarDentro(new NodoGenerico<>(item4),item3);
             System.out.println(listaSimple.imprimirLista());
             
             break;
@@ -114,4 +119,9 @@ public static void main(String[] args) throws Exception
      }
         }while(true);
     }
+
+
+
+
+
 }
