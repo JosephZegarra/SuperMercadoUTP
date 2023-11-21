@@ -11,6 +11,7 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.Element;
+import Datos.*;
 
 /**
  *
@@ -21,13 +22,55 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
     
    //COMETARIOOOOOO SEBAS
    DefaultTableModel tablaDetalles;
+   
     ListaInterfaceGenerica<Pedidos> listaPedidos = new ListaEnlazadaGenerica<Pedidos>();
-    
+    ListaInterfaceGenerica<Detalles_Pedidos> detallePedidos = new ListaEnlazadaGenerica<Detalles_Pedidos>();
     
    //mostrar un diálogo de selección de archivos
    JFileChooser archivo = new JFileChooser(System.getProperty("user.dir"));
     
-    private void cargarDetallePedidos()
+   private void cargarDetallePedidos() {
+    try {
+        String texto = "";
+        Object cabeceras[] = {"Id. de pedido","Producto","Precio por unidad","Cantidad","Descuento"};
+        tablaDetalles = new DefaultTableModel(cabeceras, 0);
+
+        archivo.showOpenDialog(this);
+        File abrir = archivo.getSelectedFile();
+
+        if (abrir != null) {
+            FileReader fichero = new FileReader(abrir);
+            BufferedReader leer = new BufferedReader(fichero);
+
+            while ((texto = leer.readLine()) != null) {
+                String registro[] = texto.split(";");
+                Detalles_Pedidos detalleP = new Detalles_Pedidos(registro[0], registro[1], registro[2], registro[3], registro[4]);
+
+                // Crear un nuevo nodo con el pedido
+                NodoGenerico<Detalles_Pedidos> nuevoNodo = new NodoGenerico<>(detalleP);
+
+                // Insertar el nodo en la lista enlazada
+                detallePedidos.insertarFinal(nuevoNodo);
+
+                // Agregar una nueva fila a la tabla
+                
+                registro[0] = detalleP.getIdPedido();
+                registro[1] = detalleP.getProducto();
+                registro[2] = detalleP.getPrecioUnidad();
+                registro[3] = detalleP.getCantidad();
+                registro[4] = detalleP.getDescuento(); 
+
+                tablaDetalles.addRow(registro);
+            }
+            jTableDetalPedido.setModel(tablaDetalles);
+        }
+    } catch (IOException e) {
+        System.out.println("Error: " + e);
+    }
+}
+   
+   
+    /*private void cargarDetallePedidos()
     { 
         try {
             String texto = "";
@@ -64,7 +107,9 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         {   System.out.println("Error" + e);
         }
                    
-    }
+    }*/
+    
+    
     
     private void cargarDatosPedidos() {
     try {
@@ -107,7 +152,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         System.out.println("Error: " + e);
     }
 }
-    
+       
     /*private void cargarDatosPedidos()
     {
         
@@ -187,8 +232,8 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTablePedido = new javax.swing.JTable();
         jScrollBar1 = new javax.swing.JScrollBar();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboProveedor = new javax.swing.JComboBox<>();
+        jComboEnvio = new javax.swing.JComboBox<>();
         jBtnGuardar1 = new javax.swing.JButton();
         jTextDetPrecio = new javax.swing.JTextField();
         jTextDetId = new javax.swing.JTextField();
@@ -278,15 +323,21 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTablePedido);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboProveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboEnvio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jBtnGuardar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Registrar.png"))); // NOI18N
         jBtnGuardar1.setText("Registrar Pedido");
         jBtnGuardar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnGuardar1ActionPerformed(evt);
+            }
+        });
+
+        jTextDetId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextDetIdActionPerformed(evt);
             }
         });
 
@@ -424,7 +475,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFechEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -433,7 +484,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextFechPedido)
-                                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jComboEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -516,7 +567,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                                             .addComponent(jTextFechEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel6)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jComboProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jTextFechEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
@@ -526,7 +577,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jLabel7)
-                                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(jComboEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -598,15 +649,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuPrincipalActionPerformed
 
     private void jBtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGuardarActionPerformed
-        jTextId.setText("");
-        //jTextProveedor.setText("");
-        jTextFechPedido.setText("");
-        jTextFechEntrega.setText("");
-        jTextFechEnvio.setText("");
-        //jTextEnvio.setText("");
-        jTextCargo.setText("");
-    
-    jTextDetId.setText(jTextId.getText());
+        
     }//GEN-LAST:event_jBtnGuardarActionPerformed
 
     private void jMenuImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuImportarActionPerformed
@@ -627,12 +670,30 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuPedidosActionPerformed
 
     private void jBtnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGuardar1ActionPerformed
-        // TODO add your handling code here:
+        
+        
+        
+        
+        
+        
+        jTextDetId.setText(jTextId.getText());
+        
+        jTextId.setText("");
+        jComboProveedor.setSelectedItem("" );
+        jTextFechPedido.setText("");
+        jTextFechEntrega.setText("");
+        jTextFechEnvio.setText("");
+        jComboEnvio.setSelectedItem("");
+        jTextCargo.setText("");   
     }//GEN-LAST:event_jBtnGuardar1ActionPerformed
 
     private void jBtnGuardar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGuardar2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBtnGuardar2ActionPerformed
+
+    private void jTextDetIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextDetIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextDetIdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -678,9 +739,9 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboEnvio;
+    private javax.swing.JComboBox<String> jComboProveedor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;

@@ -1,7 +1,5 @@
 package Pruebas;
 
-
-
 public interface ListaInterfaceGenerica<T> 
 {
     //METODOS PUBLICOS

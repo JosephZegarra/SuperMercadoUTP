@@ -19,6 +19,8 @@ public class Detalles_Pedidos
         
 {
     
+    protected String IdPedido;
+    protected String Producto;
     protected String PrecioUnidad;
     protected String Cantidad;
     protected String Descuento;
@@ -33,16 +35,31 @@ public class Detalles_Pedidos
 
     }
 
-    public Detalles_Pedidos(String PrecioUnidad, String Cantidad, String Descuento) 
-    {
+    public Detalles_Pedidos(String IdPedido, String Producto, String PrecioUnidad, String Cantidad, String Descuento) {
+        this.IdPedido = IdPedido;
+        this.Producto = Producto;
         this.PrecioUnidad = PrecioUnidad;
         this.Cantidad = Cantidad;
         this.Descuento = Descuento;
     }
-    
-    
 
     // Getters y setters para los atributos
+
+    public String getIdPedido() {
+        return IdPedido;
+    }
+
+    public void setIdPedido(String IdPedido) {
+        this.IdPedido = IdPedido;
+    }
+
+    public String getProducto() {
+        return Producto;
+    }
+
+    public void setProducto(String Producto) {
+        this.Producto = Producto;
+    }
 
     public String getPrecioUnidad() {
         return PrecioUnidad;

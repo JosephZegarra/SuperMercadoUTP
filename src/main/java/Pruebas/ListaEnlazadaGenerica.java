@@ -1,5 +1,5 @@
 package Pruebas;
-
+import Datos.*;
 
 public class ListaEnlazadaGenerica<T> implements ListaInterfaceGenerica<T> {
     private NodoGenerico<T> cabeza;

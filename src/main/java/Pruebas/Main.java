@@ -1,6 +1,6 @@
 
 package Pruebas;
-
+import Datos.*;
 public class Main 
 {
   public static void main(String[] args) {
@@ -40,5 +40,5 @@ public class Main
 
         // Imprimir la lista después de insertar un nuevo pedido
         System.out.println("Lista de Pedidos después de insertar un nuevo pedido:\n" + listaPedidos.imprimirLista());
-    }  
+    }     
 }
