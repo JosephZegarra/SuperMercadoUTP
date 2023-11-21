@@ -1,15 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package Ventanas;
 
+package Pruebas;
+
+import Ventanas.*;
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.Element;
 
@@ -22,6 +21,9 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
     
      
    DefaultTableModel tablaDetalles;
+    ListaInterfaceGenerica<Pedidos> listaPedidos = new ListaEnlazadaGenerica<Pedidos>();
+    
+    
    //mostrar un diálogo de selección de archivos
    JFileChooser archivo = new JFileChooser(System.getProperty("user.dir"));
     
@@ -64,7 +66,49 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                    
     }
     
-    private void cargarDatosPedidos()
+    private void cargarDatosPedidos() {
+    try {
+        String texto = "";
+        Object cabeceras[] = {"Id. de pedido", "Cliente", "Fecha de pedido", "Fecha de entrega", "Fecha de envío", "Forma de envío", "Cargo"};
+        tablaDetalles = new DefaultTableModel(cabeceras, 0);
+
+        archivo.showOpenDialog(this);
+        File abrir = archivo.getSelectedFile();
+
+        if (abrir != null) {
+            FileReader fichero = new FileReader(abrir);
+            BufferedReader leer = new BufferedReader(fichero);
+
+            while ((texto = leer.readLine()) != null) {
+                String registro[] = texto.split(";");
+                Pedidos pedido = new Pedidos(registro[0], registro[1], registro[2], registro[3], registro[4], registro[5], registro[6]);
+
+                // Crear un nuevo nodo con el pedido
+                NodoGenerico<Pedidos> nuevoNodo = new NodoGenerico<>(pedido);
+
+                // Insertar el nodo en la lista enlazada
+                listaPedidos.insertarFinal(nuevoNodo);
+
+                // Agregar una nueva fila a la tabla
+                
+                registro[0] = pedido.getIdPedido();
+                registro[1] = pedido.getCliente();
+                registro[2] = pedido.getFechaPedido();
+                registro[3] = pedido.getFechaEntrega();
+                registro[4] = pedido.getFechaEnvio();
+                registro[5] = pedido.getFormaEnvio();
+                registro[6] = pedido.getCargo();
+
+                tablaDetalles.addRow(registro);
+            }
+            jTablePedido.setModel(tablaDetalles);
+        }
+    } catch (IOException e) {
+        System.out.println("Error: " + e);
+    }
+}
+    
+    /*private void cargarDatosPedidos()
     {
         
         try {
@@ -100,7 +144,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         {   System.out.println("Error" + e);
         }
                    
-    }
+    }*/
    public Registro_de_Pedidos() {
         initComponents();
         
@@ -615,6 +659,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Registro_de_Pedidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
