@@ -157,11 +157,6 @@ public class Categorias
     {
        System.out.println(listaEnlazadaCategorias.imprimirLista());
         
-    }
-    
-    
-    
-    
-    
+    } 
     
 }
