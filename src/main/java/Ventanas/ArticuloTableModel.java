@@ -15,13 +15,15 @@ import Ventanas.Consulta_de_Articulos;
  * @author Home
  */
 
-/*
-public class ArticuloTableModel 
-{
-    private final LinkedList<Articulo> articulos;
-    private final String[] columnNames = {"Nombre", "Precio"};
 
-    public ArticuloTableModel(LinkedList<Articulo> articulos) {
+public class ArticuloTableModel  extends AbstractTableModel 
+{    
+    
+    private final LinkedList<Articulos> articulos;
+    
+    private final String[] columnNames = {"Id. de producto","Nombre de producto","PROVEEDORES","Categoría","Cantidad por unidad","Precio por unidad","Unidades en existencia","Unidades pedidas","Suspendido"};
+
+    public ArticuloTableModel(LinkedList<Articulos> articulos) {
         this.articulos = articulos;
     }
 
@@ -42,47 +44,76 @@ public class ArticuloTableModel
 
     @Override
     public Object getValueAt(int row, int column) {
-        Articulo articulo = articulos.get(row);
+        Articulos articulo = articulos.get(row);
         switch (column) {
             case 0:
-                return articulo.getNombre();
+                return articulo.getIdProducto();
             case 1:
-                return articulo.getPrecio();
-            // Agregar más casos según sea necesario para otras columnas
+                return articulo.getNombreProducto();
+            case 2:
+                return articulo.getProveedores();
+            case 3:
+                return articulo.getCategoria();
+            case 4:
+                return articulo.getCantidadPorUnidad();
+            case 5:
+                return articulo.getPrecioPorUnidad();
+            case 6:
+                return articulo.getUnidadesExistentes();
+            case 7:
+                return articulo.getUnidadesPedidas(); 
+            case 8:
+                return articulo.getSuspendido(); 
+                
+  
             default:
                 return null;
         }
     }
     
     
-    public class ListaEnlazadaToJTableExample {
-    public static void main(String[] args) {
-        
-        ListaInterfaceGenerica<Articulos> listaArticulos= new ListaEnlasadaGenericaImpl<Articulos>();
-        
-        
-        // Crear una lista enlazada con algunos datos de ejemplo
-        Consulta_de_Articulos ArticulosVista = new Consulta_de_Articulos();
-        listaArticulos=ArticulosVista.GetListaArticulos();
-        
+    public class ListaEnlazadaToJTableExample 
+    {
+        public static void main(String[] args) {
+             ListaInterfaceGenerica<Articulos> listaArticulos= new ListaEnlasadaGenericaImpl<Articulos>();
+            
+            Consulta_de_Articulos ArticulosVista = new Consulta_de_Articulos();
+            listaArticulos=ArticulosVista.GetListaArticulos();
 
-        // Crear el modelo de tabla con la lista enlazada
-        ArticuloTableModel tableModel = new ArticuloTableModel(listaArticulos.convertirALista());
+            // Paso 1: Crear una instancia de LinkedList
+            LinkedList<Articulos> linkedListArticulos = new LinkedList<>();
 
-        // Crear el JTable con el modelo
-        JTable table = new JTable(tableModel);
+            // Recorrer y copiar elementos
+            NodoGenerico<Articulos> nodoActual = listaArticulos.buscarIteradorIndice(1);
+            while (nodoActual != null) {
+                linkedListArticulos.add(nodoActual.getElemento());
+                //nodoActual = nodoActual.getElemento();
+            }
+            
 
-        // Mostrar el JFrame con el JTable
-        JFrame frame = new JFrame("ListaEnlazadaGenerica to JTable Example");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add(new JScrollPane(table));
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+           
+
+            // Crear una lista enlazada con algunos datos de ejemplo
+            
+
+
+            // Crear el modelo de tabla con la lista enlazada
+            ArticuloTableModel tableModel = new ArticuloTableModel(articulos);
+
+            // Crear el JTable con el modelo
+            JTable table = new JTable(tableModel);
+
+            // Mostrar el JFrame con el JTable
+            JFrame frame = new JFrame("ListaEnlazadaGenerica to JTable Example");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.getContentPane().add(new JScrollPane(table));
+            frame.pack();
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+        }
+    
+    
+    
     }
-    
-    
-    
-}
 
-*/
+}
