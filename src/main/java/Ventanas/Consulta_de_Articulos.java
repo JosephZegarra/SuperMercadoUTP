@@ -13,6 +13,8 @@ import javax.swing.table.DefaultTableModel;
 import ListaEnlazadaArticulo.*;
 import ListaEnlazadaGenerica.*;
 import Datos.Articulos;
+import java.util.LinkedList;
+import javax.management.modelmbean.ModelMBean;
 /**
  *
  * @author ROBSKY
@@ -318,7 +320,66 @@ private void cargarArticulosListaEnlazada() {
      
    
   
-     
+   public class TablaModeloLinkedList 
+    {
+
+        LinkedList<Articulos> list =new LinkedList<>();
+
+        DefaultTableModel modelEnlazada = (DefaultTableModel) jTableAticulos.getModel();
+        
+        // Recorrer y copiar elementos
+            NodoGenerico<Articulos> nodoActual = ListaArticulos.buscarIteradorIndice(1);
+            while (nodoActual != null) {
+                list.add(nodoActual.getElemento());
+                //nodoActual = nodoActual.getElemento();
+            }
+
+        //mostrar el jtable con la lista
+        Object[] row;
+        for(int i=0 ; i< modelEnlazada.getRowCount() ; i++)
+        {
+            row = new Object[8];
+            row[0]=list.get(i).getIdProducto();
+            row[1]=list.get(i).getNombreProducto();
+            row[2]=list.get(i).getProveedores();
+            row[3]=list.get(i).getCategoria();
+            row[4]=list.get(i).getCantidadPorUnidad();
+            row[5]=list.get(i).getPrecioPorUnidad();
+            row[6]=list.get(i).getUnidadesExistentes();
+            row[7]=list.get(i).getSuspendido();
+            
+            
+            modelEnlazada.addRow(row);
+        }
+        
+        
+        
+        
+        
+        
+    }
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
      
      
@@ -330,6 +391,7 @@ private void cargarArticulosListaEnlazada() {
     
     public Consulta_de_Articulos() {
         initComponents();
+        TablaModeloLinkedList();
         
         this.setTitle(" Consulta de Artículos");
         this.setLocationRelativeTo(this);
