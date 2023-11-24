@@ -19,11 +19,15 @@ import javax.management.modelmbean.ModelMBean;
  *
  * @author ROBSKY
  */
+
+
 public class Consulta_de_Articulos extends javax.swing.JFrame {
     DefaultTableModel tablaDetalles;
     //buscador de archivo para exportar
    JFileChooser archivo = new JFileChooser(System.getProperty("user.dir"));
-    
+   
+   
+   /*
     private void cargarArticulos()
     { 
         try {
@@ -62,7 +66,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                    
     }
     
-    
+    */
     
   
    
@@ -322,38 +326,56 @@ private void cargarArticulosListaEnlazada() {
   
    public class TablaModeloLinkedList 
     {
-
+       
         LinkedList<Articulos> list =new LinkedList<>();
-
-        DefaultTableModel modelEnlazada = (DefaultTableModel) jTableAticulos.getModel();
+        DefaultTableModel modelEnlazada;
         
-        // Recorrer y copiar elementos
-            NodoGenerico<Articulos> nodoActual = ListaArticulos.buscarIteradorIndice(1);
-            while (nodoActual != null) {
-                list.add(nodoActual.getElemento());
-                //nodoActual = nodoActual.getElemento();
-            }
+        public TablaModeloLinkedList() {
+        // Inicializa modelEnlazada con las columnas necesarias
+        modelEnlazada = new DefaultTableModel();
+         // Asigna modelEnlazada a jTableAticulos
+        jTableAticulos.setModel(modelEnlazada);
 
-        //mostrar el jtable con la lista
-        Object[] row;
-        for(int i=0 ; i< modelEnlazada.getRowCount() ; i++)
+        // Llena la lista desde la lista enlazada
+        llenarListaDesdeEnlazada();
+
+        // Muestra la lista en jTableAticulos
+        mostrarListaEnJTable();
+        
+        
+        
+        
+        }
+        
+            
+        private void mostrarListaEnJTable() 
         {
-            row = new Object[8];
-            row[0]=list.get(i).getIdProducto();
-            row[1]=list.get(i).getNombreProducto();
-            row[2]=list.get(i).getProveedores();
-            row[3]=list.get(i).getCategoria();
-            row[4]=list.get(i).getCantidadPorUnidad();
-            row[5]=list.get(i).getPrecioPorUnidad();
-            row[6]=list.get(i).getUnidadesExistentes();
-            row[7]=list.get(i).getSuspendido();
-            
-            
-            modelEnlazada.addRow(row);
+            Object[] row;
+            for (int i = 0; i < list.size(); i++) {
+                row = new Object[8];
+                row[0] = list.get(i).getIdProducto();
+                row[1] = list.get(i).getNombreProducto();
+                row[2] = list.get(i).getProveedores();
+                row[3] = list.get(i).getCategoria();
+                row[4] = list.get(i).getCantidadPorUnidad();
+                row[5] = list.get(i).getPrecioPorUnidad();
+                row[6] = list.get(i).getUnidadesExistentes();
+                row[7] = list.get(i).getSuspendido();
+                modelEnlazada.addRow(row);
+            }
         }
         
         
         
+        
+        
+        private void llenarListaDesdeEnlazada() {
+        NodoGenerico<Articulos> nodoActual = ListaArticulos.buscarIteradorIndice(1);
+        while (nodoActual != null) {
+            list.add(nodoActual.getElemento());
+            nodoActual = nodoActual.getSiguiente();
+        }
+    }
         
         
         
@@ -391,7 +413,9 @@ private void cargarArticulosListaEnlazada() {
     
     public Consulta_de_Articulos() {
         initComponents();
-        TablaModeloLinkedList();
+        TablaModeloLinkedList tablaModelo = new TablaModeloLinkedList();
+        tablaModelo.llenarListaDesdeEnlazada();
+        tablaModelo.mostrarListaEnJTable();
         
         this.setTitle(" Consulta de Artículos");
         this.setLocationRelativeTo(this);
@@ -602,7 +626,8 @@ private void cargarArticulosListaEnlazada() {
     }//GEN-LAST:event_jMnuItemPrincipalActionPerformed
 
     private void jMnuArticulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuArticulosActionPerformed
-        cargarArticulos();
+        //cargarArticulos();
+        cargarArticulosListaEnlazada();
     }//GEN-LAST:event_jMnuArticulosActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed

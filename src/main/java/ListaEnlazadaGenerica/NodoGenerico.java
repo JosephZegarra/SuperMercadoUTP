@@ -32,4 +32,16 @@ public class NodoGenerico<T>
     {
         this.elemento = elemento;
     }
+
+    public NodoGenerico<T> getSiguiente() {
+        return siguiente;
+    }
+
+    public void setSiguiente(NodoGenerico<T> siguiente) {
+        this.siguiente = siguiente;
+    }
+    
+    
+    
+    
  }
