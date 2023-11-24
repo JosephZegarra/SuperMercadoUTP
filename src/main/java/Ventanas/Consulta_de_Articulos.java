@@ -27,6 +27,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
    JFileChooser archivo = new JFileChooser(System.getProperty("user.dir"));
    
    
+   
    /*
     private void cargarArticulos()
     { 
