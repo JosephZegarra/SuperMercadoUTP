@@ -28,46 +28,6 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
    
    
    
-   /*
-    private void cargarArticulos()
-    { 
-        try {
-            String texto = "";
-            Object cabeceras[] = {"Id. de producto","Nombre de producto","PROVEEDORES","Categoría","Cantidad por unidad","Precio por unidad","Unidades en existencia","Unidades pedidas","Suspendido"};
-            tablaDetalles = new DefaultTableModel(cabeceras,0);
-            archivo.showOpenDialog(this);
-            File abrir = archivo.getSelectedFile();
-            Object[] elemento = new Object[9];
-            if (abrir != null)
-            {
-                FileReader fichero = new FileReader(abrir);
-                BufferedReader leer = new BufferedReader(fichero);
-                
-                while ((texto=leer.readLine()) != null)
-                {
-                    String registro[] = texto.split(";");
-                    elemento[0] = registro[0];
-                    elemento[1] = registro[1];
-                    elemento[2] = registro[2];
-                    elemento[3] = registro[3];
-                    elemento[4] = registro[4];
-                    elemento[5] = registro[5];
-                    elemento[6] = registro[6];
-                    elemento[7] = registro[7];
-                    elemento[8] = registro[8];
-                    
-                    tablaDetalles.addRow(elemento);
-                    
-                }
-                jTableAticulos.setModel(tablaDetalles);
-            }
-        } catch (IOException e) 
-        {   System.out.println("Error" + e);
-        }
-                   
-    }
-    
-    */
     
   
    
@@ -108,10 +68,11 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                     
                     ListaArticulos.insertarFinal(nuevoNodo); //se debe crear una lista enlazada para guardar objetos tipo clase Articulos
                     
-                    tablaDetalles.addRow(registro);
+                    //tablaDetalles.addRow(registro);
                 }
+                TablaModeloLinkedList();
 
-                jTableAticulos.setModel(tablaDetalles);
+                //jTableAticulos.setModel(tablaDetalles);
             }
 
         } catch (IOException e) {
@@ -182,70 +143,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
      
      
     
-    
-    
-    
-    
-    
-   
-    --------------------------------------------------
-    // Instanciación de lista enlazada
-ListaInterfaceArticulo<> ListaArticulos = new ListaEnlasadaArticuloImpl<>();
-// Nueva lista enlazada duplicada
-ListaInterfaceArticulo<> ListaArticulosDuplicada = new ListaEnlasadaArticuloImpl<>();
 
-private void cargarArticulosListaEnlazada() {
-    try {
-        String texto = "";
-        Object cabeceras[] = {"Id. de producto", "Nombre de producto", "PROVEEDORES", "Categoría", "Cantidad por unidad", "Precio por unidad", "Unidades en existencia", "Unidades pedidas", "Suspendido"};
-        tablaDetalles = new DefaultTableModel(cabeceras, 0);
-        archivo.showOpenDialog(this);
-        File abrir = archivo.getSelectedFile();
-        Object[] elemento = new Object[9];
-        if (abrir != null) {
-
-            FileReader fichero = new FileReader(abrir);
-            BufferedReader leer = new BufferedReader(fichero);
-            // Se crea la lista enlazada original
-
-            while ((texto = leer.readLine()) != null) {
-                String registro[] = texto.split(";");
-
-                Articulos articulo = new Articulos();
-
-                articulo.setIdProducto(registro[0]);
-                articulo.setNombreProducto(registro[1]);
-                articulo.setProveedores(registro[2]);
-                articulo.setCategoria(registro[3]);
-                articulo.setCantidadPorUnidad(registro[4]);
-                articulo.setPrecioPorUnidad(registro[5]);
-                articulo.setUnidadesExistentes(registro[6]);
-                articulo.setUnidadesPedidas(registro[7]);
-                articulo.setSuspendido(registro[8]);
-
-                // Insertar en la lista original
-                Nodogenerico<Articulos> nuevoNodo = new Nodo<Articulos>(articulo);
-                ListaArticulos.insertarFinal(nuevoNodo);
-
-                // Insertar en la lista duplicada
-                Nodogenerico<Articulos> nuevoNodoDuplicado = new Nodo<Articulos>(articulo);
-                ListaArticulosDuplicada.insertarFinal(nuevoNodoDuplicado);
-
-                tablaDetalles.addRow(registro);
-            }
-
-            // Establecer el modelo de datos del JTable con la lista original
-            jTableAticulos.setModel(tablaDetalles);
-
-            // Puedes usar la ListaArticulosDuplicada para otros propósitos si es necesario.
-        }
-
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
-    
- */    
     
     
     
@@ -321,37 +219,30 @@ private void cargarArticulosListaEnlazada() {
     // Comparar los Strings directamente
     return a.compareTo(b) < 0;
     }
-
+*/
      
    
-  
-   public class TablaModeloLinkedList 
-    {
-       
-        LinkedList<Articulos> list =new LinkedList<>();
-        DefaultTableModel modelEnlazada;
-        
-        public TablaModeloLinkedList() {
-        // Inicializa modelEnlazada con las columnas necesarias
-        modelEnlazada = new DefaultTableModel();
-         // Asigna modelEnlazada a jTableAticulos
-        jTableAticulos.setModel(modelEnlazada);
-
-        // Llena la lista desde la lista enlazada
-        llenarListaDesdeEnlazada();
-
-        // Muestra la lista en jTableAticulos
-        mostrarListaEnJTable();
-        
-        
-        
-        
-        }
-        
-            
-        private void mostrarListaEnJTable() 
-        {
-            Object[] row;
+     
+     
+     
+     
+     public void TablaModeloLinkedList()
+     {
+         LinkedList<Articulos> list =new LinkedList<>();
+         
+         
+         //pasando los valores de l¡nuestra lista enlazada a la linkedList
+         for (int i = 1; i <= ListaArticulos.TamanioLista(); i++) 
+            {
+                
+               list.add(ListaArticulos.buscarIteradorIndice(i).getElemento());
+                
+            }
+         
+         
+         DefaultTableModel modeloEnlazada = (DefaultTableModel) jTableAticulos.getModel();
+         
+          Object[] row;
             for (int i = 0; i < list.size(); i++) {
                 row = new Object[8];
                 row[0] = list.get(i).getIdProducto();
@@ -362,62 +253,20 @@ private void cargarArticulosListaEnlazada() {
                 row[5] = list.get(i).getPrecioPorUnidad();
                 row[6] = list.get(i).getUnidadesExistentes();
                 row[7] = list.get(i).getSuspendido();
-                modelEnlazada.addRow(row);
+                modeloEnlazada.addRow(row);
+                
             }
-        }
-        
-        
-        
-        
-        
-        private void llenarListaDesdeEnlazada() {
-        NodoGenerico<Articulos> nodoActual = ListaArticulos.buscarIteradorIndice(1);
-        while (nodoActual != null) {
-            list.add(nodoActual.getElemento());
-            nodoActual = nodoActual.getSiguiente();
-        }
-    }
-        
-        
-        
-    }
+         
+         
+         
+     }
+  
+   
 
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-     
-     
-     
-     
-    
-    
     
     
     public Consulta_de_Articulos() {
         initComponents();
-        TablaModeloLinkedList tablaModelo = new TablaModeloLinkedList();
-        tablaModelo.llenarListaDesdeEnlazada();
-        tablaModelo.mostrarListaEnJTable();
-        
         this.setTitle(" Consulta de Artículos");
         this.setLocationRelativeTo(this);
          
@@ -663,31 +512,11 @@ private void cargarArticulosListaEnlazada() {
         //</editor-fold>
         //</editor-fold>
         
-         Consulta_de_Articulos consultaVista= new Consulta_de_Articulos();
+         //Consulta_de_Articulos consultaVista= new Consulta_de_Articulos();
         
          
-         /*
-
-        //obtener listas enlazada importada e imprimir listas enlazada importada
-        consultaVista.GetListaArticulos().imprimirLista();
-        
-        
-        //obtener lista enlazada filtrada e imprimir lista enlazada filtrada
-        consultaVista.GetFiltroCategoriaArticulo().imprimirLista();
-        
-        */
          
          
-         consultaVista.cargarArticulosListaEnlazada();
-         ListaInterfaceGenerica<Articulos> listaVista=  new ListaEnlasadaGenericaImpl<Articulos>();  
-         
-         //obtenemos e imprimimos la lista enlazada
-         consultaVista.GetListaArticulos().imprimirLista();
-         
-         //ordenamos
-         consultaVista.Ordenamiento_ShellSort_Nombre();
-         //imprimimmos lista ordenada
-         consultaVista.GetListaArticulos();
          
          
          
