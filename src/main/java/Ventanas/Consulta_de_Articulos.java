@@ -141,7 +141,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         return ListaFiltroCategoriaArticulo;
     }
      
-     
+ */    
     
 
     
@@ -172,7 +172,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
     
     Articulos valorActual =new Articulos();
     
-    public void Ordenamiento_ShellSort_Nombre() 
+    public void Ordenamiento_ShellSort_Nombre(String Tipo) 
     {
         
         int n = ListaArticulos.TamanioLista();
@@ -190,13 +190,31 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                         NodoGenerico<Articulos> nodoAnterior = ListaArticulos.buscarIteradorIndice(j - incremento);
                         if (nodoAnterior != null) {
                             Articulos valorAnterior = nodoAnterior.getElemento();
-                            if (compararAmenorQueB(valorActual.getNombreProducto(), valorAnterior.getNombreProducto()) ) {
-                                ListaArticulos.buscarIteradorIndice(j).setElemento(valorAnterior);
-                                System.out.print("Valor intercambiado correctamente");
-                                j -= incremento;
-                            } else {
-                                break;
+                            
+                            if(Tipo.equalsIgnoreCase("Ascendente"))
+                            {
+                                if (compararAmenorQueBTipo01(valorActual.getNombreProducto(), valorAnterior.getNombreProducto()) ) {
+                                        ListaArticulos.buscarIteradorIndice(j).setElemento(valorAnterior);
+                                        System.out.print("Valor intercambiado correctamente");
+                                        j -= incremento;
+                                    } else {
+                                        break;  
+                                    }
+                            }else
+                            {
+                                if (compararAmenorQueBTipo02(valorActual.getNombreProducto(), valorAnterior.getNombreProducto()) ) {
+                                        ListaArticulos.buscarIteradorIndice(j).setElemento(valorAnterior);
+                                        System.out.print("Valor intercambiado correctamente");
+                                        j -= incremento;
+                                    } else {
+                                        break;  
+                                    }
                             }
+                           
+                           
+                              
+                                    
+                            
                         } else {
                             break;
                         }
@@ -214,12 +232,16 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
     
     //orden ascendente
 
-   public boolean compararAmenorQueB(String a, String b) 
+   public boolean compararAmenorQueBTipo01(String a, String b) 
    {
     // Comparar los Strings directamente
     return a.compareTo(b) < 0;
     }
-*/
+   public boolean compararAmenorQueBTipo02(String a, String b) 
+   {
+    // Comparar los Strings directamente
+    return a.compareTo(b) > 0;
+    }
      
    
      
@@ -238,9 +260,9 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                list.add(ListaArticulos.buscarIteradorIndice(i).getElemento());
                 
             }
-         
-         
          DefaultTableModel modeloEnlazada = (DefaultTableModel) jTableAticulos.getModel();
+         
+         
          
           Object[] row;
             for (int i = 0; i < list.size(); i++) {
@@ -260,7 +282,16 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
          
          
      }
-  
+     
+     public void TablaModeloLinkedListReinicio()
+     {
+         DefaultTableModel modeloEnlazada = (DefaultTableModel) jTableAticulos.getModel();
+         
+         modeloEnlazada.setRowCount(0);
+         
+     }
+     
+     
    
 
     
@@ -298,6 +329,8 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
+        jComboBoxOrdenamiento = new javax.swing.JComboBox<>();
+        jButtonOrdenar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMnuItemPrincipal = new javax.swing.JMenuItem();
@@ -347,6 +380,20 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
             }
         });
 
+        jComboBoxOrdenamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ascendente", "Descendente" }));
+        jComboBoxOrdenamiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxOrdenamientoActionPerformed(evt);
+            }
+        });
+
+        jButtonOrdenar.setText("Ordenar");
+        jButtonOrdenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOrdenarActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("Archivo");
 
         jMnuItemPrincipal.setText("Menu Principal");
@@ -370,6 +417,11 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         jMenuArticulos.add(jMnuArticulos);
 
         jMnuItemCategorias.setText("Categorias");
+        jMnuItemCategorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnuItemCategoriasActionPerformed(evt);
+            }
+        });
         jMenuArticulos.add(jMnuItemCategorias);
 
         jMnuItemProveedores.setText("Proveedores");
@@ -416,10 +468,14 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                         .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jBtnFiltrarArticulos)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1))))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonOrdenar)
+                                    .addComponent(jComboBoxOrdenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -446,8 +502,12 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel9)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addComponent(jBtnFiltrarArticulos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jButtonOrdenar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBtnFiltrarArticulos)
+                    .addComponent(jComboBoxOrdenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -479,6 +539,28 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jComboBoxOrdenamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxOrdenamientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxOrdenamientoActionPerformed
+
+    private void jButtonOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOrdenarActionPerformed
+        // TODO add your handling code here:
+        
+        String Opcion= jComboBoxOrdenamiento.getSelectedItem().toString();
+        Ordenamiento_ShellSort_Nombre(Opcion);
+        TablaModeloLinkedListReinicio();
+        TablaModeloLinkedList();
+        
+        
+        
+    }//GEN-LAST:event_jButtonOrdenarActionPerformed
+
+    private void jMnuItemCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuItemCategoriasActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jMnuItemCategoriasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -536,6 +618,8 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnFiltrarArticulos;
+    private javax.swing.JButton jButtonOrdenar;
+    private javax.swing.JComboBox<String> jComboBoxOrdenamiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel7;
