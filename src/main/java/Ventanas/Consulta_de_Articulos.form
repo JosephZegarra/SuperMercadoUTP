@@ -100,7 +100,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel10" min="-2" pref="141" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTextField2" min="-2" pref="233" max="-2" attributes="0"/>
+                              <Component id="jTextCategoria" min="-2" pref="233" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel9" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
                       </Group>
@@ -112,7 +112,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane1" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jBtnFiltrarArticulos" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBtnFiltrarArticulosCategoria" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jButtonOrdenar" min="-2" max="-2" attributes="0"/>
@@ -151,7 +151,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
@@ -161,7 +161,7 @@
               <Component id="jButtonOrdenar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jBtnFiltrarArticulos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnFiltrarArticulosCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jComboBoxOrdenamiento" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -240,14 +240,20 @@
         <Property name="text" type="java.lang.String" value="Nombre de la Categoria:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jBtnFiltrarArticulos">
+    <Component class="javax.swing.JButton" name="jBtnFiltrarArticulosCategoria">
       <Properties>
         <Property name="text" type="java.lang.String" value="Filtrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnFiltrarArticulosCategoriaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField1">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="jTextCategoria">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextCategoriaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField3">
     </Component>
