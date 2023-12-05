@@ -71,7 +71,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                     
                     //tablaDetalles.addRow(registro);
                 }
-                TablaModeloLinkedList();
+                TablaModeloLinkedList(ListaArticulos);
 
                 //jTableAticulos.setModel(tablaDetalles);
             }
@@ -89,17 +89,67 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
    
     
      
-     /*
+    
+    
+     
+             
+             
+  
+     
+  public void FiltroCategoriaPrueba (String NombreCategoria) 
+  {
+     ListaInterfaceGenerica<Articulos> ListaFiltroCategoria = new ListaEnlasadaGenericaImpl<>();
+    for (int i = 1; i <= ListaArticulos.TamanioLista(); i++) 
+      {
+              if(ListaArticulos.buscarIteradorIndice(i).getElemento().getCategoria().equalsIgnoreCase(NombreCategoria))
+              {
+                  NodoGenerico<Articulos> NuevoNodo = null;
+                  NuevoNodo.setElemento(ListaArticulos.buscarIteradorIndice(i).getElemento());
+                  ListaFiltroCategoria.insertarFinal(NuevoNodo);
+                  System.out.print("Filtrado con exito");
+               }
+              else{
+                  System.out.print("Sin coincidencia");
+              }
+
+      }
+
+    
+    
+  }
+  
+  
+  public void FiltroCategoria(String NombreCategoria) {
+    ListaInterfaceGenerica<Articulos> ListaFiltroCategoria = new ListaEnlasadaGenericaImpl<>();
+    for (int i = 1; i <= ListaArticulos.TamanioLista(); i++) {
+        Articulos articulo = ListaArticulos.buscarIteradorIndice(i).getElemento();
+
+        if (articulo.getCategoria().equalsIgnoreCase(NombreCategoria)) {
+            NodoGenerico<Articulos> nuevoNodo = new NodoGenerico<>(articulo);
+            ListaFiltroCategoria.insertarFinal(nuevoNodo);
+            System.out.println("Filtrado con éxito: " + articulo.getNombreProducto());
+        } else {
+            System.out.println("Sin coincidencia: " + articulo.getNombreProducto());
+        }
+        
+    }
+    TablaModeloLinkedList(ListaFiltroCategoria);
+    
+}
+
+
+  
+  /*
      
      
-     ListaInterfaceArticulo = new ListaEnlasadaArticuloImpl();
+     ListaInterfaceArticulo ListaFiltroCategoriaArticulo = new ListaEnlasadaArticuloImpl();
      
      
      public void  FiltroCategoriaArticulo()
      {
         int tamanio=ListaArticulos.TamanioLista();
         
-        ListaFiltroCategoriaArticulo.insertarFinal(ListaAListaFiltroCategoriaArticulorticulos.buscarIteradorIndice(1));
+        ListaFiltroCategoriaArticulo.insertarFinal(ListaArti.buscarIteradorIndice(1));
         
         int tamanioFiltro=ListaFiltroCategoriaArticulo.TamanioLista();
         for(int i=1; i<=tamanio; i++ )
@@ -146,50 +196,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
      
  */    
     
-     ListaInterfaceGenerica<Articulos> ListaFiltroCategoria = new ListaEnlasadaGenericaImpl<>();
-             
-             
-     
-  public void FiltroCategoria (String NombreCategoria) 
-  {
-    for (int i = 1; i <= ListaArticulos.TamanioLista(); i++) 
-      {
-              if(ListaArticulos.buscarIteradorIndice(i).getElemento().getCategoria().equalsIgnoreCase(NombreCategoria)){
-                  ListaFiltroCategoria.insertarFinal(ListaArticulos.buscarIteradorIndice(i));
-                  System.out.print("Filtrado con exito");
-               }
-              else{
-                  System.out.print("Sin coincidencia");
-              }
-
-      }
-
-  }
-
     
-    
-    
-     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-     
     
     
     Articulos valorActual =new Articulos();
@@ -266,20 +273,19 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
     }
      
    
-     
-     
-     
-     
-     public void TablaModeloLinkedList()
+   
+ 
+     //------------------------------------------------------------------
+     public void TablaModeloLinkedList(ListaInterfaceGenerica<Articulos> Lista)
      {
          LinkedList<Articulos> list =new LinkedList<>();
          
          
          //pasando los valores de l¡nuestra lista enlazada a la linkedList
-         for (int i = 1; i <= ListaArticulos.TamanioLista(); i++) 
+         for (int i = 1; i <= Lista.TamanioLista(); i++) 
             {
                 
-               list.add(ListaArticulos.buscarIteradorIndice(i).getElemento());
+               list.add(Lista.buscarIteradorIndice(i).getElemento());
                 
             }
          DefaultTableModel modeloEnlazada = (DefaultTableModel) jTableAticulos.getModel();
@@ -305,64 +311,13 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
          
      }
      
-     public void TablaModeloLinkedListReinicio()
+    public void TablaModeloLinkedListReinicio()
      {
          DefaultTableModel modeloEnlazada = (DefaultTableModel) jTableAticulos.getModel();
          
          modeloEnlazada.setRowCount(0);
          
      }
-     
-     
-     
-     
-     
-     
-     
-     //------------------------------------------------------------------
-     public void TablaModeloLinkedListFiltro(ListaInterfaceGenerica<Articulos> Lista)
-     {
-         LinkedList<Articulos> list2 =new LinkedList<>();
-         
-         
-         //pasando los valores de l¡nuestra lista enlazada a la linkedList
-         for (int i = 1; i <= Lista.TamanioLista(); i++) 
-            {
-                
-               list2.add(Lista.buscarIteradorIndice(i).getElemento());
-                
-            }
-         DefaultTableModel modeloEnlazada = (DefaultTableModel) jTableAticulos.getModel();
-         
-         
-         
-          Object[] row;
-            for (int i = 0; i < list2.size(); i++) {
-                row = new Object[8];
-                row[0] = list2.get(i).getIdProducto();
-                row[1] = list2.get(i).getNombreProducto();
-                row[2] = list2.get(i).getProveedores();
-                row[3] = list2.get(i).getCategoria();
-                row[4] = list2.get(i).getCantidadPorUnidad();
-                row[5] = list2.get(i).getPrecioPorUnidad();
-                row[6] = list2.get(i).getUnidadesExistentes();
-                row[7] = list2.get(i).getSuspendido();
-                modeloEnlazada.addRow(row);
-                
-            }
-         
-         
-         
-     }
-     
-     public void TablaModeloLinkedListReinicio02()
-     {
-         DefaultTableModel modeloEnlazada = (DefaultTableModel) jTableAticulos.getModel();
-         
-         modeloEnlazada.setRowCount(0);
-         
-     }
-     
      
    
 
@@ -632,9 +587,8 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         
         String Opcion= jComboBoxOrdenamiento.getSelectedItem().toString();
         Ordenamiento_ShellSort_Nombre(Opcion);
-        TablaModeloLinkedListReinicio();
-        //TablaModeloLinkedList();
-        TablaModeloLinkedListFiltro(ListaArticulos);
+        TablaModeloLinkedListReinicio();   
+        TablaModeloLinkedList(ListaArticulos);
         
         
         
@@ -653,10 +607,10 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
     private void jBtnFiltrarArticulosCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFiltrarArticulosCategoriaActionPerformed
         // TODO add your handling code here:
         
-        TablaModeloLinkedListReinicio();
-        FiltroCategoria(jTextCategoria.toString());
         
-        TablaModeloLinkedListFiltro(ListaFiltroCategoria);
+       
+        TablaModeloLinkedListReinicio();
+        FiltroCategoria(jTextCategoria.getText());
         
     }//GEN-LAST:event_jBtnFiltrarArticulosCategoriaActionPerformed
 
