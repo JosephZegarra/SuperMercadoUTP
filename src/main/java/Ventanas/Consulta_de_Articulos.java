@@ -10,12 +10,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
-import ListaEnlazadaArticulo.*;
 import ListaEnlazadaGenerica.*;
 import Datos.Articulos;
 import java.util.LinkedList;
 import javax.management.modelmbean.ModelMBean;
 import javax.swing.text.JTextComponent;
+import java.util.HashSet;
+import javax.swing.text.TableView;
 /**
  *
  * @author ROBSKY
@@ -86,40 +87,135 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         return ListaArticulos;
     }
      
+     
+     public void CargandoListaFiltroCategoria()
+     {
+        ListaInterfaceGenerica<Articulos> listaCategorias = ListarNombresCategoria();
+
+    // Lógica adicional usando la lista de categorías
+        for (int i = 1; i <= listaCategorias.TamanioLista(); i++) 
+        {
+            jCBNombreCategoria.addItem(listaCategorias.buscarIteradorIndice(i).getElemento().getCategoria());
+            // Tu lógica aquí usando la categoría
+            System.out.println("Categoría añadida: " + listaCategorias.buscarIteradorIndice(i).getElemento().getCategoria());
+        } 
+    }  
+    
+     public void CargandoBusquedaBinaria()
+     {
+         TablaModeloLinkedListReinicio();
+         busquedaBinaria(jTextNombreArticulo.getText());
+         TablaModeloLinkedList(ListaArticulos);
+       
+     }
+     
+     
+    /* 
+    //----------------------------------------------------------------
+     //busqueda binaria
+     public int buscarBinarioPorNombre(String nombreArticulo) {
+        int posicion = 0;
+         NodoGenerico<Articulos> actual = primero;
+
+        while (actual != null) {
+            if (actual.getArticulo().getNombre().equalsIgnoreCase(nombreArticulo)) {
+                return posicion; // Se encontró la coincidencia
+            }
+
+            actual = actual.getSiguiente();
+            posicion++;
+        }
+
+        return -1; // No se encontró la coincidencia
+    }
+    */
    
-    
-     
-    
-    
-     
-             
-             
+  //metodo de busqueda Lineal    
+  public Articulos buscarPorNombre(String nombreProducto) {
+        NodoGenerico<Articulos> actual = ListaArticulos.buscarIteradorIndice(1);
+
+        while (actual != null) {
+            Articulos articulo = actual.getElemento();
+
+            if (articulo.getNombreProducto().equalsIgnoreCase(nombreProducto)) {
+                return articulo;  // Retorna el primer artículo con el nombre buscado
+            }
+
+            actual = actual.getSiguiente();
+        }
+
+        return null;  // Retorna null si no se encuentra ningún artículo con el nombre buscado
+    }
   
-     
-  public void FiltroCategoriaPrueba (String NombreCategoria) 
+  
+  
+  //Busqueda binaria por nombre 
+    public Articulos busquedaBinaria(String nombreProducto) 
+    {
+        Ordenamiento_ShellSort_Nombre("Ascendente");
+        int inicio = 0;
+        int fin = ListaArticulos.TamanioLista() - 1;
+
+        while (inicio <= fin) {
+            int medio = inicio + (fin - inicio) / 2;
+
+            NodoGenerico<Articulos> nodoMedio = ListaArticulos.buscarIteradorIndice(medio + 1); // Sumamos 1 para ajustarnos al índice de la lista
+
+            Articulos articuloMedio = nodoMedio.getElemento();
+            String nombreMedio = articuloMedio.getNombreProducto();
+
+            int comparacion = nombreMedio.compareToIgnoreCase(nombreProducto);
+
+            if (comparacion == 0) {
+                return articuloMedio; // Se encontró el artículo
+            } else if (comparacion < 0) {
+                inicio = medio + 1; // Buscar en la mitad derecha
+            } else {
+                fin = medio - 1; // Buscar en la mitad izquierda
+            }
+        }
+
+        return null; // No se encontró el artículo
+        
+    }
+    
+    /*
+    //Busqueda binaria por nombre 
+    public ListaInterfaceGenerica<Articulos> busquedaBinaria(String nombreProducto) 
+    {
+        Ordenamiento_ShellSort_Nombre("Ascendente");
+        int inicio = 0;
+        int fin = ListaArticulos.TamanioLista() - 1;
+
+        while (inicio <= fin) {
+            int medio = inicio + (fin - inicio) / 2;
+
+            NodoGenerico<Articulos> nodoMedio = ListaArticulos.buscarIteradorIndice(medio + 1); // Sumamos 1 para ajustarnos al índice de la lista
+
+            Articulos articuloMedio = nodoMedio.getElemento();
+            String nombreMedio = articuloMedio.getNombreProducto();
+
+            int comparacion = nombreMedio.compareToIgnoreCase(nombreProducto);
+
+            if (comparacion == 0) {
+                ListaInterfaceGenerica<Articulos> ListaBusquedaBinaria = ListaEnlasadaGenericaImpl<>();
+                
+                return articuloMedio; // Se encontró el artículo
+            } else if (comparacion < 0) {
+                inicio = medio + 1; // Buscar en la mitad derecha
+            } else {
+                fin = medio - 1; // Buscar en la mitad izquierda
+            }
+        }
+
+        return null; // No se encontró el artículo
+        
+    }
+    */
+    
+  
+  public void FiltroCategoria(String NombreCategoria) 
   {
-     ListaInterfaceGenerica<Articulos> ListaFiltroCategoria = new ListaEnlasadaGenericaImpl<>();
-    for (int i = 1; i <= ListaArticulos.TamanioLista(); i++) 
-      {
-              if(ListaArticulos.buscarIteradorIndice(i).getElemento().getCategoria().equalsIgnoreCase(NombreCategoria))
-              {
-                  NodoGenerico<Articulos> NuevoNodo = null;
-                  NuevoNodo.setElemento(ListaArticulos.buscarIteradorIndice(i).getElemento());
-                  ListaFiltroCategoria.insertarFinal(NuevoNodo);
-                  System.out.print("Filtrado con exito");
-               }
-              else{
-                  System.out.print("Sin coincidencia");
-              }
-
-      }
-
-    
-    
-  }
-  
-  
-  public void FiltroCategoria(String NombreCategoria) {
     ListaInterfaceGenerica<Articulos> ListaFiltroCategoria = new ListaEnlasadaGenericaImpl<>();
     for (int i = 1; i <= ListaArticulos.TamanioLista(); i++) {
         Articulos articulo = ListaArticulos.buscarIteradorIndice(i).getElemento();
@@ -136,68 +232,12 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
     TablaModeloLinkedList(ListaFiltroCategoria);
     
 }
+  
+  
 
 
   
-  /*
-     
-     
-     ListaInterfaceArticulo ListaFiltroCategoriaArticulo = new ListaEnlasadaArticuloImpl();
-     
-     
-     public void  FiltroCategoriaArticulo()
-     {
-        int tamanio=ListaArticulos.TamanioLista();
-        
-        ListaFiltroCategoriaArticulo.insertarFinal(ListaArti.buscarIteradorIndice(1));
-        
-        int tamanioFiltro=ListaFiltroCategoriaArticulo.TamanioLista();
-        for(int i=1; i<=tamanio; i++ )
-        {
-            Articulos objArticulo = ListaArticulos.buscarIteradorIndice(i).getElemento();
-            
-            
-            boolean Encontrado=false;
-            for(int j=1; j<=tamanioFiltro; j++ )
-            {
-              Articulos ObjArticuloFiltroCategoria=ListaFiltroCategoriaArticulo.buscarIteradorIndice(j).getElemento();
-              if(objArticulo.getCategoria() == ObjArticuloFiltroCategoria.getCategoria()) //si el objeto existe en la lista enlazada de filtro no agregar nada y si no existe entonces agregar
-              {
-                  Encontrado=true;
-                  break;
-              }
-                
-            }
-            
-            Nodo nuevoNodo = null;
-            
-            if(Encontrado==false)
-            {   
-                nuevoNodo.setElemento(objArticulo);
-                ListaFiltroCategoriaArticulo.insertarFinal(nuevoNodo);
-            }
-            
-            
-                    
-        }
-        
-     }
-     
-     
-    public ListaInterfaceArticulo GetListaArticulos()
-    {
-        return ListaArticulos;
-    }
-     
-    public ListaInterfaceArticulo GetFiltroCategoriaArticulo()
-    {
-        return ListaFiltroCategoriaArticulo;
-    }
-     
- */    
-    
-    
-    
+  
     
     Articulos valorActual =new Articulos();
     
@@ -219,7 +259,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                         NodoGenerico<Articulos> nodoAnterior = ListaArticulos.buscarIteradorIndice(j - incremento);
                         if (nodoAnterior != null) {
                             Articulos valorAnterior = nodoAnterior.getElemento();
-                            
+                           
                             if(Tipo.equalsIgnoreCase("Ascendente"))
                             {
                                 if (compararAmenorQueBTipo01(valorActual.getNombreProducto(), valorAnterior.getNombreProducto()) ) {
@@ -319,8 +359,72 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
          
      }
      
-   
+    public ListaInterfaceGenerica ListarNombresCategoria02()
+    {
+       ListaInterfaceGenerica<Articulos> ListaCategoria = new ListaEnlasadaGenericaImpl<>();
+       Articulos articulo= ListaArticulos.buscarIteradorIndice(1).getElemento(); 
+       NodoGenerico<Articulos> NodoPrimero= new NodoGenerico<>(articulo);
+       ListaCategoria.insertarFinal(NodoPrimero);
+        for(int i=2; i<= ListaArticulos.TamanioLista(); i++)
+        {
+            for(int j=1; j<= ListaCategoria.TamanioLista();j++)
+            {
+                if(ListaArticulos.buscarIteradorIndice(i).getElemento().getCategoria().equalsIgnoreCase(ListaCategoria.buscarIteradorIndice(j).getElemento().getCategoria()))
+                {
+                    System.out.print("No se copeò un tipo de categoria");
+                }
+                else
+                {
+                    Articulos Objarticulo= ListaArticulos.buscarIteradorIndice(i).getElemento(); 
+                    NodoGenerico<Articulos> NodoNuevo= new NodoGenerico<>(Objarticulo);
+                    ListaCategoria.insertarFinal(NodoNuevo);
+                    System.out.print("Se copeò un tipo de categoria: " + Objarticulo.getCategoria());
+                }
+            }
+        }
+        return ListaCategoria;
 
+    } 
+    
+    
+    
+    //Filtrando Categorias de Articulo sin repetir el mismo nombre de Categorias a una lista enlazada  ListaCategoria
+    public ListaInterfaceGenerica<Articulos> ListarNombresCategoria() {
+        ListaInterfaceGenerica<Articulos> ListaCategoria = new ListaEnlasadaGenericaImpl<>();
+        HashSet<String> categoriasUnicas = new HashSet<>();
+
+        for (int i = 1; i <= ListaArticulos.TamanioLista(); i++) {
+            Articulos Objarticulo = ListaArticulos.buscarIteradorIndice(i).getElemento();
+            String categoriaActual = Objarticulo.getCategoria();
+
+            // Verificar si la categoría ya está en el conjunto
+            if (categoriasUnicas.contains(categoriaActual)) {
+                System.out.println("No se copió un tipo de categoría");
+            } else {
+                // Agregar el objeto a ListaCategoria y actualizar el conjunto
+                NodoGenerico<Articulos> NodoNuevo = new NodoGenerico<>(Objarticulo);
+                ListaCategoria.insertarFinal(NodoNuevo);
+                categoriasUnicas.add(categoriaActual);
+                System.out.println("Se copió un tipo de categoría: " + categoriaActual);
+            }
+        }
+
+        return ListaCategoria;
+    }
+
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     public Consulta_de_Articulos() {
@@ -329,7 +433,6 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
          
     }
-    
     
     
    
@@ -352,19 +455,21 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jBtnFiltrarArticulosCategoria = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        jTextNombreArticulo = new javax.swing.JTextField();
         jTextCategoria = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         jComboBoxOrdenamiento = new javax.swing.JComboBox<>();
         jButtonOrdenar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jCBNombreCategoria = new javax.swing.JComboBox<>();
+        jCBProveedores = new javax.swing.JComboBox<>();
+        jCBEstado = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMnuItemPrincipal = new javax.swing.JMenuItem();
         jMenuArticulos = new javax.swing.JMenu();
         jMnuArticulos = new javax.swing.JMenuItem();
-        jMnuItemCategorias = new javax.swing.JMenuItem();
-        jMnuItemProveedores = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -399,22 +504,23 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
 
         jLabel10.setText("Nombre de la Categoria:");
 
-        jBtnFiltrarArticulosCategoria.setText("Filtrar");
+        jBtnFiltrarArticulosCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/filtrar.png"))); // NOI18N
+        jBtnFiltrarArticulosCategoria.setText("Filtro Categoria");
         jBtnFiltrarArticulosCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnFiltrarArticulosCategoriaActionPerformed(evt);
             }
         });
 
-        jTextCategoria.addActionListener(new java.awt.event.ActionListener() {
+        jTextNombreArticulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextCategoriaActionPerformed(evt);
+                jTextNombreArticuloActionPerformed(evt);
             }
         });
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        jTextCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                jTextCategoriaActionPerformed(evt);
             }
         });
 
@@ -429,6 +535,28 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         jButtonOrdenar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonOrdenarActionPerformed(evt);
+            }
+        });
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/filtrar.png"))); // NOI18N
+        jButton1.setText("Filtro Proveedores");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/filtrar.png"))); // NOI18N
+        jButton2.setText("Filtro Estado");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jCBNombreCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBNombreCategoriaActionPerformed(evt);
             }
         });
 
@@ -454,22 +582,6 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         });
         jMenuArticulos.add(jMnuArticulos);
 
-        jMnuItemCategorias.setText("Categorias");
-        jMnuItemCategorias.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMnuItemCategoriasActionPerformed(evt);
-            }
-        });
-        jMenuArticulos.add(jMnuItemCategorias);
-
-        jMnuItemProveedores.setText("Proveedores");
-        jMnuItemProveedores.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMnuItemProveedoresActionPerformed(evt);
-            }
-        });
-        jMenuArticulos.add(jMnuItemProveedores);
-
         jMenuBar1.add(jMenuArticulos);
 
         setJMenuBar(jMenuBar1);
@@ -481,39 +593,52 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(185, 185, 185)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(100, 100, 100)
-                                .addComponent(jLabel1))
+                                .addGap(110, 110, 110)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(185, 185, 185)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(100, 100, 100)
+                                        .addComponent(jLabel1))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 311, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jBtnFiltrarArticulosCategoria)
-                                .addGap(18, 18, 18)
+                                .addGap(239, 239, 239)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButtonOrdenar)
                                     .addComponent(jComboBoxOrdenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(17, 17, 17)
+                                        .addComponent(jBtnFiltrarArticulosCategoria))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCBNombreCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(43, 43, 43)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jCBProveedores, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(33, 33, 33)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jCBEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 109, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -529,7 +654,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
@@ -540,28 +665,31 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                             .addComponent(jTextCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel9)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jButtonOrdenar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBtnFiltrarArticulosCategoria)
-                    .addComponent(jComboBoxOrdenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(132, 132, 132))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonOrdenar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBoxOrdenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCBNombreCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCBProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBtnFiltrarArticulosCategoria)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCBEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMnuItemProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuItemProveedoresActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMnuItemProveedoresActionPerformed
 
     private void jMnuItemPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuItemPrincipalActionPerformed
         Ventana_Principal principal = new Ventana_Principal();
@@ -572,11 +700,12 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
     private void jMnuArticulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuArticulosActionPerformed
         //cargarArticulos();
         cargarArticulosListaEnlazada();
+        
+        //cargando lista de Filtros
+        CargandoListaFiltroCategoria();
+        
+        
     }//GEN-LAST:event_jMnuArticulosActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jComboBoxOrdenamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxOrdenamientoActionPerformed
         // TODO add your handling code here:
@@ -594,12 +723,6 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonOrdenarActionPerformed
 
-    private void jMnuItemCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnuItemCategoriasActionPerformed
-        // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_jMnuItemCategoriasActionPerformed
-
     private void jTextCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCategoriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextCategoriaActionPerformed
@@ -610,9 +733,31 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         
        
         TablaModeloLinkedListReinicio();
-        FiltroCategoria(jTextCategoria.getText());
+        
+        //FiltroCategoria(jTextCategoria.getText());
+        FiltroCategoria(jCBNombreCategoria.getSelectedItem().toString());
         
     }//GEN-LAST:event_jBtnFiltrarArticulosCategoriaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jCBNombreCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBNombreCategoriaActionPerformed
+        // TODO add your handling code here:
+        //forma para adquirir la lista enlazada que devuelve ListarNombresCategoria();
+      
+        
+        
+    }//GEN-LAST:event_jCBNombreCategoriaActionPerformed
+
+    private void jTextNombreArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNombreArticuloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextNombreArticuloActionPerformed
 
     /**
      * @param args the command line arguments
@@ -670,7 +815,12 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnFiltrarArticulosCategoria;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonOrdenar;
+    private javax.swing.JComboBox<String> jCBEstado;
+    private javax.swing.JComboBox<String> jCBNombreCategoria;
+    private javax.swing.JComboBox<String> jCBProveedores;
     private javax.swing.JComboBox<String> jComboBoxOrdenamiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -681,15 +831,12 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuArticulos;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMnuArticulos;
-    private javax.swing.JMenuItem jMnuItemCategorias;
     private javax.swing.JMenuItem jMnuItemPrincipal;
-    private javax.swing.JMenuItem jMnuItemProveedores;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableAticulos;
     private javax.swing.JTextField jTextCategoria;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextNombreArticulo;
     // End of variables declaration//GEN-END:variables
 }
