@@ -26,7 +26,7 @@ import javax.swing.text.TableView;
 public class Consulta_de_Pedido extends javax.swing.JFrame {
     DefaultTableModel tablaDetalles;
     //buscador de archivo para exportar
-   JFileChooser archivo = new JFileChooser(System.getProperty("user.dir"));
+   JFileChooser archivo = new JFileChooser(System.getProperty("user.dire"));
    
    
    
@@ -34,16 +34,16 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
   
    
      //instanciacion de lista enlazada
-    ListaInterfaceGenerica<Pedidos> ListaArticulos= new ListaEnlasadaGenericaImpl<Pedidos>();
+    ListaInterfaceGenerica<Pedidos> ListaPedidos= new ListaEnlasadaGenericaImpl<Pedidos>();
     
      private void cargarArticulosListaEnlazada() {
         try {
             String texto = "";
-            Object cabeceras[] = {"Id. de producto",};
+            Object cabeceras[] = {"Id. de pedido","Cliente/Proveedor","Fecha de pedido","Fecha de entrega","Fecha de envio","Forma de envio","Cargo"};
             tablaDetalles = new DefaultTableModel(cabeceras,0);
             archivo.showOpenDialog(this);
             File abrir = archivo.getSelectedFile();
-            Object[] elemento = new Object[9];
+            Object[] elemento = new Object[7];
             if (abrir != null){
                 
                 FileReader fichero = new FileReader(abrir);
@@ -56,23 +56,21 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
 
                     Pedidos articulo = new Pedidos();
                     
-                    articulo.setIdProducto(registro[0]);
-                    articulo.setNombreProducto(registro[1]);
-                    articulo.setProveedores(registro[2]);
-                    articulo.setCategoria(registro[3]);
-                    articulo.setCantidadPorUnidad(registro[4]);
-                    articulo.setPrecioPorUnidad(registro[5]);
-                    articulo.setUnidadesExistentes(registro[6]);
-                    articulo.setUnidadesPedidas(registro[7]);
-                    articulo.setSuspendido(registro[8]);
-                    
+                    articulo.setIdPedido(registro[0]);
+                    articulo.setCliente(registro[1]);
+                    articulo.setFechaPedido(registro[2]);
+                    articulo.setFechaEntrega(registro[3]);
+                    articulo.setFechaEnvio(registro[4]);
+                    articulo.setFormaEnvio(registro[5]);
+                    articulo.setCargo(registro[6]);
+   
                     NodoGenerico<Pedidos> nuevoNodo = new NodoGenerico<Pedidos>(articulo);
                     
-                    ListaArticulos.insertarFinal(nuevoNodo); //se debe crear una lista enlazada para guardar objetos tipo clase Articulos
+                    ListaPedidos.insertarFinal(nuevoNodo); //se debe crear una lista enlazada para guardar objetos tipo clase Articulos
                     
                     //tablaDetalles.addRow(registro);
                 }
-                TablaModeloLinkedList(ListaArticulos);
+                TablaModeloLinkedList(ListaPedidos);
 
                 //jTableAticulos.setModel(tablaDetalles);
             }
@@ -84,9 +82,12 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
      
      public ListaInterfaceGenerica<Pedidos> GetListaArticulos()
     {
-        return ListaArticulos;
+        return ListaPedidos;
     }
      
+     
+     
+     /*
      
      public void CargandoListaFiltroCategoria()
      {
@@ -177,7 +178,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
     
 }
   
-  
+ */ 
 
 
   
@@ -188,26 +189,26 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
     public void Ordenamiento_ShellSort_Nombre(String Tipo) 
     {
         
-        int n = ListaArticulos.TamanioLista();
+        int n = ListaPedidos.TamanioLista();
         int incremento = n;
 
         do {
             incremento = incremento / 2;
             for (int i = incremento; i <= n; i++) {
-                NodoGenerico<Articulos> nodoActual = ListaArticulos.buscarIteradorIndice(i);
+                NodoGenerico<Pedidos> nodoActual = ListaPedidos.buscarIteradorIndice(i);
                 if (nodoActual != null) {
-                    Articulos valorActual = nodoActual.getElemento();
+                    Pedidos valorActual = nodoActual.getElemento();
 
                     int j = i;
                     while (j >= incremento) {
-                        NodoGenerico<Articulos> nodoAnterior = ListaArticulos.buscarIteradorIndice(j - incremento);
+                        NodoGenerico<Pedidos> nodoAnterior = ListaPedidos.buscarIteradorIndice(j - incremento);
                         if (nodoAnterior != null) {
-                            Articulos valorAnterior = nodoAnterior.getElemento();
+                            Pedidos valorAnterior = nodoAnterior.getElemento();
                            
                             if(Tipo.equalsIgnoreCase("Ascendente"))
                             {
-                                if (compararAmenorQueBTipo01(valorActual.getNombreProducto(), valorAnterior.getNombreProducto()) ) {
-                                        ListaArticulos.buscarIteradorIndice(j).setElemento(valorAnterior);
+                                if (compararAmenorQueBTipo01(valorActual.getCliente(), valorAnterior.getCliente()) ) {
+                                        ListaPedidos.buscarIteradorIndice(j).setElemento(valorAnterior);
                                         System.out.print("Valor intercambiado correctamente");
                                         j -= incremento;
                                     } else {
@@ -215,8 +216,8 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
                                     }
                             }else
                             {
-                                if (compararAmenorQueBTipo02(valorActual.getNombreProducto(), valorAnterior.getNombreProducto()) ) {
-                                        ListaArticulos.buscarIteradorIndice(j).setElemento(valorAnterior);
+                                if (compararAmenorQueBTipo02(valorActual.getCliente(), valorAnterior.getCliente()) ) {
+                                        ListaPedidos.buscarIteradorIndice(j).setElemento(valorAnterior);
                                         System.out.print("Valor intercambiado correctamente");
                                         j -= incremento;
                                     } else {
@@ -233,7 +234,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
                         }
                     }
 
-                    ListaArticulos.buscarIteradorIndice(j).setElemento(valorActual);
+                    ListaPedidos.buscarIteradorIndice(j).setElemento(valorActual);
                 }
             }
         } while (incremento > 1);
@@ -260,9 +261,9 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
    
  
      //------------------------------------------------------------------
-     public void TablaModeloLinkedList(ListaInterfaceGenerica<Articulos> Lista)
+     public void TablaModeloLinkedList(ListaInterfaceGenerica<Pedidos> Lista)
      {
-         LinkedList<Articulos> list =new LinkedList<>();
+         LinkedList<Pedidos> list =new LinkedList<>();
          
          
          //pasando los valores de l¡nuestra lista enlazada a la linkedList
@@ -279,19 +280,17 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
           Object[] row;
             for (int i = 0; i < list.size(); i++) {
                 row = new Object[8];
-                row[0] = list.get(i).getIdProducto();
-                row[1] = list.get(i).getNombreProducto();
-                row[2] = list.get(i).getProveedores();
-                row[3] = list.get(i).getCategoria();
-                row[4] = list.get(i).getCantidadPorUnidad();
-                row[5] = list.get(i).getPrecioPorUnidad();
-                row[6] = list.get(i).getUnidadesExistentes();
-                row[7] = list.get(i).getSuspendido();
+                row[0] = list.get(i).getIdPedido();
+                row[1] = list.get(i).getCliente();
+                row[2] = list.get(i).getFechaPedido();
+                row[3] = list.get(i).getFechaEntrega();
+                row[4] = list.get(i).getFechaEnvio();
+                row[5] = list.get(i).getFormaEnvio();
+                row[6] = list.get(i).getCargo();
+                
                 modeloEnlazada.addRow(row);
                 
             }
-         
-         
          
      }
      
@@ -304,6 +303,8 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
      }
      
     
+    
+    /*
     //Filtrando Categorias de Articulo sin repetir el mismo nombre de Categorias a una lista enlazada  ListaCategoria
     public ListaInterfaceGenerica<Articulos> ListarNombresCategoria() {
         ListaInterfaceGenerica<Articulos> ListaCategoria = new ListaEnlasadaGenericaImpl<>();
@@ -330,7 +331,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
 
    
     
-    
+    */
     
     
     
@@ -630,7 +631,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
         cargarArticulosListaEnlazada();
         
         //cargando lista de Filtros en combobox
-        CargandoListaFiltroCategoria();
+       // CargandoListaFiltroCategoria();
         
         
     }//GEN-LAST:event_jMnuArticulosActionPerformed
@@ -645,7 +646,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
         String Opcion= jComboBoxOrdenamiento.getSelectedItem().toString();
         Ordenamiento_ShellSort_Nombre(Opcion);
         TablaModeloLinkedListReinicio();   
-        TablaModeloLinkedList(ListaArticulos);
+        TablaModeloLinkedList(ListaPedidos);
         
         
         
@@ -663,7 +664,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
         TablaModeloLinkedListReinicio();
         
         //FiltroCategoria(jTextCategoria.getText());
-        FiltroCategoria(jCBNombreCategoria.getSelectedItem().toString());
+       // FiltroCategoria(jCBNombreCategoria.getSelectedItem().toString());
         
     }//GEN-LAST:event_jBtnFiltrarArticulosCategoriaActionPerformed
 
@@ -690,7 +691,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
     private void jBotonBuscarNombreArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonBuscarNombreArticuloActionPerformed
         // TODO add your handling code here:
      TablaModeloLinkedListReinicio();
-     CargandoBusquedaBinariaNombres();
+     //CargandoBusquedaBinariaNombres();
     }//GEN-LAST:event_jBotonBuscarNombreArticuloActionPerformed
 
     /**
