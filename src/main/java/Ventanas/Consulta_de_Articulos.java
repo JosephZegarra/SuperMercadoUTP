@@ -101,11 +101,9 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         } 
     }  
     
-     public void CargandoBusquedaBinaria()
+     public void CargandoBusquedaBinariaNombres()
      {
-         TablaModeloLinkedListReinicio();
-         busquedaBinaria(jTextNombreArticulo.getText());
-         TablaModeloLinkedList(ListaArticulos);
+         TablaModeloLinkedList(AsignacionObjBusquedaBinariaAListaEnlazada());
        
      }
      
@@ -149,12 +147,22 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
   
   
   
-  //Busqueda binaria por nombre 
+  //Busqueda binaria por nombre y asignacion de objeto a lista enlazada
+    public ListaInterfaceGenerica AsignacionObjBusquedaBinariaAListaEnlazada()
+    {
+       ListaInterfaceGenerica<Articulos> ListaBusquedaBinariaNombreProducto = new ListaEnlasadaGenericaImpl<>();
+        NodoGenerico<Articulos> NodoBusquedaProducto = new NodoGenerico<Articulos>(busquedaBinaria(jTextNombreArticulo.getText()));
+        ListaBusquedaBinariaNombreProducto.insertarFinal(NodoBusquedaProducto);
+        return ListaBusquedaBinariaNombreProducto;
+    }
+     
+    
+    
     public Articulos busquedaBinaria(String nombreProducto) 
     {
         Ordenamiento_ShellSort_Nombre("Ascendente");
-        int inicio = 0;
-        int fin = ListaArticulos.TamanioLista() - 1;
+        int inicio = 1;
+        int fin = ListaArticulos.TamanioLista() ;
 
         while (inicio <= fin) {
             int medio = inicio + (fin - inicio) / 2;
@@ -178,6 +186,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         return null; // No se encontró el artículo
         
     }
+   
     
     /*
     //Busqueda binaria por nombre 
@@ -465,6 +474,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         jCBNombreCategoria = new javax.swing.JComboBox<>();
         jCBProveedores = new javax.swing.JComboBox<>();
         jCBEstado = new javax.swing.JComboBox<>();
+        jBotonBuscarNombreArticulo = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMnuItemPrincipal = new javax.swing.JMenuItem();
@@ -560,6 +570,13 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
             }
         });
 
+        jBotonBuscarNombreArticulo.setText("Buscar Nombre");
+        jBotonBuscarNombreArticulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonBuscarNombreArticuloActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("Archivo");
 
         jMnuItemPrincipal.setText("Menu Principal");
@@ -607,14 +624,16 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jTextCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jBotonBuscarNombreArticulo))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(239, 239, 239)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -654,7 +673,8 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jTextNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBotonBuscarNombreArticulo))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
@@ -759,6 +779,12 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextNombreArticuloActionPerformed
 
+    private void jBotonBuscarNombreArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonBuscarNombreArticuloActionPerformed
+        // TODO add your handling code here:
+     TablaModeloLinkedListReinicio();
+     CargandoBusquedaBinariaNombres();
+    }//GEN-LAST:event_jBotonBuscarNombreArticuloActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -814,6 +840,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBotonBuscarNombreArticulo;
     private javax.swing.JButton jBtnFiltrarArticulosCategoria;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
