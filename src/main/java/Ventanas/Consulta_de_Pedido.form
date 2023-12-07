@@ -26,7 +26,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMnuArticulos">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Articulos"/>
+                <Property name="text" type="java.lang.String" value="Pedidos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMnuArticulosActionPerformed"/>
@@ -83,12 +83,11 @@
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jTextCategoria" min="-2" pref="233" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel9" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel7" min="-2" pref="141" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jTextNombreArticulo" min="-2" pref="233" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                       <Component id="jBotonBuscarNombreArticulo" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -102,7 +101,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                      <Component id="jBtnFiltrarArticulosCategoria" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jBtnFiltrarCliente" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -121,7 +120,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="27" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -159,10 +158,9 @@
                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
@@ -178,7 +176,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jBtnFiltrarArticulosCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jBtnFiltrarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -210,7 +208,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre del Articulo:"/>
+        <Property name="text" type="java.lang.String" value="Nombre Cliente:"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -223,16 +221,14 @@
         <Component class="javax.swing.JTable" name="jTableAticulos">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="9" rowCount="0">
-                <Column editable="false" title="Id. de producto" type="java.lang.Object"/>
-                <Column editable="true" title="Articulo de producto" type="java.lang.Object"/>
-                <Column editable="true" title="Proveedores" type="java.lang.Object"/>
-                <Column editable="true" title="Categoria" type="java.lang.Object"/>
-                <Column editable="true" title="Cantidad por unidad" type="java.lang.Object"/>
-                <Column editable="true" title="Precio unitario" type="java.lang.Object"/>
-                <Column editable="true" title="Unidades en existencia" type="java.lang.Object"/>
-                <Column editable="true" title="Unidades pedidas" type="java.lang.Object"/>
-                <Column editable="true" title="Suspendido" type="java.lang.Object"/>
+              <Table columnCount="7" rowCount="0">
+                <Column editable="false" title="Id. de pedido" type="java.lang.Object"/>
+                <Column editable="true" title="Cliente/Proveedor" type="java.lang.Object"/>
+                <Column editable="true" title="Fecha de pedido" type="java.lang.Object"/>
+                <Column editable="true" title="Fecha de entrega" type="java.lang.Object"/>
+                <Column editable="true" title="Fecha de envio" type="java.lang.Object"/>
+                <Column editable="true" title="Forma de envio" type="java.lang.Object"/>
+                <Column editable="true" title="Cargo" type="java.lang.Object"/>
               </Table>
             </Property>
           </Properties>
@@ -241,28 +237,23 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Precio del Art&#xed;culo:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel9">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre del Proveedor"/>
+        <Property name="text" type="java.lang.String" value="Fecha de Pedido:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre de la Categoria:"/>
+        <Property name="text" type="java.lang.String" value="Fecha de Envio:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jBtnFiltrarArticulosCategoria">
+    <Component class="javax.swing.JButton" name="jBtnFiltrarCliente">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/filtrar.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Filtro Categoria"/>
+        <Property name="text" type="java.lang.String" value="Filtro Cliente"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnFiltrarArticulosCategoriaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnFiltrarClienteActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextNombreArticulo">
@@ -306,7 +297,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/filtrar.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Filtro Proveedores"/>
+        <Property name="text" type="java.lang.String" value="Filtro Pais/Ciudad"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -317,7 +308,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/filtrar.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Filtro Estado"/>
+        <Property name="text" type="java.lang.String" value="Filtro Compa&#xf1;ia"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
