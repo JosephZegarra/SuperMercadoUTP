@@ -11,7 +11,7 @@ import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 import ListaEnlazadaGenerica.*;
-import Datos.Articulos;
+import Datos.Pedidos;
 import java.util.LinkedList;
 import javax.management.modelmbean.ModelMBean;
 import javax.swing.text.JTextComponent;
@@ -23,7 +23,7 @@ import javax.swing.text.TableView;
  */
 
 
-public class Consulta_de_Articulos extends javax.swing.JFrame {
+public class Consulta_de_Pedido extends javax.swing.JFrame {
     DefaultTableModel tablaDetalles;
     //buscador de archivo para exportar
    JFileChooser archivo = new JFileChooser(System.getProperty("user.dir"));
@@ -33,13 +33,13 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
     
   
    
-      //instanciacion de lista enlazada
-    ListaInterfaceGenerica<Articulos> ListaArticulos= new ListaEnlasadaGenericaImpl<Articulos>();
+     //instanciacion de lista enlazada
+    ListaInterfaceGenerica<Pedidos> ListaArticulos= new ListaEnlasadaGenericaImpl<Pedidos>();
     
      private void cargarArticulosListaEnlazada() {
         try {
             String texto = "";
-            Object cabeceras[] = {"Id. de producto","Nombre de producto","PROVEEDORES","Categoría","Cantidad por unidad","Precio por unidad","Unidades en existencia","Unidades pedidas","Suspendido"};
+            Object cabeceras[] = {"Id. de producto",};
             tablaDetalles = new DefaultTableModel(cabeceras,0);
             archivo.showOpenDialog(this);
             File abrir = archivo.getSelectedFile();
@@ -54,7 +54,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                 while ((texto = leer.readLine()) != null) {
                     String registro[] = texto.split(";");
 
-                    Articulos articulo = new Articulos();
+                    Pedidos articulo = new Pedidos();
                     
                     articulo.setIdProducto(registro[0]);
                     articulo.setNombreProducto(registro[1]);
@@ -66,7 +66,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                     articulo.setUnidadesPedidas(registro[7]);
                     articulo.setSuspendido(registro[8]);
                     
-                    NodoGenerico<Articulos> nuevoNodo = new NodoGenerico<Articulos>(articulo);
+                    NodoGenerico<Pedidos> nuevoNodo = new NodoGenerico<Pedidos>(articulo);
                     
                     ListaArticulos.insertarFinal(nuevoNodo); //se debe crear una lista enlazada para guardar objetos tipo clase Articulos
                     
@@ -82,7 +82,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         }
     }
      
-     public ListaInterfaceGenerica<Articulos> GetListaArticulos()
+     public ListaInterfaceGenerica<Pedidos> GetListaArticulos()
     {
         return ListaArticulos;
     }
@@ -108,44 +108,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
      }
      
      
-    /* 
-    //----------------------------------------------------------------
-     //busqueda binaria
-     public int buscarBinarioPorNombre(String nombreArticulo) {
-        int posicion = 0;
-         NodoGenerico<Articulos> actual = primero;
-
-        while (actual != null) {
-            if (actual.getArticulo().getNombre().equalsIgnoreCase(nombreArticulo)) {
-                return posicion; // Se encontró la coincidencia
-            }
-
-            actual = actual.getSiguiente();
-            posicion++;
-        }
-
-        return -1; // No se encontró la coincidencia
-    }
-    */
-   
-  //metodo de busqueda Lineal    
-  public Articulos buscarPorNombre(String nombreProducto) {
-        NodoGenerico<Articulos> actual = ListaArticulos.buscarIteradorIndice(1);
-
-        while (actual != null) {
-            Articulos articulo = actual.getElemento();
-
-            if (articulo.getNombreProducto().equalsIgnoreCase(nombreProducto)) {
-                return articulo;  // Retorna el primer artículo con el nombre buscado
-            }
-
-            actual = actual.getSiguiente();
-        }
-
-        return null;  // Retorna null si no se encuentra ningún artículo con el nombre buscado
-    }
-  
-  
+    
   
   //Busqueda binaria por nombre y asignacion de objeto a lista enlazada
     public ListaInterfaceGenerica AsignacionObjBusquedaBinariaAListaEnlazada()
@@ -220,7 +183,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
   
   
     
-    Articulos valorActual =new Articulos();
+    Pedidos valorActual =new Pedidos();
     
     public void Ordenamiento_ShellSort_Nombre(String Tipo) 
     {
@@ -380,7 +343,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
     
     
     
-    public Consulta_de_Articulos() {
+    public Consulta_de_Pedido() {
         initComponents();
         this.setTitle(" Consulta de Artículos");
         this.setLocationRelativeTo(this);
@@ -747,14 +710,18 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Consulta_de_Articulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consulta_de_Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Consulta_de_Articulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consulta_de_Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Consulta_de_Articulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consulta_de_Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Consulta_de_Articulos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consulta_de_Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        
+         //Consulta_de_Articulos consultaVista= new Consulta_de_Articulos();
         //</editor-fold>
         //</editor-fold>
         
@@ -779,7 +746,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Consulta_de_Articulos().setVisible(true);
+                new Consulta_de_Pedido().setVisible(true);
             }
         });
     }
