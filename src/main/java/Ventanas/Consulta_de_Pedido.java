@@ -733,8 +733,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
     private void jBtnFiltrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFiltrarClienteActionPerformed
         // TODO add your handling code here:
         
-        
-       
+
         TablaModeloLinkedListReinicio();
 
         FiltroCliente(jCBNombreCliente.getSelectedItem().toString());
