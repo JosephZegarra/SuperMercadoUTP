@@ -15,6 +15,17 @@ import javax.swing.text.Element;
 import ListaEnlazadaGenerica.*;
 import Datos.Detalles_Pedidos;
 import Datos.Pedidos;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.HashSet;
+import java.util.LinkedList;
+
+/*
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.PDRectangle;
+*/
 /**
  *
  * @author ROBSKY
@@ -64,12 +75,13 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                     
                     ListaDetallePedidos.insertarFinal(nuevoNodo);
                     
-                    tablaDetalles.addRow(registro);
+                    
                     
                     
                 }
-                jTableDetalPedido.setModel(tablaDetalles);
+                
             }
+            TablaModeloLinkedListDetallePedido(ListaDetallePedidos);
         } catch (IOException e) 
         {   System.out.println("Error" + e);
         }
@@ -123,11 +135,12 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                     
                     ListaPedidos.insertarFinal(nuevoNodo);
                     
-                    tablaDetalles.addRow(registro);
+                    //tablaDetalles.addRow(registro);
                     
                 }
-                jTablePedido.setModel(tablaDetalles);
+                //jTablePedido.setModel(tablaDetalles);
             }
+            TablaModeloLinkedListPedidos(ListaPedidos);
         } catch (IOException e) 
         {   System.out.println("Error" + e);
         }
@@ -138,12 +151,163 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
     {
         return ListaPedidos;
     }
+     
+     
+     // EXPORTAR LOS DATOS DE PANTALLA EN ARCHIVO CSV
+        
     
+
+    private void exportarDatosPedidosCSV(String archivoSalida) 
+    {
+    
+        TablaModeloLinkedListReinicioPedidos();
+        LinkedList<Pedidos> list =new LinkedList<>();
+         
+         
+         //pasando los valores de l¡nuestra lista enlazada a la linkedList
+         for (int i = 2; i <= ListaPedidos.TamanioLista(); i++) 
+            {
+                
+               list.add(ListaPedidos.buscarIteradorIndice(i).getElemento());
+                
+            }
+         DefaultTableModel modeloEnlazada = (DefaultTableModel) jTablePedido.getModel();
+         
+         
+         
+          Object[] row;
+            for (int i = 0; i < list.size(); i++) {
+                row = new Object[7];
+                row[0] = list.get(i).getIdPedido();
+                row[1] = list.get(i).getCliente();
+                row[2] = list.get(i).getFechaPedido();
+                row[3] = list.get(i).getFechaEntrega();
+                row[4] = list.get(i).getFechaEnvio();
+                row[5] = list.get(i).getFormaEnvio();
+                row[6] = list.get(i).getCargo();
+                
+                modeloEnlazada.addRow(row);
+                
+            }
+            
+            
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(new File(archivoSalida)))) {
+            // Escribir encabezados
+            for (int i = 0; i < modeloEnlazada.getColumnCount(); i++) {
+                writer.write(modeloEnlazada.getColumnName(i));
+                if (i < modeloEnlazada.getColumnCount() - 1) {
+                    writer.write(",");
+                }
+            }
+            writer.newLine();
+
+            // Escribir datos
+            for (int i = 0; i < modeloEnlazada.getRowCount(); i++) {
+                for (int j = 0; j < modeloEnlazada.getColumnCount(); j++) {
+                    writer.write(modeloEnlazada.getValueAt(i, j).toString());
+                    if (j < modeloEnlazada.getColumnCount() - 1) {
+                        writer.write(",");
+                    }
+                }
+                writer.newLine();
+            }
+
+            System.out.println("DATOS EXPORTADOS EXITOSAMENTE " + archivoSalida);
+        } catch (IOException e) 
+        {
+            e.printStackTrace();
+        }
+    
+    }
      
      
      
-     
-     
+    
+  /*  
+    private void exportarDatosPedidosPDF(String archivoSalida) 
+    {
+        try {
+            PDDocument document = new PDDocument();
+            PDPage page = new PDPage(PDRectangle.A4);
+            document.addPage(page);
+
+            PDPageContentStream contentStream = new PDPageContentStream(document, page);
+
+            // Configuración de la tabla
+            float margin = 50;
+            float yStart = page.getMediaBox().getHeight() - margin;
+            float tableWidth = page.getMediaBox().getWidth() - 2 * margin;
+            float yPosition = yStart;
+            float tableHeight = 300f;
+            float rowHeight = 20f;
+            float tableBottomMargin = 70f;
+            float cellMargin = 5f;
+
+            // Número de columnas
+            int cols = 7;
+            float colWidth = tableWidth / (float) cols;
+
+            // Crear la tabla
+            float yPositionReset = yPosition;
+            LinkedList<Pedidos> list = new LinkedList<>();
+
+            // Pasando los valores de nuestra lista enlazada a la LinkedList
+            for (int i = 2; i <= ListaPedidos.TamanioLista(); i++) {
+                list.add(ListaPedidos.buscarIteradorIndice(i).getElemento());
+            }
+
+            for (int i = 0; i < list.size(); i++) {
+                for (int j = 0; j < cols; j++) {
+                    String text = "";
+                    switch (j) {
+                        case 0:
+                            text = list.get(i).getIdPedido();
+                            break;
+                        case 1:
+                            text = list.get(i).getCliente();
+                            break;
+                        case 2:
+                            text = list.get(i).getFechaPedido();
+                            break;
+                        case 3:
+                            text = list.get(i).getFechaEntrega();
+                            break;
+                        case 4:
+                            text = list.get(i).getFechaEnvio();
+                            break;
+                        case 5:
+                            text = list.get(i).getFormaEnvio();
+                            break;
+                        case 6:
+                            text = list.get(i).getCargo();
+                            break;
+                    }
+                    contentStream.beginText();
+                    contentStream.newLineAtOffset((j * colWidth) + cellMargin, yPosition);
+                    contentStream.showText(text);
+                    contentStream.endText();
+                }
+                yPosition -= rowHeight;
+                if (yPosition - tableBottomMargin <= 0) {
+                    document.addPage(page);
+                    contentStream.close();
+                    contentStream = new PDPageContentStream(document, page);
+                    yPosition = yStart;
+                }
+            }
+
+            contentStream.close();
+
+            document.save(archivoSalida);
+            document.close();
+
+            System.out.println("DATOS EXPORTADOS EXITOSAMENTE a " + archivoSalida);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+     */
      
    public Registro_de_Pedidos() {
         initComponents();
@@ -173,6 +337,212 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         */
         
     }
+   
+   
+   
+    
+     //-------Implementacion filtro Proveedores-------------------------------------------------------------------
+     public void CargandoComboBoxNombreProveedores()
+     {
+        ListaInterfaceGenerica<Pedidos> listaPedidos = ListarNombresProveedores();
+
+    // Lógica adicional usando la lista de categorías
+        for (int i = 1; i <= listaPedidos.TamanioLista(); i++) 
+        {
+            jCBNombreProveedor.addItem(listaPedidos.buscarIteradorIndice(i).getElemento().getCliente());
+            // Tu lógica aquí usando la categoría
+            System.out.println("Nombre de Proveedor agregado: " + listaPedidos.buscarIteradorIndice(i).getElemento().getCliente());
+        } 
+    }  
+    
+     
+    //Filtrando Categorias de Articulo sin repetir el mismo nombre de Categorias a una lista enlazada  ListaCategoria
+    public ListaInterfaceGenerica<Pedidos> ListarNombresProveedores() {
+        ListaInterfaceGenerica<Pedidos> ListaCliente = new ListaEnlasadaGenericaImpl<>();
+        HashSet<String> categoriasUnicas = new HashSet<>();
+
+        for (int i = 1; i <= ListaPedidos.TamanioLista(); i++) {
+            Pedidos Objarticulo = ListaPedidos.buscarIteradorIndice(i).getElemento();
+            String NombreCliente = Objarticulo.getCliente();
+
+            // Verificar si la categoría ya está en el conjunto
+            if (categoriasUnicas.contains(NombreCliente)) {
+                System.out.println("No se copió un tipo de categoría");
+            } else {
+                // Agregar el objeto a ListaCategoria y actualizar el conjunto
+                NodoGenerico<Pedidos> NodoNuevo = new NodoGenerico<>(Objarticulo);
+                ListaCliente.insertarFinal(NodoNuevo);
+                categoriasUnicas.add(NombreCliente);
+                System.out.println("Se copió un tipo de categoría: " + NombreCliente);
+            }
+        }
+
+        return ListaCliente;
+    }
+   //-----------------------------------------------------------------------
+   
+    //-------Implementacion filtro Proveedores-------------------------------------------------------------------
+     public void CargandoComboBoxFormaEnvio()
+     {
+        ListaInterfaceGenerica<Pedidos> listaPedidos = ListarFormaEnvio();
+
+    // Lógica adicional usando la lista de categorías
+        for (int i = 1; i <= listaPedidos.TamanioLista(); i++) 
+        {
+            jCBFormaEnvio.addItem(listaPedidos.buscarIteradorIndice(i).getElemento().getFormaEnvio());
+            // Tu lógica aquí usando la categoría
+            System.out.println("Nombre de Proveedor agregado: " + listaPedidos.buscarIteradorIndice(i).getElemento().getCliente());
+        } 
+    }  
+    
+     
+    //Filtrando Categorias de Articulo sin repetir el mismo nombre de Categorias a una lista enlazada  ListaCategoria
+    public ListaInterfaceGenerica<Pedidos> ListarFormaEnvio() {
+        ListaInterfaceGenerica<Pedidos> ListaFormaEnvio = new ListaEnlasadaGenericaImpl<>();
+        HashSet<String> categoriasUnicas = new HashSet<>();
+
+        for (int i = 1; i <= ListaPedidos.TamanioLista(); i++) {
+            Pedidos ObjPedido = ListaPedidos.buscarIteradorIndice(i).getElemento();
+            String NombreFormaEnvio = ObjPedido.getFormaEnvio();
+
+            // Verificar si la categoría ya está en el conjunto
+            if (categoriasUnicas.contains(NombreFormaEnvio)) {
+                System.out.println("No se copió un tipo de FormaEnvio");
+            } else {
+                // Agregar el objeto a ListaCategoria y actualizar el conjunto
+                NodoGenerico<Pedidos> NodoNuevo = new NodoGenerico<>(ObjPedido);
+                ListaFormaEnvio.insertarFinal(NodoNuevo);
+                categoriasUnicas.add(NombreFormaEnvio);
+                System.out.println("Se copió un tipo de FormaEnvio: " + NombreFormaEnvio);
+            }
+        }
+
+        return ListaFormaEnvio;
+    }
+   //-----------------------------------------------------------------------
+   
+   //-------------REGISTRO DE PEDIDO NUEVO----------------------------------
+   public void RegistrarNuevoPedido()
+   {
+       Pedidos NuevoObjPedido = new Pedidos();
+       //Obteniendo datos de Ventana
+        NuevoObjPedido.setIdPedido(jTextIdPedido.getText());
+        NuevoObjPedido.setCliente(jCBNombreProveedor.getSelectedItem().toString());
+        NuevoObjPedido.setFechaPedido(jTextFechPedido.getText());
+        NuevoObjPedido.setFechaEntrega(jTextFechEntrega.getText());
+        NuevoObjPedido.setFechaEnvio(jTextFechEnvio.getText());
+        NuevoObjPedido.setFormaEnvio(jCBFormaEnvio.getSelectedItem().toString());
+        NuevoObjPedido.setCargo(jTextCargo.getText());        
+        
+        NodoGenerico<Pedidos> NodoNuevo = new NodoGenerico<>(NuevoObjPedido);
+        ListaPedidos.insertarFinal(NodoNuevo);
+        TablaModeloLinkedListReinicioPedidos();
+        TablaModeloLinkedListPedidos(ListaPedidos);
+              
+             
+                    
+   }
+   //--------------------------------------------
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   //------------------------------------------------------------------
+     public void TablaModeloLinkedListDetallePedido(ListaInterfaceGenerica<Detalles_Pedidos> Lista)
+     {
+         LinkedList<Detalles_Pedidos> list =new LinkedList<>();
+         
+         
+         //pasando los valores de l¡nuestra lista enlazada a la linkedList
+         for (int i = 1; i <= Lista.TamanioLista(); i++) 
+            {
+                
+               list.add(Lista.buscarIteradorIndice(i).getElemento());
+                
+            }
+         DefaultTableModel modeloEnlazadaDetalle = (DefaultTableModel) jTableDetalPedido.getModel();
+         
+         
+         
+          Object[] row;
+            for (int i = 0; i < list.size(); i++) {
+                row = new Object[5];
+                row[0] = list.get(i).getIdPedido();
+                row[1] = list.get(i).getProducto();
+                row[2] = list.get(i).getPrecioUnidad();
+                row[3] = list.get(i).getCantidad();
+                row[4] = list.get(i).getDescuento();
+
+                modeloEnlazadaDetalle.addRow(row);
+                
+            }
+         
+     }
+     
+    public void TablaModeloLinkedListReinicioDetallePedido()
+     {
+         DefaultTableModel modeloEnlazadaDetalle = (DefaultTableModel) jTableDetalPedido.getModel();
+         
+         modeloEnlazadaDetalle.setRowCount(0);
+         
+     }
+   
+   
+   
+   
+   //------------------------------------------------------------------
+     public void TablaModeloLinkedListPedidos(ListaInterfaceGenerica<Pedidos> Lista)
+     {
+         LinkedList<Pedidos> list =new LinkedList<>();
+         
+         
+         //pasando los valores de l¡nuestra lista enlazada a la linkedList
+         for (int i = 1; i <= Lista.TamanioLista(); i++) 
+            {
+                
+               list.add(Lista.buscarIteradorIndice(i).getElemento());
+                
+            }
+         DefaultTableModel modeloEnlazada = (DefaultTableModel) jTablePedido.getModel();
+         
+         
+         
+          Object[] row;
+            for (int i = 0; i < list.size(); i++) {
+                row = new Object[7];
+                row[0] = list.get(i).getIdPedido();
+                row[1] = list.get(i).getCliente();
+                row[2] = list.get(i).getFechaPedido();
+                row[3] = list.get(i).getFechaEntrega();
+                row[4] = list.get(i).getFechaEnvio();
+                row[5] = list.get(i).getFormaEnvio();
+                row[6] = list.get(i).getCargo();
+                
+                modeloEnlazada.addRow(row);
+                
+            }
+         
+     }
+     
+    public void TablaModeloLinkedListReinicioPedidos()
+     {
+         DefaultTableModel modeloEnlazada = (DefaultTableModel) jTablePedido.getModel();
+         
+         modeloEnlazada.setRowCount(0);
+         
+     }
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -185,6 +555,8 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -193,7 +565,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jTextId = new javax.swing.JTextField();
+        jTextIdPedido = new javax.swing.JTextField();
         jTextFechPedido = new javax.swing.JTextField();
         jTextFechEntrega = new javax.swing.JTextField();
         jTextFechEnvio = new javax.swing.JTextField();
@@ -204,8 +576,8 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTablePedido = new javax.swing.JTable();
         jScrollBar1 = new javax.swing.JScrollBar();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jCBNombreProveedor = new javax.swing.JComboBox<>();
+        jCBFormaEnvio = new javax.swing.JComboBox<>();
         jBtnGuardar1 = new javax.swing.JButton();
         jTextDetPrecio = new javax.swing.JTextField();
         jTextDetId = new javax.swing.JTextField();
@@ -220,10 +592,6 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jTextDetCantidad = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
@@ -239,6 +607,17 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         jMenuItem2.setText("jMenuItem2");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 255));
@@ -261,9 +640,9 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
 
         jLabel20.setText("Cargo:");
 
-        jTextId.addActionListener(new java.awt.event.ActionListener() {
+        jTextIdPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextIdActionPerformed(evt);
+                jTextIdPedidoActionPerformed(evt);
             }
         });
 
@@ -290,10 +669,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
 
         jTablePedido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Id Pedido", "Proveedor", "Fecha pedido", "Fecha de entrega", "Fecha de envio", "Forma de envio", "Cargo"
@@ -301,9 +677,11 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTablePedido);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBNombreProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBNombreProveedorActionPerformed(evt);
+            }
+        });
 
         jBtnGuardar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Registrar.png"))); // NOI18N
         jBtnGuardar1.setText("Registrar Pedido");
@@ -344,13 +722,6 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         jLabel27.setText("Detalles del pedido");
 
         jLabel30.setText("Cantidad:");
-
-        jLabel9.setText("Fecha de pedido :");
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/filtrar.png"))); // NOI18N
-        jButton1.setText("Filtrar");
-
-        jLabel12.setText("ID Pedido :");
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/filtrar.png"))); // NOI18N
         jButton2.setText("Filtrar");
@@ -411,7 +782,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextId, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jTextIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addComponent(jTextFechEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -421,21 +792,12 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                                 .addComponent(jTextCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jButton1))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jButton2))))))
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(93, 93, 93)
+                                .addGap(90, 90, 90)
                                 .addComponent(jBtnGuardar1)
                                 .addGap(111, 111, 111)
                                 .addComponent(jBtnGuardar)
@@ -447,7 +809,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCBNombreProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFechEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -456,7 +818,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextFechPedido)
-                                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jCBFormaEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -500,17 +862,17 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(405, 405, 405)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(54, 54, 54)
                                 .addComponent(jBtnAgregarDetalle)
                                 .addGap(71, 71, 71)
                                 .addComponent(jBtnGuardar2))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(405, 405, 405)
-                                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 410, Short.MAX_VALUE)))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(405, 405, 405)
+                                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 382, Short.MAX_VALUE)))
                 .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -522,16 +884,16 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                         .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
+                                .addGap(8, 8, 8)
+                                .addComponent(jLabel1)
+                                .addGap(71, 71, 71)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jLabel2)
-                                            .addComponent(jTextId, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel3))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -539,7 +901,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                                             .addComponent(jTextFechEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel6)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jCBNombreProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jTextFechEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
@@ -549,7 +911,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jLabel7)
-                                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(jCBFormaEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -563,19 +925,11 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                                 .addComponent(jLabel27)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel12)
-                                .addGap(18, 18, 18)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton2))
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel9)
-                                .addGap(14, 14, 14)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton1))
-                                .addGap(77, 77, 77)))
+                                .addGap(155, 155, 155)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -595,7 +949,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel32)
                                     .addComponent(jTextDetDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jBtnGuardar2)
                             .addComponent(jBtnAgregarDetalle))
@@ -621,7 +975,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuPrincipalActionPerformed
 
     private void jBtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGuardarActionPerformed
-        jTextId.setText("");
+       /* jTextIdPedido.setText("");
         //jTextProveedor.setText("");
         jTextFechPedido.setText("");
         jTextFechEntrega.setText("");
@@ -629,12 +983,18 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         //jTextEnvio.setText("");
         jTextCargo.setText("");
     
-    jTextDetId.setText(jTextId.getText());
+    jTextDetId.setText(jTextIdPedido.getText());
+    */
+       exportarDatosPedidosCSV("PedidosExportado.pdf");
+        
+    
     }//GEN-LAST:event_jBtnGuardarActionPerformed
 
     private void jMenuImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuImportarActionPerformed
         cargarDetallePedidos();
-    
+        
+        
+        
     }//GEN-LAST:event_jMenuImportarActionPerformed
 
     private void jBtnAgregarDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAgregarDetalleActionPerformed
@@ -647,11 +1007,15 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
 
     private void jMenuPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuPedidosActionPerformed
         cargarDatosPedidos();
+        //------Cargando ComboBoxs----------
+        CargandoComboBoxNombreProveedores();
+        CargandoComboBoxFormaEnvio();
+        
     }//GEN-LAST:event_jMenuPedidosActionPerformed
 
     private void jBtnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGuardar1ActionPerformed
         // TODO add your handling code here:
-        
+        RegistrarNuevoPedido();
         
         
     }//GEN-LAST:event_jBtnGuardar1ActionPerformed
@@ -660,9 +1024,13 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBtnGuardar2ActionPerformed
 
-    private void jTextIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextIdActionPerformed
+    private void jTextIdPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextIdPedidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextIdActionPerformed
+    }//GEN-LAST:event_jTextIdPedidoActionPerformed
+
+    private void jCBNombreProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBNombreProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBNombreProveedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -704,14 +1072,12 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
     private javax.swing.JButton jBtnGuardar;
     private javax.swing.JButton jBtnGuardar1;
     private javax.swing.JButton jBtnGuardar2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jCBFormaEnvio;
+    private javax.swing.JComboBox<String> jCBNombreProveedor;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -726,7 +1092,6 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -735,9 +1100,11 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuPedidos;
     private javax.swing.JMenuItem jMenuPrincipal;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTableDetalPedido;
     private javax.swing.JTable jTablePedido;
     private javax.swing.JTextField jTextCargo;
@@ -748,9 +1115,8 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFechEntrega;
     private javax.swing.JTextField jTextFechEnvio;
     private javax.swing.JTextField jTextFechPedido;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextId;
+    private javax.swing.JTextField jTextIdPedido;
     // End of variables declaration//GEN-END:variables
 }

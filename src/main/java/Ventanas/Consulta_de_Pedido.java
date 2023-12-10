@@ -70,16 +70,17 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
                     articulo.setFormaEnvio(registro[5]);
                     articulo.setCargo(registro[6]);
    
-                    NodoGenerico<Pedidos> nuevoNodo = new NodoGenerico<Pedidos>(articulo);
+                    NodoGenerico<Pedidos> nuevoNodo = new NodoGenerico<>(articulo);
                     
                     ListaPedidos.insertarFinal(nuevoNodo); //se debe crear una lista enlazada para guardar objetos tipo clase Articulos
                     
-                    //tablaDetalles.addRow(registro);
+                    
                 }
-                TablaModeloLinkedList(ListaPedidos);
+                
 
-                //jTableAticulos.setModel(tablaDetalles);
+                
             }
+            TablaModeloLinkedList(ListaPedidos);
 
         } catch (IOException e) {
             System.out.println("Error" + e);
@@ -112,7 +113,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
                 FileReader fichero = new FileReader(abrir);
                 BufferedReader leer = new BufferedReader(fichero);
                 //se crea la lista enlazada
-                int u=0;
+                
                 while ((texto = leer.readLine()) != null) 
                 {
                 // Utiliza expresión regular para dividir, elimina espacios adicionales y maneja campos vacíos
@@ -140,8 +141,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
                     NodoGenerico<Proveedores> nuevoNodo = new NodoGenerico<>(proveedor);
 
                     ListaProveedores.insertarFinal(nuevoNodo);
-                    u++;
-                    System.out.print(u+"Agregado correctamente a ListaProveedores");
+                    
 
                     if (nuevoNodo.getElemento() == null)
                         System.out.println("Objeto Proveedor nulo agregado correctamente a ListaProveedores");
@@ -153,7 +153,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
                 }
                 
              
-            TablaModeloPROVEEDORESLinkedList(ListaProveedores);
+            
             }catch (IOException e) {
             System.out.println("Error" + e);
 
@@ -737,6 +737,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
         jBotonBuscarNombreArticulo = new javax.swing.JButton();
         jButtonBuscarFechaPedido = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        canvas1 = new java.awt.Canvas();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMnuItemPrincipal = new javax.swing.JMenuItem();
@@ -944,7 +945,9 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
                                         .addComponent(jBtnFiltrarCliente))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addComponent(jCBNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jCBNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(43, 43, 43)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jButtonFiltrarPais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -986,9 +989,12 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
                             .addComponent(jComboBoxOrdenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jCBNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jCBPaises, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jBtnFiltrarCliente)
-                        .addComponent(jButtonFiltrarPais)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBtnFiltrarCliente)
+                            .addComponent(jButtonFiltrarPais))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
@@ -1171,6 +1177,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Canvas canvas1;
     private javax.swing.JButton jBotonBuscarNombreArticulo;
     private javax.swing.JButton jBtnFiltrarCliente;
     private javax.swing.JButton jButton1;

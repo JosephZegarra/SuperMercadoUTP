@@ -143,7 +143,7 @@ public class Ventana_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuRegPedidosActionPerformed
 
     private void jMenuConsulPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuConsulPedidosActionPerformed
-        Consulta_de_Pedidos cPedidos = new Consulta_de_Pedidos();
+        Consulta_de_Pedido cPedidos = new Consulta_de_Pedido();
         cPedidos.setVisible(true);
         //this.setVisible(false);
     }//GEN-LAST:event_jMenuConsulPedidosActionPerformed
