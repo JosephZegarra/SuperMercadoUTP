@@ -331,23 +331,41 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
     //--------------Busqueda por JtexFile---------------------------------------------  
         public void FiltroFechaPedido(String FechaPedidoBuscado) 
     {
-        ListaInterfaceGenerica<Pedidos> ListaFiltroCategoria = new ListaEnlasadaGenericaImpl<>();
+        ListaInterfaceGenerica<Pedidos> ListaFiltroFechaPedido = new ListaEnlasadaGenericaImpl<>();
         for (int i = 1; i <= ListaPedidos.TamanioLista(); i++) {
             Pedidos Pedido = ListaPedidos.buscarIteradorIndice(i).getElemento();
 
-            if (Pedido.getCliente().equalsIgnoreCase(FechaPedidoBuscado)) {
+            if (Pedido.getFechaPedido().equalsIgnoreCase(FechaPedidoBuscado)) {
                 NodoGenerico<Pedidos> nuevoNodo = new NodoGenerico<>(Pedido);
-                ListaFiltroCategoria.insertarFinal(nuevoNodo);
+                ListaFiltroFechaPedido.insertarFinal(nuevoNodo);
                 System.out.println("Filtrado con éxito: " + Pedido.getCliente());
             } else {
                 System.out.println("Sin coincidencia: " + Pedido.getCliente());
             }
 
         }
-        TablaModeloLinkedList(ListaFiltroCategoria);
+        TablaModeloLinkedList(ListaFiltroFechaPedido);
     
     }
-        
+      
+         public void FiltroFechaEnvio(String FechaEnvioBuscado) 
+    {
+        ListaInterfaceGenerica<Pedidos> ListaFiltroFechaEnvio = new ListaEnlasadaGenericaImpl<>();
+        for (int i = 1; i <= ListaPedidos.TamanioLista(); i++) {
+            Pedidos Pedido = ListaPedidos.buscarIteradorIndice(i).getElemento();
+
+            if (Pedido.getFormaEnvio().equalsIgnoreCase(FechaEnvioBuscado)) {
+                NodoGenerico<Pedidos> nuevoNodo = new NodoGenerico<>(Pedido);
+                ListaFiltroFechaEnvio.insertarFinal(nuevoNodo);
+                System.out.println("Filtrado con éxito: " + Pedido.getCliente());
+            } else {
+                System.out.println("Sin coincidencia: " + Pedido.getCliente());
+            }
+
+        }
+        TablaModeloLinkedList(ListaFiltroFechaEnvio);
+    
+    }
         
         
         
@@ -618,6 +636,14 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
      //-------PROVEEDORES----------------------------------
      public void TablaModeloPROVEEDORESLinkedList(ListaInterfaceGenerica<Proveedores> Lista)
      {
@@ -631,7 +657,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
                list.add(Lista.buscarIteradorIndice(i).getElemento());
                 
             }
-         DefaultTableModel modeloEnlazada2 = (DefaultTableModel) jTable1.getModel();
+         //DefaultTableModel modeloEnlazada2 = (DefaultTableModel) jTable1.getModel();
          
          
          
@@ -651,7 +677,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
                 row[10] = list.get(i).getFax();
 
                 
-                modeloEnlazada2.addRow(row);
+               // modeloEnlazada2.addRow(row);
                 
             }
          
@@ -706,13 +732,9 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
         jComboBoxOrdenamiento = new javax.swing.JComboBox<>();
         jButtonOrdenar = new javax.swing.JButton();
         jButtonFiltrarPais = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jCBNombreCliente = new javax.swing.JComboBox<>();
         jCBPaises = new javax.swing.JComboBox<>();
-        jCBCompania = new javax.swing.JComboBox<>();
         jBotonBuscarNombreArticulo = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jButtonBuscarFechaPedido = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -756,7 +778,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
         jLabel10.setText("Fecha de Envio:");
 
         jBtnFiltrarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/filtrar.png"))); // NOI18N
-        jBtnFiltrarCliente.setText("Filtro Cliente");
+        jBtnFiltrarCliente.setText("Filtro Cliente/Compañia");
         jBtnFiltrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnFiltrarClienteActionPerformed(evt);
@@ -803,14 +825,6 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/filtrar.png"))); // NOI18N
-        jButton2.setText("Filtro Compañia");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         jCBNombreCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCBNombreClienteActionPerformed(evt);
@@ -830,16 +844,6 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
                 jBotonBuscarNombreArticuloActionPerformed(evt);
             }
         });
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10", "Title 11"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable1);
 
         jButtonBuscarFechaPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LupaDeBuscador.png"))); // NOI18N
         jButtonBuscarFechaPedido.setText("Buscar FechaPedido");
@@ -896,11 +900,11 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jScrollPane1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(110, 110, 110)
@@ -944,15 +948,9 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
                                 .addGap(43, 43, 43)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jButtonFiltrarPais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCBPaises, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(33, 33, 33)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCBCompania, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 809, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                                    .addComponent(jCBPaises, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(59, 59, 59)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -988,18 +986,12 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
                             .addComponent(jComboBoxOrdenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jCBNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jCBPaises, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jBtnFiltrarCliente)
-                            .addComponent(jButtonFiltrarPais)
-                            .addComponent(jButton2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCBCompania, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(137, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jBtnFiltrarCliente)
+                        .addComponent(jButtonFiltrarPais)))
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -1068,10 +1060,6 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
         CargarListaPedidosPorPais(jCBPaises.getSelectedItem().toString());
         
     }//GEN-LAST:event_jButtonFiltrarPaisActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jCBNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBNombreClienteActionPerformed
         // TODO add your handling code here:
@@ -1186,11 +1174,9 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
     private javax.swing.JButton jBotonBuscarNombreArticulo;
     private javax.swing.JButton jBtnFiltrarCliente;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonBuscarFechaPedido;
     private javax.swing.JButton jButtonFiltrarPais;
     private javax.swing.JButton jButtonOrdenar;
-    private javax.swing.JComboBox<String> jCBCompania;
     private javax.swing.JComboBox<String> jCBNombreCliente;
     private javax.swing.JComboBox<String> jCBPaises;
     private javax.swing.JComboBox<String> jComboBoxOrdenamiento;
@@ -1207,8 +1193,6 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMnuItemPrincipal;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTableAticulos;
     private javax.swing.JTextField jTextFechaEnvio;
     private javax.swing.JTextField jTextFechaPedido;
