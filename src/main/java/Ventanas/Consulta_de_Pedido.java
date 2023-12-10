@@ -12,6 +12,7 @@ import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 import ListaEnlazadaGenerica.*;
 import Datos.Pedidos;
+import Datos.Proveedores;
 import java.util.LinkedList;
 import javax.management.modelmbean.ModelMBean;
 import javax.swing.text.JTextComponent;
@@ -27,6 +28,11 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
     DefaultTableModel tablaDetalles;
     //buscador de archivo para exportar
    JFileChooser archivo = new JFileChooser(System.getProperty("user.dire"));
+   
+   //Archivo de proveedores
+    DefaultTableModel tablaProveedores;
+    //buscador de archivo para exportar
+   JFileChooser archivo2 = new JFileChooser(System.getProperty("user.dire"));
    
    
    
@@ -86,6 +92,79 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
     }
      
      
+     
+     
+     
+     //instanciacion de lista enlazada PRoveedores
+    ListaInterfaceGenerica<Proveedores> ListaProveedores= new ListaEnlasadaGenericaImpl<Proveedores>();
+    
+     private void cargarProveedoresListaEnlazada() {
+        try {
+            String texto = "";
+            Object cabeceras[] = {"Id. de proveedor","Nombre de compañia","Nombre del contacto","Cargo del contacto","Direccion",
+                "Ciudad","Region","Codigo postal","Pais","Telefono","Fax"};
+            tablaProveedores = new DefaultTableModel(cabeceras,0);
+            archivo2.showOpenDialog(this);
+            File abrir = archivo2.getSelectedFile();
+            Object[] elemento = new Object[11];
+            if (abrir != null){
+                
+                FileReader fichero = new FileReader(abrir);
+                BufferedReader leer = new BufferedReader(fichero);
+                //se crea la lista enlazada
+                int u=0;
+                while ((texto = leer.readLine()) != null) 
+                {
+                // Utiliza expresión regular para dividir, elimina espacios adicionales y maneja campos vacíos
+                    String[] registro = texto.split(";",-1);
+
+                    Proveedores proveedor = new Proveedores();
+
+                    if (registro.length >= 11) {
+                        proveedor.setIdProveedor(registro[0]);
+                        proveedor.setNombreCompania(registro[1]);
+                        proveedor.setNombreContacto(registro[2]);
+                        proveedor.setCargoContacto(registro[3]);
+                        proveedor.setDireccion(registro[4]);
+                        proveedor.setCiudad(registro[5]);
+                        proveedor.setRegion(registro[6]);
+                        proveedor.setCodigoPostal(registro[7]);
+                        proveedor.setPais(registro[8]);
+                        proveedor.setTelefono(registro[9]);
+                        proveedor.setFax(registro[10]);
+                    } else {
+                        // Manejar el caso en el que no hay suficientes elementos en el registro
+                        System.out.println("Error: No hay suficientes elementos en el registro.");
+                    }
+
+                    NodoGenerico<Proveedores> nuevoNodo = new NodoGenerico<>(proveedor);
+
+                    ListaProveedores.insertarFinal(nuevoNodo);
+                    u++;
+                    System.out.print(u+"Agregado correctamente a ListaProveedores");
+
+                    if (nuevoNodo.getElemento() == null)
+                        System.out.println("Objeto Proveedor nulo agregado correctamente a ListaProveedores");
+                }
+
+                    
+                
+                    
+                }
+                
+             
+            TablaModeloPROVEEDORESLinkedList(ListaProveedores);
+            }catch (IOException e) {
+            System.out.println("Error" + e);
+
+         
+        }
+    }
+     
+     
+     
+     
+     
     
      
      //-------Implementacion filtro Clientes-------------------------------------------------------------------
@@ -126,7 +205,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
 
         return ListaCliente;
     }
-
+//metodo para boton Filtro Cliente
     public void FiltroCliente(String NombreCategoria) 
     {
         ListaInterfaceGenerica<Pedidos> ListaFiltroCategoria = new ListaEnlasadaGenericaImpl<>();
@@ -146,18 +225,148 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
     
     }
 
+    
+    
      
-    /* 
+    
+    
+    
+    
+    
+    
+    
+    
      
      //-------Implementacion filtro Paises/Ciudades-------------------------------------------------------------------
-     public void CargandoListaFiltroCategoria()
+     public void CargandoComboBoxPaises()
      {
-        ListaInterfaceGenerica<Articulos> listaCategorias = ListarNombresCategoria();
+        ListaInterfaceGenerica<Proveedores> listaPaises = ListarNombresPaises();
+
+    // Lógica adicional usando la lista de paises
+        for (int i = 1; i <= listaPaises.TamanioLista(); i++) 
+        {
+            jCBPaises.addItem(listaPaises.buscarIteradorIndice(i).getElemento().getPais());
+            // Tu lógica aquí usando la categoría
+            System.out.println("Categoría añadida: " + listaPaises.buscarIteradorIndice(i).getElemento().getPais());
+        } 
+    }  
+    
+     
+    //Filtrando Categorias de Articulo sin repetir el mismo nombre de Categorias a una lista enlazada  ListaCategoria
+    public ListaInterfaceGenerica<Proveedores> ListarNombresPaises() {
+        ListaInterfaceGenerica<Proveedores> ListaCategoria = new ListaEnlasadaGenericaImpl<>();
+        HashSet<String> categoriasUnicas = new HashSet<>();
+
+        for (int i = 1; i <= ListaProveedores.TamanioLista(); i++) {
+            Proveedores ObjProveedores = ListaProveedores.buscarIteradorIndice(i).getElemento();
+            String PaisActual = ObjProveedores.getPais();
+
+            // Verificar si la categoría ya está en el conjunto
+            if (categoriasUnicas.contains(PaisActual)) {
+                System.out.println("No se copió un tipo de categoría");
+            } else {
+                // Agregar el objeto a ListaCategoria y actualizar el conjunto
+                NodoGenerico<Proveedores> NodoNuevo = new NodoGenerico<>(ObjProveedores);
+                ListaCategoria.insertarFinal(NodoNuevo);
+                categoriasUnicas.add(PaisActual);
+                System.out.println("Se copió un tipo de categoría: " + PaisActual);
+            }
+        }
+
+        return ListaCategoria;
+    }
+    
+    
+    //se debe filtrar una lista 
+    //mostrando contenido despues de filtrar por un parametro seleccionado en combobox
+    
+    
+    
+        public void CargarListaPedidosPorPais(String NombrePais) 
+    {
+        ListaInterfaceGenerica<Proveedores> ListaProveedorPorPais = new ListaEnlasadaGenericaImpl<>();
+        ListaInterfaceGenerica<Pedidos> ListaPedidosPorPais = new ListaEnlasadaGenericaImpl<>();
+        
+        
+        for(int i=1; i<=ListaProveedores.TamanioLista();i++)
+        {
+            if(ListaProveedores.buscarIteradorIndice(i).getElemento().getPais().equalsIgnoreCase(NombrePais))
+            {  
+                Proveedores Proveedor = ListaProveedores.buscarIteradorIndice(i).getElemento();
+                NodoGenerico<Proveedores> nuevoNodo = new NodoGenerico<>(Proveedor);
+                
+                ListaProveedorPorPais.insertarFinal(nuevoNodo);
+            }
+            else
+            {
+                System.out.print("No hay coincidencia de pais");
+            }
+        }
+        
+        for(int i=1; i<= ListaProveedorPorPais.TamanioLista();i++)
+        {
+            
+            for(int j=1; j<=ListaPedidos.TamanioLista(); j++)
+            {
+                if(ListaPedidos.buscarIteradorIndice(j).getElemento().getCliente().equalsIgnoreCase(ListaProveedorPorPais.buscarIteradorIndice(i).getElemento().getNombreCompania()))
+                {  
+                    Pedidos Pedido= ListaPedidos.buscarIteradorIndice(j).getElemento();
+                    NodoGenerico<Pedidos> nuevoNodo = new NodoGenerico<>(Pedido);
+
+                    ListaPedidosPorPais.insertarFinal(nuevoNodo);
+                }
+                else
+                {
+                    System.out.print("No hay coincidencia de Nombre de cliente con nombre de Compañia");
+                }
+            }
+            
+            
+        }
+        
+        TablaModeloLinkedList(ListaPedidosPorPais);
+    }      
+        
+        
+    //--------------Busqueda por JtexFile---------------------------------------------  
+        public void FiltroFechaPedido(String FechaPedidoBuscado) 
+    {
+        ListaInterfaceGenerica<Pedidos> ListaFiltroCategoria = new ListaEnlasadaGenericaImpl<>();
+        for (int i = 1; i <= ListaPedidos.TamanioLista(); i++) {
+            Pedidos Pedido = ListaPedidos.buscarIteradorIndice(i).getElemento();
+
+            if (Pedido.getCliente().equalsIgnoreCase(FechaPedidoBuscado)) {
+                NodoGenerico<Pedidos> nuevoNodo = new NodoGenerico<>(Pedido);
+                ListaFiltroCategoria.insertarFinal(nuevoNodo);
+                System.out.println("Filtrado con éxito: " + Pedido.getCliente());
+            } else {
+                System.out.println("Sin coincidencia: " + Pedido.getCliente());
+            }
+
+        }
+        TablaModeloLinkedList(ListaFiltroCategoria);
+    
+    }
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+    /*
+     //-------Implementacion filtro Compañia de Envio-------------------------------------------------------------------
+     public void CargandoListaFiltroCompania()
+     {
+        ListaInterfaceGenerica<Pedidos> listaCategorias = ListarNombresCompania();
 
     // Lógica adicional usando la lista de categorías
         for (int i = 1; i <= listaCategorias.TamanioLista(); i++) 
         {
-            jCBNombreCategoria.addItem(listaCategorias.buscarIteradorIndice(i).getElemento().getCategoria());
+            jCBNombreCategoria.addItem(listaCategorias.buscarIteradorIndice(i).getElemento().get);
             // Tu lógica aquí usando la categoría
             System.out.println("Categoría añadida: " + listaCategorias.buscarIteradorIndice(i).getElemento().getCategoria());
         } 
@@ -165,7 +374,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
     
      
     //Filtrando Categorias de Articulo sin repetir el mismo nombre de Categorias a una lista enlazada  ListaCategoria
-    public ListaInterfaceGenerica<Articulos> ListarNombresCategoria() {
+    public ListaInterfaceGenerica<Articulos> ListarNombresCompania() {
         ListaInterfaceGenerica<Articulos> ListaCategoria = new ListaEnlasadaGenericaImpl<>();
         HashSet<String> categoriasUnicas = new HashSet<>();
 
@@ -188,7 +397,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
         return ListaCategoria;
     }
 
-    public void FiltroCategoria(String NombreCategoria) 
+    public void FiltroCompania(String NombreCategoria) 
     {
         ListaInterfaceGenerica<Pedidos> ListaFiltroCategoria = new ListaEnlasadaGenericaImpl<>();
         for (int i = 1; i <= ListaArticulos.TamanioLista(); i++) {
@@ -210,24 +419,23 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
     
     */
     
-        
     
     
     
     
     
     
-    
-    
-    /*
+
     
    
      
-     public void CargandoBusquedaBinariaNombres()
+    
+     public void CargandoBusquedaBinariaCliente()
      {
          TablaModeloLinkedList(AsignacionObjBusquedaBinariaAListaEnlazada());
        
      }
+     
      
      
     
@@ -235,32 +443,32 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
   //Busqueda binaria por nombre y asignacion de objeto a lista enlazada
     public ListaInterfaceGenerica AsignacionObjBusquedaBinariaAListaEnlazada()
     {
-       ListaInterfaceGenerica<Articulos> ListaBusquedaBinariaNombreProducto = new ListaEnlasadaGenericaImpl<>();
-        NodoGenerico<Articulos> NodoBusquedaProducto = new NodoGenerico<Articulos>(busquedaBinaria(jTextNombreArticulo.getText()));
+       ListaInterfaceGenerica<Pedidos> ListaBusquedaBinariaNombreProducto = new ListaEnlasadaGenericaImpl<>();
+        NodoGenerico<Pedidos> NodoBusquedaProducto = new NodoGenerico<Pedidos>(busquedaBinariaClientes(jTextNombreCliente.getText()));
         ListaBusquedaBinariaNombreProducto.insertarFinal(NodoBusquedaProducto);
         return ListaBusquedaBinariaNombreProducto;
     }
      
     
     
-    public Articulos busquedaBinaria(String nombreProducto) 
+    public Pedidos busquedaBinariaClientes(String nombreProducto) 
     {
         Ordenamiento_ShellSort_Nombre("Ascendente");
         int inicio = 1;
-        int fin = ListaArticulos.TamanioLista() ;
+        int fin = ListaPedidos.TamanioLista() ;
 
         while (inicio <= fin) {
             int medio = inicio + (fin - inicio) / 2;
 
-            NodoGenerico<Articulos> nodoMedio = ListaArticulos.buscarIteradorIndice(medio + 1); // Sumamos 1 para ajustarnos al índice de la lista
+            NodoGenerico<Pedidos> nodoMedio = ListaPedidos.buscarIteradorIndice(medio + 1); // Sumamos 1 para ajustarnos al índice de la lista
 
-            Articulos articuloMedio = nodoMedio.getElemento();
-            String nombreMedio = articuloMedio.getNombreProducto();
+            Pedidos PedidoMedio = nodoMedio.getElemento();
+            String nombreMedio = PedidoMedio.getCliente();
 
             int comparacion = nombreMedio.compareToIgnoreCase(nombreProducto);
 
             if (comparacion == 0) {
-                return articuloMedio; // Se encontró el artículo
+                return PedidoMedio; // Se encontró el artículo
             } else if (comparacion < 0) {
                 inicio = medio + 1; // Buscar en la mitad derecha
             } else {
@@ -274,7 +482,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
    
     
    
-*/     
+    
     
     
     
@@ -384,7 +592,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
          
           Object[] row;
             for (int i = 0; i < list.size(); i++) {
-                row = new Object[8];
+                row = new Object[7];
                 row[0] = list.get(i).getIdPedido();
                 row[1] = list.get(i).getCliente();
                 row[2] = list.get(i).getFechaPedido();
@@ -404,6 +612,48 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
          DefaultTableModel modeloEnlazada = (DefaultTableModel) jTableAticulos.getModel();
          
          modeloEnlazada.setRowCount(0);
+         
+     }
+    
+    
+    
+    
+     //-------PROVEEDORES----------------------------------
+     public void TablaModeloPROVEEDORESLinkedList(ListaInterfaceGenerica<Proveedores> Lista)
+     {
+         LinkedList<Proveedores> list =new LinkedList<>();
+         
+         
+         //pasando los valores de l¡nuestra lista enlazada a la linkedList
+         for (int i = 1; i <= Lista.TamanioLista(); i++) 
+            {
+                
+               list.add(Lista.buscarIteradorIndice(i).getElemento());
+                
+            }
+         DefaultTableModel modeloEnlazada2 = (DefaultTableModel) jTable1.getModel();
+         
+         
+         
+          Object[] row;
+            for (int i = 0; i < list.size(); i++) {
+                row = new Object[11];
+                row[0] = list.get(i).getIdProveedor();
+                row[1] = list.get(i).getNombreCompania();
+                row[2] = list.get(i).getCargoContacto();
+                row[3] = list.get(i).getNombreContacto();
+                row[4] = list.get(i).getDireccion();
+                row[5] = list.get(i).getCiudad();
+                row[6] = list.get(i).getRegion();
+                row[7] = list.get(i).getCodigoPostal();
+                row[8] = list.get(i).getPais();
+                row[9] = list.get(i).getTelefono();
+                row[10] = list.get(i).getFax();
+
+                
+                modeloEnlazada2.addRow(row);
+                
+            }
          
      }
      
@@ -441,6 +691,7 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -449,22 +700,29 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jBtnFiltrarCliente = new javax.swing.JButton();
-        jTextNombreArticulo = new javax.swing.JTextField();
-        jTextCategoria = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        jTextNombreCliente = new javax.swing.JTextField();
+        jTextFechaEnvio = new javax.swing.JTextField();
+        jTextFechaPedido = new javax.swing.JTextField();
         jComboBoxOrdenamiento = new javax.swing.JComboBox<>();
         jButtonOrdenar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButtonFiltrarPais = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jCBNombreCliente = new javax.swing.JComboBox<>();
-        jCBProveedores = new javax.swing.JComboBox<>();
-        jCBEstado = new javax.swing.JComboBox<>();
+        jCBPaises = new javax.swing.JComboBox<>();
+        jCBCompania = new javax.swing.JComboBox<>();
         jBotonBuscarNombreArticulo = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButtonBuscarFechaPedido = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMnuItemPrincipal = new javax.swing.JMenuItem();
         jMenuArticulos = new javax.swing.JMenu();
         jMnuArticulos = new javax.swing.JMenuItem();
+        jMenProveedores = new javax.swing.JMenuItem();
+
+        jMenu2.setText("jMenu2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -505,15 +763,21 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
             }
         });
 
-        jTextNombreArticulo.addActionListener(new java.awt.event.ActionListener() {
+        jTextNombreCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextNombreArticuloActionPerformed(evt);
+                jTextNombreClienteActionPerformed(evt);
             }
         });
 
-        jTextCategoria.addActionListener(new java.awt.event.ActionListener() {
+        jTextFechaEnvio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextCategoriaActionPerformed(evt);
+                jTextFechaEnvioActionPerformed(evt);
+            }
+        });
+
+        jTextFechaPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFechaPedidoActionPerformed(evt);
             }
         });
 
@@ -531,11 +795,11 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/filtrar.png"))); // NOI18N
-        jButton1.setText("Filtro Pais/Ciudad");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonFiltrarPais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/filtrar.png"))); // NOI18N
+        jButtonFiltrarPais.setText("Filtro Pais/Ciudad");
+        jButtonFiltrarPais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonFiltrarPaisActionPerformed(evt);
             }
         });
 
@@ -553,11 +817,43 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
             }
         });
 
+        jCBPaises.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBPaisesActionPerformed(evt);
+            }
+        });
+
         jBotonBuscarNombreArticulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LupaDeBuscador.png"))); // NOI18N
         jBotonBuscarNombreArticulo.setText("Buscar Nombre");
         jBotonBuscarNombreArticulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBotonBuscarNombreArticuloActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10", "Title 11"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        jButtonBuscarFechaPedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LupaDeBuscador.png"))); // NOI18N
+        jButtonBuscarFechaPedido.setText("Buscar FechaPedido");
+        jButtonBuscarFechaPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuscarFechaPedidoActionPerformed(evt);
+            }
+        });
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LupaDeBuscador.png"))); // NOI18N
+        jButton1.setText("Buscar Fecha Envio");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -583,6 +879,14 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
         });
         jMenuArticulos.add(jMnuArticulos);
 
+        jMenProveedores.setText("Proveedoress");
+        jMenProveedores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenProveedoresActionPerformed(evt);
+            }
+        });
+        jMenuArticulos.add(jMenProveedores);
+
         jMenuBar1.add(jMenuArticulos);
 
         setJMenuBar(jMenuBar1);
@@ -593,7 +897,10 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jScrollPane1))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(110, 110, 110)
@@ -604,19 +911,24 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
                                         .addGap(100, 100, 100)
                                         .addComponent(jLabel1))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jTextNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jTextFechaPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jTextFechaEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(27, 27, 27)
-                                        .addComponent(jBotonBuscarNombreArticulo))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jButtonBuscarFechaPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jBotonBuscarNombreArticulo)
+                                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(239, 239, 239)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -631,17 +943,16 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
                                         .addComponent(jCBNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(43, 43, 43)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCBProveedores, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jButtonFiltrarPais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jCBPaises, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(33, 33, 33)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCBEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(0, 27, Short.MAX_VALUE))
+                                    .addComponent(jCBCompania, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1)))
-                .addContainerGap())
+                        .addGap(41, 41, 41)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 809, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -656,38 +967,39 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
                         .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jTextNombreArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jBotonBuscarNombreArticulo))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFechaPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonBuscarFechaPedido))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
-                            .addComponent(jTextCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jTextFechaEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonOrdenar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBoxOrdenamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jCBNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCBProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addComponent(jCBPaises, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jBtnFiltrarCliente)
-                            .addComponent(jButton1)
+                            .addComponent(jButtonFiltrarPais)
                             .addComponent(jButton2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCBEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                        .addComponent(jCBCompania, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         pack();
@@ -710,6 +1022,15 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMnuArticulosActionPerformed
 
+    private void jMenuProveedoresActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        // TODO add your handling code here:
+        cargarProveedoresListaEnlazada();
+        
+        //cargando filtros de Pais/Ciudad y Compañia de envios en ComboBox
+        
+        
+        
+    } 
     private void jComboBoxOrdenamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxOrdenamientoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxOrdenamientoActionPerformed
@@ -726,9 +1047,9 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonOrdenarActionPerformed
 
-    private void jTextCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCategoriaActionPerformed
+    private void jTextFechaEnvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFechaEnvioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextCategoriaActionPerformed
+    }//GEN-LAST:event_jTextFechaEnvioActionPerformed
 
     private void jBtnFiltrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnFiltrarClienteActionPerformed
         // TODO add your handling code here:
@@ -739,10 +1060,14 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
         FiltroCliente(jCBNombreCliente.getSelectedItem().toString());
         
     }//GEN-LAST:event_jBtnFiltrarClienteActionPerformed
+                                               
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonFiltrarPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFiltrarPaisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        TablaModeloLinkedListReinicio();
+        CargarListaPedidosPorPais(jCBPaises.getSelectedItem().toString());
+        
+    }//GEN-LAST:event_jButtonFiltrarPaisActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -756,15 +1081,48 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jCBNombreClienteActionPerformed
 
-    private void jTextNombreArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNombreArticuloActionPerformed
+    private void jTextNombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNombreClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextNombreArticuloActionPerformed
+    }//GEN-LAST:event_jTextNombreClienteActionPerformed
 
     private void jBotonBuscarNombreArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonBuscarNombreArticuloActionPerformed
         // TODO add your handling code here:
      TablaModeloLinkedListReinicio();
-     //CargandoBusquedaBinariaNombres();
+     CargandoBusquedaBinariaCliente();
     }//GEN-LAST:event_jBotonBuscarNombreArticuloActionPerformed
+
+    private void jCBPaisesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBPaisesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBPaisesActionPerformed
+
+    private void jMenProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenProveedoresActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+        cargarProveedoresListaEnlazada();
+        
+        CargandoComboBoxPaises();
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jMenProveedoresActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButtonBuscarFechaPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarFechaPedidoActionPerformed
+        // TODO add your handling code here:
+        TablaModeloLinkedListReinicio();
+        FiltroFechaPedido(jTextFechaPedido.getText());
+    }//GEN-LAST:event_jButtonBuscarFechaPedidoActionPerformed
+
+    private void jTextFechaPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFechaPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFechaPedidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -829,25 +1187,31 @@ public class Consulta_de_Pedido extends javax.swing.JFrame {
     private javax.swing.JButton jBtnFiltrarCliente;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonBuscarFechaPedido;
+    private javax.swing.JButton jButtonFiltrarPais;
     private javax.swing.JButton jButtonOrdenar;
-    private javax.swing.JComboBox<String> jCBEstado;
+    private javax.swing.JComboBox<String> jCBCompania;
     private javax.swing.JComboBox<String> jCBNombreCliente;
-    private javax.swing.JComboBox<String> jCBProveedores;
+    private javax.swing.JComboBox<String> jCBPaises;
     private javax.swing.JComboBox<String> jComboBoxOrdenamiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JMenuItem jMenProveedores;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenuArticulos;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMnuArticulos;
     private javax.swing.JMenuItem jMnuItemPrincipal;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTableAticulos;
-    private javax.swing.JTextField jTextCategoria;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextNombreArticulo;
+    private javax.swing.JTextField jTextFechaEnvio;
+    private javax.swing.JTextField jTextFechaPedido;
+    private javax.swing.JTextField jTextNombreCliente;
     // End of variables declaration//GEN-END:variables
 }

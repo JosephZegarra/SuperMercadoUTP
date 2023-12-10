@@ -55,6 +55,9 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                     String registro[] = texto.split(";");
 
                     Articulos articulo = new Articulos();
+                  
+                    
+                    
                     
                     articulo.setIdProducto(registro[0]);
                     articulo.setNombreProducto(registro[1]);
@@ -63,7 +66,11 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                     articulo.setCantidadPorUnidad(registro[4]);
                     articulo.setPrecioPorUnidad(registro[5]);
                     articulo.setUnidadesExistentes(registro[6]);
-                    articulo.setUnidadesPedidas(registro[7]);
+                    articulo.setUnidadesPedidas(registro[7]); // O asigna otro valor predeterminado
+                   
+                    
+                    
+                    //articulo.setUnidadesPedidas(registro[7]);
                     articulo.setSuspendido(registro[8]);
                     
                     NodoGenerico<Articulos> nuevoNodo = new NodoGenerico<Articulos>(articulo);
@@ -71,6 +78,7 @@ public class Consulta_de_Articulos extends javax.swing.JFrame {
                     ListaArticulos.insertarFinal(nuevoNodo); //se debe crear una lista enlazada para guardar objetos tipo clase Articulos
                     
                     //tablaDetalles.addRow(registro);
+                    
                 }
                 TablaModeloLinkedList(ListaArticulos);
 
