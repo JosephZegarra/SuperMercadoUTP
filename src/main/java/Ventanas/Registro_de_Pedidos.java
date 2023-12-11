@@ -442,8 +442,61 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
              
                     
    }
-   //--------------------------------------------
+   //-----------------------------------------------------------------------------------
    
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   //-------Implementacion filtro Detalles Pedidos-------------------------------------------------------------------
+   
+   
+   
+     public void CargandoComboBoxNombreProducto()
+     {
+        ListaInterfaceGenerica<Detalles_Pedidos> listaDetalle = ListarNombresProducto();
+
+    // Lógica adicional usando la lista de categorías
+        for (int i = 1; i <= listaDetalle.TamanioLista(); i++) 
+        {
+            jCBNombreProveedor.addItem(listaDetalle.buscarIteradorIndice(i).getElemento().getProducto());
+            // Tu lógica aquí usando la categoría
+            System.out.println("Nombre de Proveedor agregado: " + listaDetalle.buscarIteradorIndice(i).getElemento().getProducto());
+        } 
+    }  
+    
+     
+    //Filtrando Categorias de Articulo sin repetir el mismo nombre de Categorias a una lista enlazada  ListaCategoria
+    public ListaInterfaceGenerica<Detalles_Pedidos> ListarNombresProducto() {
+        ListaInterfaceGenerica<Detalles_Pedidos> ListaCliente = new ListaEnlasadaGenericaImpl<>();
+        HashSet<String> categoriasUnicas = new HashSet<>();
+
+        for (int i = 1; i <= ListaDetallePedidos.TamanioLista(); i++) {
+            Detalles_Pedidos Objarticulo = ListaDetallePedidos.buscarIteradorIndice(i).getElemento();
+            String NombreProducto = Objarticulo.getProducto();
+
+            // Verificar si la categoría ya está en el conjunto
+            if (categoriasUnicas.contains(NombreProducto)) {
+                System.out.println("No se copió el producto");
+            } else {
+                // Agregar el objeto a ListaCategoria y actualizar el conjunto
+                NodoGenerico<Detalles_Pedidos> NodoNuevo = new NodoGenerico<>(Objarticulo);
+                ListaCliente.insertarFinal(NodoNuevo);
+                categoriasUnicas.add(NombreProducto);
+                System.out.println("Se copió el producto: " + NombreProducto);
+            }
+        }
+
+        return ListaCliente;
+    }
+   //-----------------------------------------------------------------------
    
    
    
@@ -588,7 +641,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
         jTextDetDescuento = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jCBProducto = new javax.swing.JComboBox<>();
         jLabel27 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jTextDetCantidad = new javax.swing.JTextField();
@@ -715,7 +768,11 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
 
         jLabel32.setText("Descuento:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCBProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBProductoActionPerformed(evt);
+            }
+        });
 
         jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DETALLE PEDIDO.png"))); // NOI18N
@@ -838,7 +895,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jCBProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(45, 45, 45)
@@ -943,7 +1000,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
                                     .addComponent(jTextDetPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCBProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel29))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -993,7 +1050,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
     private void jMenuImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuImportarActionPerformed
         cargarDetallePedidos();
         
-        
+        CargandoComboBoxNombreProducto();
         
     }//GEN-LAST:event_jMenuImportarActionPerformed
 
@@ -1031,6 +1088,10 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
     private void jCBNombreProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBNombreProveedorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCBNombreProveedorActionPerformed
+
+    private void jCBProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBProductoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1076,7 +1137,7 @@ public class Registro_de_Pedidos extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jCBFormaEnvio;
     private javax.swing.JComboBox<String> jCBNombreProveedor;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jCBProducto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
