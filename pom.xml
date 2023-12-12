@@ -11,12 +11,7 @@
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE150</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.pdfbox</groupId>
-            <artifactId>pdfbox</artifactId>
-            <version>3.0.1</version>
-            <type>bundle</type>
-        </dependency>
+        
         <dependency>
             <groupId>net.encdec</groupId>
             <artifactId>eddsk</artifactId>
